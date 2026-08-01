@@ -1,0 +1,126 @@
+---
+title: 'The Pump That Ran Dry: Reading a Borehole Incident After the Fact'
+description: 'A borehole pump ran dry for forty five minutes and the tank still filled on schedule. This is how the motor current gave it away when the level chart could not.'
+contributors: "sam-macharia"
+pubDate: 2026-06-24
+tags: ["water", "remote-monitoring", "iot", "borehole", "pumps", "predictive-maintenance", "post-mortem"]
+excerpt: "The tank filled. It filled on time, it filled to the usual level, and by lunchtime nothing about the system looked wrong. Underneath that, for about forty five minutes, the pump had been turning without moving much water. This post walks through the readings from a real dry run, shows which chart hid it and which chart caught it, and works out what the difference is worth."
+heroImage: "https://siliconwit.io/og/og-water.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+<UniversalContentContributors
+  contributors={frontmatter.contributors}
+/>
+
+A submersible pump gives you almost no warning before it destroys itself. It cools by pushing water past its own motor, so the moment the water level in the borehole drops to the intake, the thing that keeps it alive is the thing that has stopped arriving. It does not trip. It does not slow down in any way a person standing next to it would notice. It runs, quietly, until the windings cook. #Water #RemoteMonitoring #PredictiveMaintenance
+
+## The installation
+
+This one is a borehole feeding a 24,000 litre storage tank, with the tank supplying steady demand of around 26 litres per minute. The pump is on level control: the tank drains to roughly 37%, the pump runs until it is back around 92%, and then it stops. Two or three of those cycles a day, day after day.
+
+The owner is blunt about why it is instrumented. Motor current, in their words, is what tells them when it is starting to pull air.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/borehole-and-storage-tank) keeps moving.
+:::
+
+## The chart that shows nothing
+
+<InArticleAd />
+
+![Tank level and pump duty over a day and a half, four fill cycles that all look alike](/device-plots/borehole-and-storage-tank-dry-run-1.png)
+
+Here is a day and a half of tank level and pump duty. Four fill cycles. The tank sawtooths down from about 92% to about 37% as the building draws on it, the pump kicks in at 100% duty, the tank refills, the pump stops.
+
+Now find the one where the pump ran dry.
+
+You cannot, and that is the entire point of this post. The fourth cycle, the one starting Sunday morning, delivered its water. The tank reached its usual level. Anyone checking the tank on Sunday afternoon, or looking at this chart on Monday, would have concluded the system was healthy, because by every measure on this chart it was. Level control is a closed loop, and a closed loop is very good at hiding how hard it had to work to close.
+
+This is worth sitting with, because tank level is the reading most people install first. It is the obvious one. It answers the question everybody asks, which is whether there is water. It does not answer the question that costs money, which is what condition the pump is in.
+
+## The chart that catches it
+
+<InArticleAd />
+
+![Motor current over the same window, three square pulses and a fourth with a depressed shoulder](/device-plots/borehole-and-storage-tank-dry-run-2.png)
+
+Same window, same four cycles, one reading: the current the motor is drawing.
+
+Three of these pulses are the same shape. The pump starts, current goes almost immediately to somewhere around 9.2 to 9.5 A, holds flat while it lifts water, and drops to zero when it stops. Square, boring, correct.
+
+The fourth is not square. Look at Sunday morning. Current comes up to **4.8 A against a rated 8.9 A**, sits low, climbs slowly through the 5s and into the 6s, and only then makes it up to the 9.4 A the other three cycles reached from the start. That shoulder on the leading edge is about forty five minutes long.
+
+The reason low current is the alarming direction takes a moment to sit right, because instinct says a struggling motor should draw more. A centrifugal pump is loaded by the water it moves. Move less water and you load the motor less and it draws less current. So on this kind of pump, **low current does not mean it is taking it easy. It means it is not pumping.** The motor was spinning in a borehole that could not supply it, cooled by whatever water was still passing, for three quarters of an hour.
+
+What happened underneath is ordinary. The tank had drawn down to 37%, the bottom of its normal band, which meant a full fill. The pump emptied the borehole faster than the aquifer could recharge it, drew the water level down to the intake, and ran on air until enough seepage caught it back up. Nothing was broken. That is what makes it dangerous: nothing was broken this time.
+
+## Why this is the failure worth catching
+
+<InArticleAd />
+
+Dry running does not fail a pump on the day. It takes life off it. Each episode overheats the windings a little, wears the bearings and seals a little, and none of that shows up until the pump quits, usually during the longest fill of a hot week, which is exactly when you need it.
+
+So the failure has a shape that monitoring is unusually well suited to. It is invisible to inspection, it is obvious in one reading, it is cumulative, and the cost of catching it is one sensor.
+
+The response is not complicated either. A pump that keeps outrunning its borehole is telling you to change the duty cycle rather than the pump: start the fill earlier at a higher tank level so each run is shorter, or split one long run into two with a recovery gap. Both are settings changes. Neither costs anything. You just have to know.
+
+## What this is worth
+
+<InArticleAd />
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+A borehole pump replacement is rarely just the pump. There is the unit, the rig or the crew to pull and reset it, and the days without water while it is out. For a modest installation that is comfortably into four figures in USD, and for a deep borehole considerably more.
+
+Against that:
+
+- An alert on **current below a floor while the pump is running** is the whole detection. It is one rule, and it fires during the dry run rather than after the failure.
+- **Fill duration** is the free second signal. When a cycle that used to take forty minutes starts taking seventy, the borehole is telling you about recharge before the pump tells you about damage.
+- The fix, when it comes, is usually **a schedule change rather than a purchase**, which is the cheapest outcome available anywhere in maintenance.
+- The record also settles the other argument. When demand stops matching the number of people in the building, you have a leak, and you can prove where and when it started.
+
+The asymmetry is the argument. Watching costs a sensor and a rule. Not watching costs a pump, a rig, and a week, and you do not get to choose which week.
+
+## What to measure if you run one of these
+
+<InArticleAd />
+
+<CardGrid>
+  <Card title="Motor current" icon="approve-check">
+    The one that catches dry running. Alert on current falling below a floor while the pump is called to run, not on it rising.
+  </Card>
+  <Card title="Tank level" icon="approve-check">
+    Tells you whether you have water. On its own it will not tell you what the pump went through to deliver it.
+  </Card>
+  <Card title="Fill duration and pump starts" icon="approve-check">
+    A lengthening fill means the borehole is recharging slower. Frequent short starts mean something else is wrong.
+  </Card>
+  <Card title="Line pressure" icon="approve-check">
+    Confirms the pump is delivering rather than just turning, and separates a pump problem from a pipe problem.
+  </Card>
+</CardGrid>
+
+## See it running
+
+<InArticleAd />
+
+<LinkButton href="https://siliconwit.io/d/borehole-and-storage-tank" variant="primary">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io/public-devices" variant="minimal">Browse all public devices</LinkButton>
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history including the dry run this post is about. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own pump on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<RemoteMonitoringComments />
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

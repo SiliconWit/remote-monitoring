@@ -1,0 +1,118 @@
+---
+title: 'The Machine Was Never Off, and Still Lost a Shift: CNC Utilisation and What It Does to Your Quoting'
+description: 'A CNC machine ran 88% of three days without ever being switched off. This reads the load and utilisation charts and shows where the missing twelve per cent went, and what it does to a quote.'
+contributors: "sam-macharia"
+pubDate: 2026-07-08
+tags: ["manufacturing", "remote-monitoring", "iot", "cnc", "utilisation", "oee", "quoting"]
+excerpt: "Ask a workshop how much of the week the machine runs and you will get a number close to a hundred. Ask the machine and you get something lower, and the gap is not made of downtime anyone remembers. This post reads three days from a monitored CNC, finds where eight and a half hours went, and shows what that does to the price on a quote."
+heroImage: "https://siliconwit.io/og/og-manufacturing.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+<UniversalContentContributors
+  contributors={frontmatter.contributors}
+/>
+
+Quoting a machining job means deciding how many hours the machine will need, and that decision is almost always made from memory. The machine ran fine last week. It has been busy. Nobody remembers it stopping. So the quote assumes it runs, and when the job comes in late the explanation is that this particular job was awkward. It usually was not. #Manufacturing #RemoteMonitoring #Utilisation
+
+## The installation
+
+A CNC machine tool, monitored for spindle load and utilisation. The owner says it is mainly useful when quoting, which is a less common reason to instrument a machine than watching for a breakdown, and a more interesting one.
+
+Over the three days behind this post the spindle ran for **63.7 hours out of 72.3**. That is **88% utilisation**, which by the standards of most workshops is very good. It is also eight and a half hours short, and where those hours went is not where anybody would guess.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/cnc-machine-tool) keeps moving.
+:::
+
+## Reading the utilisation chart
+
+<InArticleAd />
+
+![Utilisation and load percentage over three days, a band pinned near one hundred per cent with constant downward notches](/device-plots/cnc-machine-tool-1.png)
+
+Two readings that sound like the same thing and are not.
+
+**Utilisation** is the share of each reporting window the spindle was actually turning. **Load** is how hard it was working while it turned, as a percentage of what the machine can deliver. A machine can be at 100% utilisation and 20% load, which means it is busy doing nothing much, and that is a different problem from being idle.
+
+The utilisation line here is pinned at 100% for most of its length. Just under two thirds of all the readings sit at a flat hundred. That is the shape of a machine that is genuinely working, and it is why the answer from memory is always "it runs all the time."
+
+But the line is not solid. It is cut, over and over, by notches down to 80, to 60, to 40. Each notch is a slice of a ten minute window where the spindle was not turning. Individually every one of them is trivial. There are enough of them that they add up to more than a shift.
+
+Meanwhile the load line holds a tight band whenever the spindle is actually turning: **48% on average, never below 45.5% and never above 51.5%**. It drops only where utilisation drops. Steady load with a stable ceiling is a healthy signal: the machine is not being asked for more than it has, and it is not degrading. The problem is not how hard it works. It is how often it stops.
+
+## Where the hours went
+
+<InArticleAd />
+
+![Power draw over twenty four hours, a plateau above five kilowatts interrupted by repeated sharp drops](/device-plots/cnc-machine-tool-day-1.png)
+
+This is one day of raw power draw, which makes the texture easier to see than three days does.
+
+The plateau is around 5.3 kW, and it is interrupted constantly. Drops to 4 kW, to 2 kW, a couple all the way to zero. Note what this chart does not have: a night. There is no overnight shutdown, no weekend cliff, no block of hours where the machine is off. Over the full three days only **50 minutes** of readings were at zero power.
+
+So the eight and a half missing hours are not downtime in any form a person would report. They are **123 short stoppages** spread across the window, landing in **27% of every ten minute sample taken**. Roughly one sample in four contained an interruption.
+
+That is the finding, and it is the reason this machine is monitored for quoting rather than for failure. A short stoppage is a tool change that took longer than it should, a part that did not seat, an operator waiting on material, a program pause. None of them are faults. None of them get written down. Every one of them is invisible by the end of the shift, and together they are a full working day a week.
+
+## What this does to a quote
+
+<InArticleAd />
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+Take the ordinary version of this mistake. You quote a job at 40 machine hours, priced on the assumption that the machine delivers 40 hours of cutting in 40 hours of calendar time. At 88% it delivers 35.2. You are 4.8 hours short, which either comes out of margin as overtime or comes out of the delivery date.
+
+Do that across a year of quotes and the shape of the business changes. Not dramatically, which is the difficulty. Twelve per cent is small enough to absorb, blame on individual jobs, and never fix.
+
+Against that:
+
+- **Quote on the measured number, not the nameplate.** A machine that runs at 88% should be quoted at 88%. The quote gets slightly less competitive and considerably more accurate, and accurate is what makes a workshop money over a year.
+- Knowing the rate is worth something even if you never improve it. It converts an unexplained overrun into a **budgeted, predictable cost**.
+- **Short stoppages are the cheapest capacity you will ever buy.** Recovering a third of them adds about four per cent utilisation with no new machine, no new shift, no capital. You cannot recover what you have not counted.
+- The record also answers the question a customer asks when a job is late, which is what actually happened. Being able to answer it precisely is worth more than being able to argue about it.
+
+The honest framing is that this device will probably never prevent a catastrophe. It just stops a workshop from quoting against a machine that does not exist.
+
+## What to measure if you run one of these
+
+<InArticleAd />
+
+<CardGrid>
+  <Card title="Utilisation" icon="approve-check">
+    Spindle turning as a share of available time. This is the number your quotes should be built on, and it is almost never the number people assume.
+  </Card>
+  <Card title="Short stoppages" icon="approve-check">
+    Counted automatically or not at all. Nobody writes down a four minute stop, and four minute stops are where the capacity goes.
+  </Card>
+  <Card title="Load percentage" icon="approve-check">
+    Separates a machine that is busy from a machine that is working. High utilisation at low load means you are paying for time, not parts.
+  </Card>
+  <Card title="Bearing temperature and vibration" icon="approve-check">
+    Not part of the quoting story, but the pair that tells you the spindle is wearing while everything else still looks normal.
+  </Card>
+</CardGrid>
+
+## See it running
+
+<InArticleAd />
+
+<LinkButton href="https://siliconwit.io/d/cnc-machine-tool" variant="primary">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io/public-devices" variant="minimal">Browse all public devices</LinkButton>
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history, including the short stoppage clusters that triggered rules of their own. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own machine on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<RemoteMonitoringComments />
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />
