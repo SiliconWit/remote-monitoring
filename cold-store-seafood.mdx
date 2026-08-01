@@ -2,7 +2,7 @@
 title: 'Cold Store Monitoring: Holding Export Seafood at 2.6 °C, and Proving It Held'
 description: 'What a monitored seafood cold store measures, how to read its charts, and what a single prevented loss is worth against the cost of watching it.'
 contributors: "sam-macharia"
-pubDate: 2026-06-10
+pubDate: 2026-06-27
 tags: ["cold-chain", "remote-monitoring", "iot", "food-safety", "cold-storage", "roi", "export"]
 excerpt: "A cold store does not fail loudly. It drifts. By the time anyone opens the door on Monday, the product has spent a weekend somewhere it should never have been, and nothing in the room can tell you how long. This post reads three days from a monitored seafood store, explains what each line means, and works out what catching that drift early is actually worth."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/cold-store-seafood.png"
@@ -61,11 +61,13 @@ The signature you do not want looks different. It is a peak that does not fall b
 
 ![Compressor duty cycle in a seafood cold store over three days](/device-plots/cold-store-seafood-2.png)
 
-Compressor duty is the percentage of time the compressor is actually running. Over the three days in this chart it ran for 14.6 hours out of 72.2 elapsed:
+Compressor duty is the percentage of time the compressor is actually running. Over the three days in this chart it ran for 14.65 hours out of 72.2 elapsed:
 
-$$\text{duty} = \frac{14.6\ \text{h running}}{72.2\ \text{h elapsed}} = 20.3\%$$
+$$\text{duty} = \frac{14.65\ \text{h running}}{72.2\ \text{h elapsed}} = 20.3\%$$
 
 That number is the single best early warning a cold store gives you, because it has somewhere to go. A store holding temperature at 20% duty has four fifths of its capacity in reserve. The same store holding the same temperature at 60% duty is in trouble and the thermometer will not say so.
+
+![Panel (a): a healthy store holding 2.6 °C at 20 per cent compressor duty, with 80 per cent of the machine still in reserve. Panel (b): the same store at the same temperature but 80 per cent duty, with almost no reserve left, showing that the thermometer reads identically in both cases](./images/compressor-duty-headroom.svg)
 
 A store in good condition holds its temperature with duty to spare. As seals age, as ice builds on the evaporator, as the charge drops, the room still holds temperature but the compressor works longer to do it. **Temperature stays flat while duty climbs.** By the time the temperature itself starts moving, the machine has been shouting for weeks.
 

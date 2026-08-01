@@ -2,7 +2,7 @@
 title: 'Built by a Class, Left Public: A Weather Station as a Reference Point'
 description: 'A student-built air quality station reads PM2.5 at 24 micrograms per cubic metre. On its own that number teaches nothing. This post is about what makes a measurement mean something.'
 contributors: "sam-macharia"
-pubDate: 2026-09-30
+pubDate: 2026-08-01
 tags: ["education", "remote-monitoring", "iot", "air-quality", "weather-station", "teaching", "calibration"]
 excerpt: "A class builds a sensor, reads 24 micrograms per cubic metre off it, and writes that in a report. Is that good, bad, high for the season, or a miscalibrated board? Nothing about the number answers the question. This post is about the thing that turns a reading into a measurement, which is having something to compare it against."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/student-weather-station.png"
@@ -42,11 +42,13 @@ Three pollutants on one axis, because they share a unit and because the relation
 
 Over this window PM2.5 averaged **24.1 µg/m³** with a peak of 37.0, PM10 averaged **41.9 µg/m³** with a peak of 63.3, and nitrogen dioxide averaged **20.6 µg/m³** with a peak of 57.7.
 
+![Panel (a): PM2.5 drawn as a circle wholly inside the PM10 circle, since particles up to 10 micrometres include every particle up to 2.5 micrometres, so a reading of PM2.5 above PM10 is physically impossible. Panel (b): the two as bars, 24.1 against 41.9 micrograms per cubic metre, giving a fine fraction of 0.57 that points at combustion rather than coarse dust](./images/pm-subset-and-ratio.svg)
+
 The first thing to notice is that PM2.5 is always below PM10, and that this is not a coincidence or a calibration artefact. PM10 is defined as particles up to 10 micrometres, which **includes** everything counted as PM2.5. One is a subset of the other, so PM2.5 exceeding PM10 would be physically impossible and is an immediate sign of a fault. That single check is worth teaching on its own: some errors are detectable from internal consistency, with no reference instrument needed at all.
 
 The second is the ratio:
 
-$$\frac{\text{PM}_{2.5}}{\text{PM}_{10}} = \frac{24.1\ \mu\text{g/m}^3}{41.9\ \mu\text{g/m}^3} = 0.57$$
+$$\frac{\text{PM}_{2.5}}{\text{PM}_{10}} = \frac{24.06\ \mu\text{g/m}^3}{41.91\ \mu\text{g/m}^3} = 0.57$$
 
 A high fine fraction points at combustion, which is traffic, generators or burning. A low fine fraction points at coarse material, which is dust, construction or soil. The ratio says something about the **source** that neither number says alone.
 

@@ -2,7 +2,7 @@
 title: 'The Alarm That Fires Every Night: Reading a Greenhouse Humidity Threshold'
 description: 'A cut flower greenhouse raised 24 humidity alerts in a month, 18 of them at the same hour. This reads the charts and shows why a threshold set at the normal is worse than no threshold at all.'
 contributors: "sam-macharia"
-pubDate: 2026-07-22
+pubDate: 2026-07-11
 tags: ["agriculture", "remote-monitoring", "iot", "greenhouse", "alerts", "horticulture", "alarm-management"]
 excerpt: "An alert that fires every night is not an alert. It is a nightly notification that the greenhouse is behaving exactly as it always does, and the cost of it is that the one night something is genuinely wrong will look identical to the twenty three nights that were fine. This post reads three days from a monitored cut flower greenhouse and works out where the threshold should have been."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/greenhouse-cut-flowers.png"
@@ -27,6 +27,10 @@ The failure mode of a monitoring system is not usually that it misses something.
 Cut flowers under glass, with temperature, humidity, CO2 and vent position all reported. The grower's summary of the stakes is short: one bad afternoon costs a shipment.
 
 Over the last month this greenhouse raised 30 alerts. Twenty four of them were the same alert, `humidity high, spoilage risk`. Eighteen of those twenty four arrived at 23:00, and another five at 22:00.
+
+Three quarters of them landed at a single hour of the day:
+
+$$\frac{18\ \text{alerts at 23:00}}{24\ \text{humidity alerts}} = 75\%$$
 
 That distribution is the whole story. A fault does not keep office hours. Something that happens at the same hour on nearly every night of the month is not a fault, it is the climate of the building.
 
@@ -67,6 +71,8 @@ The temperature chart above is the control case for comparison. Inside tracks ou
 ## What the threshold should be
 
 <InArticleAd />
+
+![Panel (a): an alert threshold at 80 per cent drawn across a normal operating band that runs from 51 to 81 per cent, so the rule sits inside the range the greenhouse reaches every day. Panel (b): the same band with the threshold moved to 85 per cent, above anything the building produces on its own, silent until a genuine excursion pushes through it](./images/threshold-placement.svg)
 
 The fix costs nothing but thought, and there are three honest options.
 

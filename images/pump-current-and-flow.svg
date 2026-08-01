@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) Pumping: water loads the motor</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) Running dry: nothing to load it</text>
+
+<!-- (a) impeller in water -->
+<rect x="120" y="70" width="240" height="150" fill="#dce9f7" stroke="#000" stroke-width="1.6"/>
+<circle cx="240" cy="145" r="46" fill="#9aa4ad" stroke="#000" stroke-width="1.8"/>
+<circle cx="240" cy="145" r="8" fill="#000"/>
+<path d="M240,145 L272,113 M240,145 L272,177 M240,145 L208,113 M240,145 L208,177" stroke="#000" stroke-width="2.4"/>
+<text x="240" y="243" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">impeller full of water</text>
+
+<!-- (a) flow arrows -->
+<line x1="376" y1="110" x2="430" y2="110" stroke="#1a4fd6" stroke-width="3"/>
+<polygon points="440,110 430,114.5 430,105.5" fill="#1a4fd6"/>
+<line x1="376" y1="145" x2="430" y2="145" stroke="#1a4fd6" stroke-width="3"/>
+<polygon points="440,145 430,149.5 430,140.5" fill="#1a4fd6"/>
+<line x1="376" y1="180" x2="430" y2="180" stroke="#1a4fd6" stroke-width="3"/>
+<polygon points="440,180 430,184.5 430,175.5" fill="#1a4fd6"/>
+<text x="408" y="205" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1a4fd6" text-anchor="middle">flow</text>
+
+<text x="70" y="292" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" font-weight="bold">work done on water  &#8594;  torque  &#8594;  current</text>
+<text x="70" y="322" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#1a4fd6" font-weight="bold">9.2 A  of  8.9 A rated</text>
+<text x="70" y="346" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">Square pulse, flat top, correct.</text>
+
+<!-- (b) impeller in air -->
+<rect x="626" y="70" width="240" height="150" fill="white" stroke="#000" stroke-width="1.6" stroke-dasharray="6,4"/>
+<circle cx="746" cy="145" r="46" fill="white" stroke="#c00000" stroke-width="1.8"/>
+<circle cx="746" cy="145" r="8" fill="#c00000"/>
+<path d="M746,145 L778,113 M746,145 L778,177 M746,145 L714,113 M746,145 L714,177" stroke="#c00000" stroke-width="2.4"/>
+<text x="746" y="243" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">impeller spinning in air</text>
+
+<!-- (b) no flow -->
+<line x1="882" y1="145" x2="930" y2="145" stroke="#c00000" stroke-width="2" stroke-dasharray="5,4"/>
+<line x1="898" y1="129" x2="922" y2="161" stroke="#c00000" stroke-width="2.4"/>
+<line x1="922" y1="129" x2="898" y2="161" stroke="#c00000" stroke-width="2.4"/>
+<text x="910" y="185" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#c00000" text-anchor="middle">no flow</text>
+
+<text x="576" y="292" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" font-weight="bold">no water  &#8594;  little torque  &#8594;  LESS current</text>
+<text x="576" y="322" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#c00000" font-weight="bold">4.8 A  =  54% of rated</text>
+<text x="576" y="346" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">Motor still turning. Cooling has stopped arriving.</text>
+
+<line x1="512" y1="52" x2="512" y2="370" stroke="#9aa4ad" stroke-width="1.2"/>
+
+<text x="505" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="middle" font-weight="bold">Instinct says a struggling motor draws more. On a centrifugal pump the alarming direction is down.</text>
+</svg>

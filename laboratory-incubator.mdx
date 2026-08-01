@@ -2,7 +2,7 @@
 title: 'The Excursion Nobody Saw: When an Incubator Quietly Invalidates a Week'
 description: 'A laboratory incubator dropped to 35.7 °C twice in one day against a 37 °C setpoint. Nothing looked wrong afterwards, which is the problem this post is about.'
 contributors: "sam-macharia"
-pubDate: 2026-09-02
+pubDate: 2026-07-24
 tags: ["research", "remote-monitoring", "iot", "laboratory", "incubator", "data-integrity", "compliance"]
 excerpt: "A freezer that fails tells you by smell. An incubator that fails tells you nothing at all. The cultures look the same, the experiment finishes on schedule, and the result is wrong in a way no one can detect from the result itself. This post reads two excursions from a monitored laboratory incubator and asks what a temperature record is actually protecting."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/laboratory-incubator.png"
@@ -56,7 +56,15 @@ On **Thursday 16 July** this incubator dropped to **35.7 °C against a 37 °C se
 
 Two things about that pattern are worth noticing.
 
-The first is the size. A drop of 1.3 degrees sounds trivial in ordinary language and is not trivial here. Cell growth rates, enzyme kinetics and doubling times are all temperature dependent, and a culture held below setpoint for part of a run is not the same culture as one held at setpoint throughout. The experiment still produces a number. The number is just not the number it would have been.
+The first is the size:
+
+$$\Delta T = 37.0 - 35.7 = 1.3\ \text{°C below setpoint}$$
+
+Set that against the width of the chamber's own normal band over three days:
+
+$$38.1 - 36.5 = 1.6\ \text{°C}$$
+
+The excursion is nearly as large as everything else the incubator does in a week. A drop of 1.3 degrees sounds trivial in ordinary language and is not trivial here. Cell growth rates, enzyme kinetics and doubling times are all temperature dependent, and a culture held below setpoint for part of a run is not the same culture as one held at setpoint throughout. The experiment still produces a number. The number is just not the number it would have been.
 
 The second is the recurrence. One excursion is an event, possibly a door left ajar. Two in a day at roughly ten hours apart is a pattern, and a pattern points at a mechanism: a door seal, a controller cycling wider than it should, a heater relay, a room that gets cold at night. The value of the record is that this question can be asked at all. Without it there is one unexplained result and no way to connect it to anything.
 
@@ -69,6 +77,8 @@ Note also what the chart does not show, which is any excursion upward. This unit
 It is worth being precise about the value here, because it is not the same as in the other posts in this series.
 
 For a cold store, the record protects the stock, and the stock has a price per kilogram. For a laboratory, the record protects **the right to make a claim**. Its value shows up in three places:
+
+![Panel (a): a week of five runs with no temperature record, every one of them shaded as suspect because nothing says when the incubator drifted. Panel (b): the same five runs against a timestamped excursion on Thursday 16 July, where only the single overlapping run is discarded and the other four remain defensible](./images/excursion-and-the-run.svg)
 
 **Discarding the right work, not all of it.** When an excursion is documented with a start, an end and a magnitude, you can identify which runs overlapped it. Without a record, a suspicious result leaves you with a choice between defending work you cannot vouch for and rerunning everything from the period, and the second option is what usually happens.
 

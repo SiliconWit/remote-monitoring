@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) PM2.5 is inside PM10, always</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) The ratio names the source</text>
+
+<!-- (a) nested sets -->
+<circle cx="230" cy="150" r="92" fill="#9aa4ad" stroke="#000" stroke-width="1.8"/>
+<circle cx="230" cy="168" r="52" fill="#1a4fd6" stroke="#000" stroke-width="1.8"/>
+<text x="230" y="82" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#000" text-anchor="middle" font-weight="bold">PM10</text>
+<text x="230" y="174" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="bold">PM2.5</text>
+<text x="230" y="264" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">particles up to 10 &#181;m include</text>
+<text x="230" y="282" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">every particle up to 2.5 &#181;m</text>
+
+<text x="70" y="326" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" font-weight="bold">PM2.5 &gt; PM10 is physically impossible</text>
+<text x="70" y="350" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">If your board ever reports it, the fault is the board.</text>
+<text x="70" y="370" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">No reference instrument needed to know that.</text>
+
+<!-- (b) ratio bars -->
+<text x="576" y="80" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">PM10</text>
+<rect x="576" y="90" width="330" height="30" fill="#9aa4ad" stroke="#000" stroke-width="1.6"/>
+<text x="916" y="111" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">41.9</text>
+
+<text x="576" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">PM2.5</text>
+<rect x="576" y="160" width="190" height="30" fill="#1a4fd6" stroke="#000" stroke-width="1.6"/>
+<text x="776" y="181" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">24.1</text>
+<text x="920" y="181" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#333" text-anchor="end">&#181;g/m&#179;</text>
+
+<text x="576" y="228" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" font-weight="bold">24.1 / 41.9 = 0.57</text>
+
+<text x="576" y="266" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">A high fine fraction points at combustion:</text>
+<text x="576" y="286" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">traffic, generators, burning.</text>
+<text x="576" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">A low fine fraction points at coarse material:</text>
+<text x="576" y="336" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">dust, construction, soil.</text>
+<text x="576" y="366" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" font-weight="bold">Neither number says this on its own.</text>
+
+<line x1="512" y1="52" x2="512" y2="380" stroke="#9aa4ad" stroke-width="1.2"/>
+
+<text x="505" y="410" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="middle" font-weight="bold">Measure both, always. The pair carries information that neither reading has alone.</text>
+</svg>

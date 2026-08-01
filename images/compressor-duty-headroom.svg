@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) A healthy store: duty in reserve</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) The same temperature, no reserve left</text>
+
+<!-- (a) temperature flat -->
+<text x="70" y="66" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">room temperature</text>
+<line x1="70" y1="100" x2="404" y2="100" stroke="#1a4fd6" stroke-width="2.6"/>
+<text x="458" y="105" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1a4fd6" text-anchor="end" font-weight="bold">2.6 °C</text>
+
+<!-- (a) duty bar -->
+<text x="70" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">compressor duty</text>
+<rect x="70" y="160" width="380" height="40" fill="white" stroke="#000" stroke-width="1.6"/>
+<rect x="70" y="160" width="77" height="40" fill="#9aa4ad" stroke="#000" stroke-width="1.6"/>
+<text x="108" y="186" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#000" text-anchor="middle" font-weight="bold">20%</text>
+<text x="300" y="186" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#333" text-anchor="middle">80% still available</text>
+
+<text x="70" y="246" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" font-weight="bold">duty = 14.65 h running / 72.2 h elapsed = 20.3%</text>
+<text x="70" y="276" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">Four fifths of the machine is spare. A hot week, a</text>
+<text x="70" y="296" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">tired seal or a dirty condenser can all be absorbed</text>
+<text x="70" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">without the room ever moving.</text>
+
+<!-- (b) temperature flat, identical -->
+<text x="576" y="66" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">room temperature</text>
+<line x1="576" y1="100" x2="910" y2="100" stroke="#1a4fd6" stroke-width="2.6"/>
+<text x="964" y="105" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1a4fd6" text-anchor="end" font-weight="bold">2.6 °C</text>
+<text x="766" y="86" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#333" text-anchor="middle">identical, and it tells you nothing</text>
+
+<!-- (b) duty bar nearly full -->
+<text x="576" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000">compressor duty</text>
+<rect x="576" y="160" width="380" height="40" fill="white" stroke="#000" stroke-width="1.6"/>
+<rect x="576" y="160" width="304" height="40" fill="#c00000" stroke="#000" stroke-width="1.6"/>
+<text x="728" y="186" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="bold">80%</text>
+<text x="918" y="186" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#333" text-anchor="middle">20% left</text>
+
+<text x="576" y="246" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#c00000" font-weight="bold">Temperature flat. Duty climbing. This is the warning.</text>
+<text x="576" y="276" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">The store still holds, so nobody notices. The next hot</text>
+<text x="576" y="296" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">afternoon asks for more than 100% and the room warms</text>
+<text x="576" y="316" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">for the first time, with no margin left to recover.</text>
+
+<line x1="512" y1="52" x2="512" y2="350" stroke="#9aa4ad" stroke-width="1.2"/>
+
+<text x="505" y="392" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="middle" font-weight="bold">Alert on duty, not on temperature. By the time the thermometer moves, the reserve is already gone.</text>
+</svg>

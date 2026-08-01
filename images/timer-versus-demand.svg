@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) On a timer: wrong in both directions</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) On the gas reading</text>
+
+<!-- (a) demand curve -->
+<text x="70" y="66" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">carbon monoxide</text>
+<path d="M70,150 L130,148 L180,146 L230,120 L270,72 L310,118 L360,145 L420,148 L460,150"
+      fill="none" stroke="#1a4fd6" stroke-width="2.6"/>
+<text x="270" y="62" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#1a4fd6" text-anchor="middle">queue at the barrier</text>
+
+<!-- (a) fan schedule -->
+<text x="70" y="196" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">fans</text>
+<rect x="70" y="206" width="390" height="34" fill="#9aa4ad" stroke="#000" stroke-width="1.6"/>
+<text x="265" y="228" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">same schedule, whatever the air is doing</text>
+
+<line x1="150" y1="240" x2="150" y2="266" stroke="#c00000" stroke-width="1.4"/>
+<text x="150" y="282" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#c00000" text-anchor="middle">running, empty park</text>
+<line x1="270" y1="240" x2="270" y2="266" stroke="#c00000" stroke-width="1.4"/>
+<text x="292" y="298" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#c00000" text-anchor="middle">no extra help when it matters</text>
+
+<text x="70" y="342" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" font-weight="bold">7.5 kW &#215; 720 h = 5,400 kWh per month</text>
+
+<!-- (b) same demand curve -->
+<text x="576" y="66" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">carbon monoxide</text>
+<path d="M576,150 L636,148 L686,146 L736,120 L776,72 L816,118 L866,145 L926,148 L966,150"
+      fill="none" stroke="#1a4fd6" stroke-width="2.6"/>
+
+<!-- (b) fans follow -->
+<text x="576" y="196" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000">fans</text>
+<rect x="576" y="206" width="390" height="34" fill="white" stroke="#000" stroke-width="1.6"/>
+<rect x="700" y="206" width="140" height="34" fill="#9aa4ad" stroke="#000" stroke-width="1.6"/>
+<text x="770" y="228" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">on when the air asks</text>
+
+<text x="576" y="282" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333">Measured running time over the month: 33.9%</text>
+
+<text x="576" y="322" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" font-weight="bold">5,400 &#215; 0.339 = 1,831 kWh</text>
+<text x="576" y="348" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#c00000" font-weight="bold">(5,400 &#8722; 1,831) &#215; 0.15 = USD 535 per month</text>
+
+<line x1="512" y1="52" x2="512" y2="370" stroke="#9aa4ad" stroke-width="1.2"/>
+
+<text x="505" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="middle" font-weight="bold">Less running overall, and more running exactly when the room needs it. A timer cannot do the second thing at all.</text>
+</svg>

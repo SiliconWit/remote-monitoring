@@ -2,7 +2,7 @@
 title: 'Fans on a Timer, or Fans on a Reading: Car Park Ventilation That Earns Its Keep'
 description: 'An underground car park cut its extraction fans from running on a timer to running about a third of the time, and caught a 75 ppm carbon monoxide event on the way. This reads both charts.'
 contributors: "sam-macharia"
-pubDate: 2026-08-19
+pubDate: 2026-07-21
 tags: ["environment-safety", "remote-monitoring", "iot", "ventilation", "carbon-monoxide", "energy-efficiency", "automation"]
 excerpt: "A ventilation fan on a timer has two failure modes and they point in opposite directions. It runs when the car park is empty, which costs money, and it may not run when a queue of idling cars builds up, which costs something else. This post reads a monitored underground car park where the fans follow the gas reading instead."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/car-park-co-monitoring.png"
@@ -57,6 +57,8 @@ Same window, the fans' own account of themselves.
 This is the reading that separates a monitoring system from a control system. The gas chart tells you the air got bad. This chart tells you something was done about it, when, and for how long, without anybody being asked.
 
 Over the full month the extraction ran **33.9% of the time**. Set that against a timer running fans on a fixed daily schedule and the saving is the difference between those two numbers, on plant that is typically several kilowatts and sometimes very much more.
+
+![Panel (a): fans held on a fixed schedule while carbon monoxide rises and falls independently, so they run through an empty car park and offer nothing extra when a queue builds. Panel (b): the same gas curve with the fans following it, running 33.9 per cent of the month and concentrating that running on the peak](./images/timer-versus-demand.svg)
 
 The safety argument and the energy argument point the same way here, which is rarer than it sounds. Demand controlled ventilation runs the fans less overall **and** runs them harder exactly when the room needs it. A timer cannot do the second thing at all.
 
