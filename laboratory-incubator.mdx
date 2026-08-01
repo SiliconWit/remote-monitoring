@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 Almost every other installation in this series is monitored to protect a physical thing: a pump, a consignment, a room full of stock. This one is monitored to protect a conclusion. The equipment is cheap by laboratory standards and the contents are worth very little. What is at risk is whether anybody can believe the result. #Research #RemoteMonitoring #DataIntegrity
 
@@ -38,6 +42,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 <InArticleAd />
 
+
 ![Internal and peak temperature over three days, a tight band around thirty seven degrees](/device-plots/laboratory-incubator-1.png)
 
 Three days of internal and peak temperature. The two lines sit almost on top of each other in a narrow band, and there is nothing to see, which is the point of showing it first.
@@ -49,6 +54,7 @@ This is also why the peak reading is worth carrying. **Internal temperature** is
 ## The excursions
 
 <InArticleAd />
+
 
 ![Internal temperature over a day and a half showing two drops below the setpoint](/device-plots/laboratory-incubator-excursion-1.png)
 
@@ -74,6 +80,7 @@ Note also what the chart does not show, which is any excursion upward. This unit
 
 <InArticleAd />
 
+
 It is worth being precise about the value here, because it is not the same as in the other posts in this series.
 
 For a cold store, the record protects the stock, and the stock has a price per kilogram. For a laboratory, the record protects **the right to make a claim**. Its value shows up in three places:
@@ -89,6 +96,7 @@ For a cold store, the record protects the stock, and the stock has a price per k
 ## What this is worth
 
 <InArticleAd />
+
 
 The numbers below are a worked example, not a promise. Put your own figures in.
 
@@ -107,6 +115,7 @@ Against that:
 
 <InArticleAd />
 
+
 <CardGrid>
   <Card title="Internal and peak temperature" icon="approve-check">
     Against a tight setpoint, alert on deviation in both directions. Too cold invalidates as thoroughly as too warm.
@@ -124,6 +133,9 @@ Against that:
 
 ## Related installations
 
+<InArticleAd />
+
+
 The other research installations are instrumented for the same underlying reason, which is that an unobserved gap in the record is a gap in the result. A [materials test rig](https://siliconwit.io/d/materials-test-rig) was left running over a weekend and its owner found out on Monday that it had stopped on the Friday night, which is this post's problem with a longer fuse. [Campus air monitoring](https://siliconwit.io/d/campus-air-monitoring) exists to be a clean baseline that the [roadside air quality](https://siliconwit.io/d/roadside-air-quality) numbers can be held up against, since a measurement with nothing to compare it to supports very little.
 
 The instrument set here is shared with the cold chain, aimed in the opposite direction. A [cold store](https://siliconwit.io/d/cold-store-seafood) and a [server room cooling unit](https://siliconwit.io/d/server-room-cooling) report the same four readings, and ask the same question about whether the box is holding.
@@ -132,14 +144,16 @@ The instrument set here is shared with the cold chain, aimed in the opposite dir
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/laboratory-incubator" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings, the charts above in their interactive form, and the alert history including both excursions. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings, the charts above in their interactive form, and the alert history including both excursions. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own incubator on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/laboratory-incubator" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />

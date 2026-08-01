@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 Carbon monoxide is colourless, odourless, and heavier traffic makes more of it. An underground car park is therefore a room where the hazard is invisible, the source is unpredictable, and the control is a large electric fan that somebody has to decide when to run. For most of the history of car parks that decision has been made by a time switch. #EnvironmentSafety #RemoteMonitoring #Ventilation
 
@@ -36,6 +40,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 <InArticleAd />
 
+
 ![Carbon monoxide over a day and a half, near zero with one sharp excursion](/device-plots/car-park-co-monitoring-co-event-1.png)
 
 The striking thing about this chart is how empty it is. Carbon monoxide in a well ventilated car park reads at or near zero almost all of the time, and over a normal three day window this one averaged **0.17 ppm** and never exceeded 1.5.
@@ -49,6 +54,7 @@ For context on why 75 matters, occupational exposure limits are commonly set aro
 ## Reading the extraction chart
 
 <InArticleAd />
+
 
 ![Extraction running percentage over the same window, responding to the gas event](/device-plots/car-park-co-monitoring-co-event-2.png)
 
@@ -65,6 +71,7 @@ The safety argument and the energy argument point the same way here, which is ra
 ## What this is worth
 
 <InArticleAd />
+
 
 The numbers below are a worked example, not a promise. Put your own figures in.
 
@@ -95,6 +102,7 @@ The honest framing is that the safety case justifies the installation and the en
 
 <InArticleAd />
 
+
 <CardGrid>
   <Card title="Carbon monoxide, and its peak" icon="approve-check">
     The instantaneous value plus the highest reached in each window. A short spike between samples is exactly what you must not miss.
@@ -112,6 +120,9 @@ The honest framing is that the safety case justifies the installation and the en
 
 ## Related installations
 
+<InArticleAd />
+
+
 The other environment and safety installations share this instrument set and change the gas. A [commercial kitchen LPG monitor](https://siliconwit.io/d/commercial-kitchen-lpg) reads zero nearly always, which its owner is quite content with. [Fuel depot vapour monitoring](https://siliconwit.io/d/fuel-depot-vapour) puts extraction status next to the hydrocarbon reading for the same reason this car park does, so it is possible to tell which of the two is the problem. [Roadside air quality](https://siliconwit.io/d/roadside-air-quality) measures the outdoor version of the same traffic, and found mornings worse than expected because still air holds everything in until the sun gets up.
 
 The demand controlled argument generalises. An [office HVAC air handler](https://siliconwit.io/d/office-hvac-air-handler) is monitored partly to settle arguments about whether it is actually running, which is the same question this car park answers with its extraction reading.
@@ -120,14 +131,16 @@ The demand controlled argument generalises. An [office HVAC air handler](https:/
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/car-park-co-monitoring" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings, the charts above in their interactive form, and the alert history including the 75 ppm event. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings, the charts above in their interactive form, and the alert history including the 75 ppm event. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own car park on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/car-park-co-monitoring" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />

@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 The hard part of teaching measurement is not wiring the sensor. Students get a board talking in an afternoon. The hard part is the next question, the one that decides whether they have learned instrumentation or just soldering: how do you know that number is right? #Education #RemoteMonitoring #AirQuality
 
@@ -35,6 +39,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 ## Reading the pollutant chart
 
 <InArticleAd />
+
 
 ![PM2.5, PM10 and nitrogen dioxide over three days, all three rising and falling together](/device-plots/student-weather-station-1.png)
 
@@ -56,6 +61,7 @@ A high fine fraction points at combustion, which is traffic, generators or burni
 
 <InArticleAd />
 
+
 ![PM2.5 over a week, showing the daily cycle repeating](/device-plots/student-weather-station-week-1.png)
 
 Here is a week of PM2.5 from the same station, and it is the more useful chart for a class.
@@ -74,6 +80,7 @@ What makes it a measurement is comparison, and there are three kinds worth teach
 
 <InArticleAd />
 
+
 Most student projects end at the demonstration. The board works, the report is marked, the hardware goes in a drawer, and the following year the next class starts from nothing.
 
 Leaving the station running and public changes what the exercise is. The first cohort is no longer building a sensor, they are **establishing a baseline** that somebody else will be measured against. That reframing does a few things a normal project cannot:
@@ -89,6 +96,7 @@ There is a lesson here that carries well past air quality. A device that nobody 
 
 <InArticleAd />
 
+
 The value here is not financial and it would be dishonest to build a return on investment case for a teaching station. It is worth stating what it does buy.
 
 - A student who has held their own reading against a reference has learned the difference between **a reading and a measurement**, which is the single most transferable idea in instrumentation.
@@ -99,6 +107,7 @@ The value here is not financial and it would be dishonest to build a return on i
 ## What to measure if you run one of these
 
 <InArticleAd />
+
 
 <CardGrid>
   <Card title="PM2.5 and PM10 together" icon="approve-check">
@@ -117,6 +126,9 @@ The value here is not financial and it would be dishonest to build a return on i
 
 ## Related installations
 
+<InArticleAd />
+
+
 The other education installations are built on the same principle of being worth looking at more than once. A [campus solar demonstrator](https://siliconwit.io/d/campus-solar-demonstrator) lets students see where the losses go rather than taking the lecturer's word for it. A [classroom environment monitor](https://siliconwit.io/d/classroom-environment) makes CO2 climbing through a lesson visible, after which nobody argues about opening a window.
 
 For the comparison this post is about, the two stations to hold this one against are [campus air monitoring](https://siliconwit.io/d/campus-air-monitoring), the clean baseline, and [roadside air quality](https://siliconwit.io/d/roadside-air-quality), sitting beside traffic. Reading all three together is the exercise.
@@ -125,14 +137,16 @@ For the comparison this post is about, the two stations to hold this one against
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/student-weather-station" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings and the charts above in their interactive form. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings and the charts above in their interactive form. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own build on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/student-weather-station" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />

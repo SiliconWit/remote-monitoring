@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 A submersible pump gives you almost no warning before it destroys itself. It cools by pushing water past its own motor, so the moment the water level in the borehole drops to the intake, the thing that keeps it alive is the thing that has stopped arriving. It does not trip. It does not slow down in any way a person standing next to it would notice. It runs, quietly, until the windings cook. #Water #RemoteMonitoring #PredictiveMaintenance
 
@@ -36,6 +40,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 <InArticleAd />
 
+
 ![Tank level and pump duty over a day and a half, four fill cycles that all look alike](/device-plots/borehole-and-storage-tank-dry-run-1.png)
 
 Here is a day and a half of tank level and pump duty. Four fill cycles. The tank sawtooths down from about 92% to about 37% as the building draws on it, the pump kicks in at 100% duty, the tank refills, the pump stops.
@@ -49,6 +54,7 @@ This is worth sitting with, because tank level is the reading most people instal
 ## The chart that catches it
 
 <InArticleAd />
+
 
 ![Motor current over the same window, three square pulses and a fourth with a depressed shoulder](/device-plots/borehole-and-storage-tank-dry-run-2.png)
 
@@ -72,6 +78,7 @@ What happened underneath is ordinary. The tank had drawn down to 37%, the bottom
 
 <InArticleAd />
 
+
 Dry running does not fail a pump on the day. It takes life off it. Each episode overheats the windings a little, wears the bearings and seals a little, and none of that shows up until the pump quits, usually during the longest fill of a hot week, which is exactly when you need it.
 
 So the failure has a shape that monitoring is unusually well suited to. It is invisible to inspection, it is obvious in one reading, it is cumulative, and the cost of catching it is one sensor.
@@ -81,6 +88,7 @@ The response is not complicated either. A pump that keeps outrunning its borehol
 ## What this is worth
 
 <InArticleAd />
+
 
 The numbers below are a worked example, not a promise. Put your own figures in.
 
@@ -99,6 +107,7 @@ The asymmetry is the argument. Watching costs a sensor and a rule. Not watching 
 
 <InArticleAd />
 
+
 <CardGrid>
   <Card title="Motor current" icon="approve-check">
     The one that catches dry running. Alert on current falling below a floor while the pump is called to run, not on it rising.
@@ -116,6 +125,9 @@ The asymmetry is the argument. Watching costs a sensor and a rule. Not watching 
 
 ## Related installations
 
+<InArticleAd />
+
+
 The other water installations put much the same instrument set to different questions. [Building water storage](https://siliconwit.io/d/building-water-storage) watches rooftop tanks for a block, where demand that stops matching occupancy usually means a leak. A [quarry dewatering pump](https://siliconwit.io/d/quarry-dewatering-pump) is watched properly rather than checked on, because when it stops the work stops. [District water metering](https://siliconwit.io/d/district-water-metering) ignores tank level entirely and reads night flow instead, on the principle that whatever is still moving at three in the morning is leaking. [Tenant water monitoring](https://siliconwit.io/d/tenant-water-monitoring) adds the question of who used what, and whether the pump is short cycling again.
 
 If it is the pump rather than the water you care about, the same argument from current and vibration runs on rotating equipment generally. A [steam boiler feed pump](https://siliconwit.io/d/steam-boiler-feed-pump) is on the public fleet for exactly the reason this borehole is: it threw a bearing once and took the boiler down with it.
@@ -124,14 +136,16 @@ If it is the pump rather than the water you care about, the same argument from c
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/borehole-and-storage-tank" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings, the charts above in their interactive form, and the alert history including the dry run this post is about. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings, the charts above in their interactive form, and the alert history including the dry run this post is about. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own pump on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/borehole-and-storage-tank" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />

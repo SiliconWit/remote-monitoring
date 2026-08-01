@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 A tenant calls to say their equipment restarted. The building manager checks, finds the power on, and says it looks fine from here. Both of them are telling the truth, and neither of them can settle it, because the event they are discussing lasted four minutes and finished an hour ago. #SmartBuildings #RemoteMonitoring #PowerQuality
 
@@ -40,6 +44,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 <InArticleAd />
 
+
 ![Supply voltage and minimum voltage over three days, dropping to zero at each interruption](/device-plots/building-power-monitoring-1.png)
 
 Two lines that are usually close together and occasionally are not.
@@ -53,6 +58,7 @@ Then there are the interruptions, where both lines go to zero together. Thirty o
 ## The percentage that hides the problem
 
 <InArticleAd />
+
 
 ![Panel (a): the arithmetic of availability, showing 1082 minutes of a 43200 minute month as a thin sliver that reads as 97.5 per cent. Panel (b): the same 1082 minutes redrawn as the interruption count, showing that the damage follows the number of events rather than their total length](./images/availability-arithmetic.svg)
 
@@ -70,6 +76,7 @@ A monthly availability figure would have shown this building as healthy. Neither
 
 <InArticleAd />
 
+
 ![UPS battery state of charge over three days, discharging at each outage and not fully recovering](/device-plots/building-power-monitoring-2.png)
 
 The UPS battery chart is where this gets worse, and it is not the chart anyone would have gone looking for.
@@ -83,6 +90,7 @@ That is a conclusion only available from two readings together. Outage frequency
 ## What this is worth
 
 <InArticleAd />
+
 
 The numbers below are a worked example, not a promise. Put your own figures in.
 
@@ -98,6 +106,7 @@ Against that:
 ## What to measure if you run one of these
 
 <InArticleAd />
+
 
 <CardGrid>
   <Card title="Supply and minimum voltage" icon="approve-check">
@@ -116,6 +125,9 @@ Against that:
 
 ## Related installations
 
+<InArticleAd />
+
+
 The other smart building installations answer similarly human questions. An [office HVAC air handler](https://siliconwit.io/d/office-hvac-air-handler) is monitored in part to settle arguments about whether it is actually running. [Tenant water monitoring](https://siliconwit.io/d/tenant-water-monitoring) watches shared tanks to establish who used what, and whether the pump is short cycling again. In both cases the instrument is really there to replace a disagreement with a number.
 
 The power quality argument runs elsewhere in the fleet too. A [UPS and power quality monitor](https://siliconwit.io/d/ups-power-quality) went in after equipment kept failing and nobody could say why, and the answer turned out to be sags rather than the equipment. A [server room cooling unit](https://siliconwit.io/d/server-room-cooling) is watched mainly to know how much headroom is left in the hottest week of the year.
@@ -124,14 +136,16 @@ The power quality argument runs elsewhere in the fleet too. A [UPS and power qua
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/building-power-monitoring" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings, the charts above in their interactive form, and the full outage and battery alert history. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings, the charts above in their interactive form, and the full outage and battery alert history. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own supply on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/building-power-monitoring" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />

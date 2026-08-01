@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 Most monitoring is about condition: is the machine wearing out, is the room too warm, is the pump about to fail. This installation is monitored for a different reason, and it is one that comes up constantly in the field and almost never in the brochures. It is monitored because the fuel kept going missing and nobody could prove anything. #Energy #RemoteMonitoring #OffGrid
 
@@ -36,6 +40,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 <InArticleAd />
 
+
 ![Fuel in tank over two days, gentle slopes and then a vertical cliff](/device-plots/off-grid-tower-solar-genset-fuel-loss-1.png)
 
 This is two days of tank level, and it contains both shapes.
@@ -49,6 +54,7 @@ No engine burns forty litres in ten minutes at a site drawing 2.5 kW. Whatever t
 ## The reading that closes the question
 
 <InArticleAd />
+
 
 ![Generator load over the same two days, flat at zero across the fuel drop](/device-plots/off-grid-tower-solar-genset-fuel-loss-2.png)
 
@@ -69,6 +75,7 @@ Ninety two and a half litres, both events in the afternoon, both with the engine
 
 <InArticleAd />
 
+
 The useful idea here generalises well beyond diesel, and it is worth stating plainly.
 
 A tank level on its own is a fuel gauge. It tells you when to order. It is genuinely useful and it is not what caught this.
@@ -84,6 +91,7 @@ It also changes what happens next. Without the second reading, the owner has a s
 ## What this is worth
 
 <InArticleAd />
+
 
 The numbers below are a worked example, not a promise. Put your own figures in.
 
@@ -106,6 +114,7 @@ The honest framing is that this device does not prevent anything by itself. It r
 
 <InArticleAd />
 
+
 <CardGrid>
   <Card title="Tank level" icon="approve-check">
     The quantity. On its own it tells you when to order fuel and nothing about where the last tank went.
@@ -123,6 +132,9 @@ The honest framing is that this device does not prevent anything by itself. It r
 
 ## Related installations
 
+<InArticleAd />
+
+
 The other energy installations measure different things for different reasons. [Bulk fuel storage](https://siliconwit.io/d/bulk-fuel-storage) runs the same reconciliation at a much larger scale on a 30,000 litre tank, where the owner watches days of stock rather than litres and checks deliveries against invoices. [Commercial rooftop solar](https://siliconwit.io/d/commercial-rooftop-solar) inverts the question and compares yield against irradiance, on the basis that a shortfall usually means the panels want washing. [UPS and power quality](https://siliconwit.io/d/ups-power-quality) went in because equipment kept failing and it turned out to be sags rather than the equipment.
 
 The reconciliation idea shows up in water too. [District water metering](https://siliconwit.io/d/district-water-metering) compares what is flowing against what should be, and treats whatever is still moving at three in the morning as a leak.
@@ -131,14 +143,16 @@ The reconciliation idea shows up in water too. [District water metering](https:/
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/off-grid-tower-solar-genset" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings, the charts above in their interactive form, and the alert history including both fuel loss events. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings, the charts above in their interactive form, and the alert history including both fuel loss events. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own site on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/off-grid-tower-solar-genset" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />

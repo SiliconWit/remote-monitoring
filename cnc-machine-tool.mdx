@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 Quoting a machining job means deciding how many hours the machine will need, and that decision is almost always made from memory. The machine ran fine last week. It has been busy. Nobody remembers it stopping. So the quote assumes it runs, and when the job comes in late the explanation is that this particular job was awkward. It usually was not. #Manufacturing #RemoteMonitoring #Utilisation
 
@@ -40,6 +44,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 <InArticleAd />
 
+
 ![Utilisation and load percentage over three days, a band pinned near one hundred per cent with constant downward notches](/device-plots/cnc-machine-tool-1.png)
 
 Two readings that sound like the same thing and are not.
@@ -56,6 +61,7 @@ Meanwhile the load line holds a tight band whenever the spindle is actually turn
 
 <InArticleAd />
 
+
 ![Power draw over twenty four hours, a plateau above five kilowatts interrupted by repeated sharp drops](/device-plots/cnc-machine-tool-day-1.png)
 
 This is one day of raw power draw, which makes the texture easier to see than three days does.
@@ -69,6 +75,7 @@ That is the finding, and it is the reason this machine is monitored for quoting 
 ## What this does to a quote
 
 <InArticleAd />
+
 
 The numbers below are a worked example, not a promise. Put your own figures in.
 
@@ -99,6 +106,7 @@ The honest framing is that this device will probably never prevent a catastrophe
 
 <InArticleAd />
 
+
 <CardGrid>
   <Card title="Utilisation" icon="approve-check">
     Spindle turning as a share of available time. This is the number your quotes should be built on, and it is almost never the number people assume.
@@ -116,6 +124,9 @@ The honest framing is that this device will probably never prevent a catastrophe
 
 ## Related installations
 
+<InArticleAd />
+
+
 Power draw, load, bearing temperature and vibration run across the rest of the plant, and what differs is the reason each machine is watched. A [production line drive motor](https://siliconwit.io/d/production-line-motor) is instrumented for the vibration trend and almost nothing else. A [plant air compressor](https://siliconwit.io/d/plant-air-compressor) is there because compressed air costs more than lighting and heating together, and its owner needed somewhere to prove it. An [injection moulding machine](https://siliconwit.io/d/injection-moulding-machine) counts cycles and short stops for the same quoting reason this machine does, because quoted capacity and actual capacity have never been the same number.
 
 Two more are worth opening for the failures behind them. A [steam boiler feed pump](https://siliconwit.io/d/steam-boiler-feed-pump) threw a bearing and took the boiler with it, and a [materials test rig](https://siliconwit.io/d/materials-test-rig) once stopped on a Friday night and was not found until Monday, which is the same lesson this post makes about short stoppages, scaled up to a whole weekend.
@@ -124,14 +135,16 @@ Two more are worth opening for the failures behind them. A [steam boiler feed pu
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/cnc-machine-tool" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings, the charts above in their interactive form, and the alert history, including the short stoppage clusters that triggered rules of their own. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings, the charts above in their interactive form, and the alert history, including the short stoppage clusters that triggered rules of their own. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own machine on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/cnc-machine-tool" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />

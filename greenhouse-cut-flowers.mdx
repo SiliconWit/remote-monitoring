@@ -13,12 +13,16 @@ import UniversalContentContributors from '../../../../components/UniversalConten
 import InArticleAd from '../../../../components/InArticleAd.astro';
 import Copyright from '../../../../components/Copyright.astro';
 import BionicText from '../../../../components/BionicText.astro';
-import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
-import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
 
-<UniversalContentContributors
+<UniversalContentContributors 
   contributors={frontmatter.contributors}
 />
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
 
 The failure mode of a monitoring system is not usually that it misses something. It is that it tells you something so often that you stop reading it, and then it tells you the one thing that mattered in exactly the same tone of voice. #Agriculture #RemoteMonitoring #Horticulture
 
@@ -42,6 +46,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 <InArticleAd />
 
+
 ![Humidity and vent opening over three days, humidity plateauing near eighty per cent every night while the vents sit shut](/device-plots/greenhouse-cut-flowers-1.png)
 
 Two readings on one axis because both are percentages, and the relationship between them is the point.
@@ -55,6 +60,7 @@ So the alert threshold was set at 80%, and the greenhouse sits at 79.8% every ni
 ## Why this is worse than no alert
 
 <InArticleAd />
+
 
 ![Inside, peak and outside temperature over the same three days](/device-plots/greenhouse-cut-flowers-temp-1.png)
 
@@ -72,6 +78,7 @@ The temperature chart above is the control case for comparison. Inside tracks ou
 
 <InArticleAd />
 
+
 ![Panel (a): an alert threshold at 80 per cent drawn across a normal operating band that runs from 51 to 81 per cent, so the rule sits inside the range the greenhouse reaches every day. Panel (b): the same band with the threshold moved to 85 per cent, above anything the building produces on its own, silent until a genuine excursion pushes through it](./images/threshold-placement.svg)
 
 The fix costs nothing but thought, and there are three honest options.
@@ -88,6 +95,7 @@ The general principle underneath is worth more than the specific numbers: **an a
 
 <InArticleAd />
 
+
 The numbers below are a worked example, not a promise. Put your own figures in.
 
 A shipment of cut flowers rejected for grey mould is a total loss on that consignment plus the standing of the grower with the buyer, and the second one costs more than the first. Set against that, the monitoring is trivial. The real risk here is not the cost of the sensor, it is the cost of a badly configured rule.
@@ -100,6 +108,7 @@ A shipment of cut flowers rejected for grey mould is a total loss on that consig
 ## What to measure if you run one of these
 
 <InArticleAd />
+
 
 <CardGrid>
   <Card title="Humidity, with duration" icon="approve-check">
@@ -118,6 +127,9 @@ A shipment of cut flowers rejected for grey mould is a total loss on that consig
 
 ## Related installations
 
+<InArticleAd />
+
+
 The same four readings run across the other agriculture installations, aimed at different losses. A [grain storage silo](https://siliconwit.io/d/grain-storage-silo) watches for the warm damp pockets that start spoilage where nobody can see them from outside. A [broiler house](https://siliconwit.io/d/broiler-house-climate) is monitored because a ventilation failure costs the flock rather than a day of growth, which is a case where a sensitive threshold is entirely justified. An [orchard frost watch](https://siliconwit.io/d/orchard-frost-watch) exists for a handful of nights a season, and a [drip irrigation block](https://siliconwit.io/d/drip-irrigation-block) moved its owner from irrigating on the calendar to irrigating on the readings.
 
 The threshold problem in this post is not agricultural. A [classroom environment monitor](https://siliconwit.io/d/classroom-environment) watching CO2 climb through a lesson faces exactly the same question about where normal ends.
@@ -126,14 +138,16 @@ The threshold problem in this post is not agricultural. A [classroom environment
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/greenhouse-cut-flowers" variant="minimal">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
-The device page shows the live readings, the charts above in their interactive form, and the alert history this post is about. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+The device page shows the live readings, the charts above in their interactive form, and the alert history this post is about. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
 To put your own greenhouse on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
 
+<LinkButton href="https://siliconwit.io/d/greenhouse-cut-flowers" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
 <RemoteMonitoringComments />
+
 
 <InArticleAd />
 <TawkWidget />
