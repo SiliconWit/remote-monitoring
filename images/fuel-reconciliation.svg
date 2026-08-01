@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) Consumption: a slope the engine can account for</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) Loss: a cliff with the engine stopped</text>
+
+<!-- Panel (a) axes -->
+<line x1="90" y1="72" x2="90" y2="250" stroke="#000" stroke-width="1.6"/>
+<line x1="90" y1="250" x2="420" y2="250" stroke="#000" stroke-width="1.6"/>
+<text x="72" y="78" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="end">litres</text>
+<text x="420" y="270" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="end">time</text>
+
+<!-- (a) sloping fuel line -->
+<line x1="90" y1="100" x2="360" y2="196" stroke="#1a4fd6" stroke-width="2.6"/>
+<line x1="90" y1="100" x2="360" y2="100" stroke="#9aa4ad" stroke-width="1.2" stroke-dasharray="6,4"/>
+<line x1="360" y1="100" x2="360" y2="196" stroke="#c00000" stroke-width="1.6"/>
+<text x="374" y="152" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#c00000" text-anchor="start">fuel used</text>
+
+<!-- (a) engine running band -->
+<rect x="90" y="262" width="270" height="20" fill="#9aa4ad" stroke="#000" stroke-width="1.2"/>
+<text x="225" y="277" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">engine running</text>
+
+<text x="90" y="320" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" text-anchor="start" font-weight="bold">litres lost  =  engine hours  &#215;  burn rate</text>
+<text x="90" y="344" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">117.0 h of running over the month</text>
+<text x="90" y="364" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">Every litre has a reason. Nothing to explain.</text>
+
+<!-- Panel (b) axes -->
+<line x1="596" y1="72" x2="596" y2="250" stroke="#000" stroke-width="1.6"/>
+<line x1="596" y1="250" x2="926" y2="250" stroke="#000" stroke-width="1.6"/>
+<text x="578" y="78" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="end">litres</text>
+<text x="926" y="270" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="end">time</text>
+
+<!-- (b) flat, cliff, flat -->
+<line x1="596" y1="100" x2="740" y2="100" stroke="#1a4fd6" stroke-width="2.6"/>
+<line x1="740" y1="100" x2="740" y2="204" stroke="#1a4fd6" stroke-width="2.6"/>
+<line x1="740" y1="204" x2="866" y2="204" stroke="#1a4fd6" stroke-width="2.6"/>
+<line x1="756" y1="100" x2="756" y2="204" stroke="#c00000" stroke-width="1.6"/>
+<text x="770" y="158" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#c00000" text-anchor="start" font-weight="bold">40.0 L</text>
+<text x="770" y="176" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#c00000" text-anchor="start">in one interval</text>
+
+<!-- (b) engine stopped band -->
+<rect x="596" y="262" width="270" height="20" fill="white" stroke="#000" stroke-width="1.2" stroke-dasharray="5,3"/>
+<text x="731" y="277" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">engine stopped, 0 min run time</text>
+
+<text x="596" y="320" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" text-anchor="start" font-weight="bold">litres lost  =  0 h  &#215;  burn rate  =  0 L</text>
+<text x="596" y="344" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">Expected zero. Tank lost 40.0 L.</text>
+<text x="596" y="364" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#c00000" text-anchor="start" font-weight="bold">Unexplained: 40.0 L</text>
+
+<line x1="508" y1="60" x2="508" y2="380" stroke="#9aa4ad" stroke-width="1.2"/>
+
+<text x="505" y="408" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="middle">Two events in one month: 52.5 L on 3 July and 40.0 L on 15 July, both with the generator at 0% load.</text>
+</svg>

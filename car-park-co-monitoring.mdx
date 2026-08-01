@@ -1,0 +1,120 @@
+---
+title: 'Fans on a Timer, or Fans on a Reading: Car Park Ventilation That Earns Its Keep'
+description: 'An underground car park cut its extraction fans from running on a timer to running about a third of the time, and caught a 75 ppm carbon monoxide event on the way. This reads both charts.'
+contributors: "sam-macharia"
+pubDate: 2026-08-19
+tags: ["environment-safety", "remote-monitoring", "iot", "ventilation", "carbon-monoxide", "energy-efficiency", "automation"]
+excerpt: "A ventilation fan on a timer has two failure modes and they point in opposite directions. It runs when the car park is empty, which costs money, and it may not run when a queue of idling cars builds up, which costs something else. This post reads a monitored underground car park where the fans follow the gas reading instead."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/car-park-co-monitoring.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+<UniversalContentContributors
+  contributors={frontmatter.contributors}
+/>
+
+Carbon monoxide is colourless, odourless, and heavier traffic makes more of it. An underground car park is therefore a room where the hazard is invisible, the source is unpredictable, and the control is a large electric fan that somebody has to decide when to run. For most of the history of car parks that decision has been made by a time switch. #EnvironmentSafety #RemoteMonitoring #Ventilation
+
+## The installation
+
+Carbon monoxide monitoring in an underground car park, with the extraction fans reporting their own running state alongside the gas reading. The owner's summary of the previous arrangement: the fans used to run on a timer whether anyone needed them or not.
+
+A timer is a guess about occupancy, frozen at the moment somebody set it. It is wrong in both directions. It runs the fans through quiet Sunday mornings, and it holds the same schedule on the evening a queue backs up at the barrier with thirty engines idling.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/car-park-co-monitoring) keeps moving.
+:::
+
+## Reading the gas chart
+
+<InArticleAd />
+
+![Carbon monoxide over a day and a half, near zero with one sharp excursion](/device-plots/car-park-co-monitoring-co-event-1.png)
+
+The striking thing about this chart is how empty it is. Carbon monoxide in a well ventilated car park reads at or near zero almost all of the time, and over a normal three day window this one averaged **0.17 ppm** and never exceeded 1.5.
+
+That flatness is the reading doing its job, and it is also the trap. A sensor that reports nothing for weeks is indistinguishable from a sensor that has died, which is why this device also reports **detector health**, sitting between 97% and 99%. Without that second reading, a flat line is ambiguous. With it, a flat line means the air is clean and the instrument is awake.
+
+Then there is the exception. On **Saturday 18 July at 15:30, carbon monoxide reached 75 ppm.** On a chart scaled to a normal week, that is not a bump. It is a wall.
+
+For context on why 75 matters, occupational exposure limits are commonly set around 30 to 35 ppm as an eight hour average, with short term limits well above that. A brief 75 ppm reading is not a fatality, and treating it as one would be alarmist. It is, however, several hundred times the room's own baseline, and it is exactly the condition the fans exist for.
+
+## Reading the extraction chart
+
+<InArticleAd />
+
+![Extraction running percentage over the same window, responding to the gas event](/device-plots/car-park-co-monitoring-co-event-2.png)
+
+Same window, the fans' own account of themselves.
+
+This is the reading that separates a monitoring system from a control system. The gas chart tells you the air got bad. This chart tells you something was done about it, when, and for how long, without anybody being asked.
+
+Over the full month the extraction ran **33.9% of the time**. Set that against a timer running fans on a fixed daily schedule and the saving is the difference between those two numbers, on plant that is typically several kilowatts and sometimes very much more.
+
+The safety argument and the energy argument point the same way here, which is rarer than it sounds. Demand controlled ventilation runs the fans less overall **and** runs them harder exactly when the room needs it. A timer cannot do the second thing at all.
+
+## What this is worth
+
+<InArticleAd />
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+Take a modest extraction plant drawing 7.5 kW. Running continuously it uses about 5,400 kWh a month. Running 33.9% of the time it uses about 1,830 kWh. At a conservative USD 0.15 per kWh that is a difference of roughly **USD 535 a month** on one car park, and the equipment to achieve it is a gas sensor and a rule.
+
+Against that:
+
+- The **payback is measured in months**, not years, which is unusual for anything in building services.
+- Running the fans a third of the time is also **a third of the wear**, so the motors, bearings and belts all last longer.
+- **Detector health** is what stops this from being a false economy. A demand controlled system that trusts a dead sensor will run the fans never rather than always, and that is a much worse failure than the timer it replaced.
+- The **record** matters for anything that follows an incident. An event at 15:30 on a Saturday with a documented ventilation response is a very different conversation from an event nobody logged.
+
+The honest framing is that the safety case justifies the installation and the energy case pays for it. Either one alone would be a harder argument.
+
+## What to measure if you run one of these
+
+<InArticleAd />
+
+<CardGrid>
+  <Card title="Carbon monoxide, and its peak" icon="approve-check">
+    The instantaneous value plus the highest reached in each window. A short spike between samples is exactly what you must not miss.
+  </Card>
+  <Card title="Extraction running state" icon="approve-check">
+    Turns monitoring into proof of response. Without it you know the air went bad and nothing about what happened next.
+  </Card>
+  <Card title="Detector health" icon="approve-check">
+    The reading that makes a flat line trustworthy. A silent sensor and a clean room look identical without it.
+  </Card>
+  <Card title="Fan runtime hours" icon="approve-check">
+    Where the energy saving is proved, and where you notice a fan that has started running far more than it used to.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+The other environment and safety installations share this instrument set and change the gas. A [commercial kitchen LPG monitor](https://siliconwit.io/d/commercial-kitchen-lpg) reads zero nearly always, which its owner is quite content with. [Fuel depot vapour monitoring](https://siliconwit.io/d/fuel-depot-vapour) puts extraction status next to the hydrocarbon reading for the same reason this car park does, so it is possible to tell which of the two is the problem. [Roadside air quality](https://siliconwit.io/d/roadside-air-quality) measures the outdoor version of the same traffic, and found mornings worse than expected because still air holds everything in until the sun gets up.
+
+The demand controlled argument generalises. An [office HVAC air handler](https://siliconwit.io/d/office-hvac-air-handler) is monitored partly to settle arguments about whether it is actually running, which is the same question this car park answers with its extraction reading.
+
+## See it running
+
+<InArticleAd />
+
+<LinkButton href="https://siliconwit.io/d/car-park-co-monitoring" variant="primary">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="minimal">Monitor your own equipment</LinkButton>
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history including the 75 ppm event. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own car park on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<RemoteMonitoringComments />
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

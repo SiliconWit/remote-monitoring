@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) Measuring the rate</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) Quoting against it</text>
+
+<!-- (a) calendar time bar -->
+<text x="70" y="76" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="start">calendar time, 72.3 h</text>
+<rect x="70" y="84" width="380" height="34" fill="white" stroke="#000" stroke-width="1.6"/>
+
+<!-- (a) spindle time bar, 88% of it -->
+<text x="70" y="146" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="start">spindle turning, 63.7 h</text>
+<rect x="70" y="154" width="335" height="34" fill="#9aa4ad" stroke="#000" stroke-width="1.6"/>
+<rect x="405" y="154" width="45" height="34" fill="#c00000" stroke="#000" stroke-width="1.6"/>
+<text x="427" y="212" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#c00000" text-anchor="middle">8.6 h</text>
+
+<text x="70" y="256" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" text-anchor="start" font-weight="bold">utilisation  =  63.7 / 72.3  =  88.1%</text>
+<text x="70" y="284" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">The lost 8.6 h arrived as 123 short stoppages,</text>
+<text x="70" y="304" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">not as one block of downtime. Only 50 minutes</text>
+<text x="70" y="324" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">of the window sat at zero power.</text>
+
+<!-- (b) the quote -->
+<text x="596" y="76" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="start">quoted, 40 h of cutting</text>
+<rect x="596" y="84" width="340" height="34" fill="white" stroke="#000" stroke-width="1.6"/>
+
+<text x="596" y="146" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="start">delivered in 40 h of calendar time</text>
+<rect x="596" y="154" width="300" height="34" fill="#9aa4ad" stroke="#000" stroke-width="1.6"/>
+<rect x="896" y="154" width="40" height="34" fill="#c00000" stroke="#000" stroke-width="1.6"/>
+<text x="916" y="212" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#c00000" text-anchor="middle">4.8 h</text>
+
+<text x="596" y="256" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#000" text-anchor="start">40 h  &#215;  88.1%  =  35.2 h delivered</text>
+<text x="596" y="280" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#c00000" text-anchor="start" font-weight="bold">shortfall  =  4.8 h on every 40 h quoted</text>
+
+<text x="596" y="312" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">Paid for as overtime, or paid for in the</text>
+<text x="596" y="332" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="start">delivery date. Quote at 88% and it disappears.</text>
+
+<line x1="508" y1="60" x2="508" y2="360" stroke="#9aa4ad" stroke-width="1.2"/>
+
+<text x="505" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#333" text-anchor="middle">Twelve per cent is small enough to absorb, blame on individual jobs, and never fix. That is what makes it expensive.</text>
+</svg>
