@@ -1,10 +1,10 @@
 ---
 title: 'Thirty Outages Nobody Logged: Reading a Building Supply'
-description: 'A building lost mains thirty times in a month for a total of 204 minutes, and its UPS battery never fully recovered between them. This reads both charts and what 98% availability actually means.'
+description: 'A building logged thirty outages in a month, but the readings show five times that much time without mains, and its UPS battery never fully recovered between them. This reads both charts and what 97.5% availability actually means.'
 contributors: "sam-macharia"
 pubDate: 2026-09-16
 tags: ["smart-buildings", "remote-monitoring", "iot", "power-quality", "ups", "facilities", "tenants"]
-excerpt: "Ninety eight per cent availability sounds like a pass. It is three and a half hours of darkness a month, delivered in thirty separate interruptions, each one short enough that nobody wrote it down and long enough to drop every server in the building. This post reads a month of a monitored building supply."
+excerpt: "Ninety seven and a half per cent availability sounds like a pass. It is eighteen hours of darkness a month, delivered in interruptions short enough that nobody wrote them down and long enough to drop every server in the building. This post reads a month of a monitored building supply."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/building-power-monitoring.png"
 ---
 
@@ -28,7 +28,9 @@ Monitoring on the incoming supply for a whole building. The owner's reason for i
 
 Over the last month the alert log recorded **30 separate mains outages**, totalling **204 minutes**. The longest was 14 minutes, the shortest was one.
 
-The readings underneath tell a larger story. Summed across the month, this supply spent **1,082 minutes without mains**, which is just over **18 hours**, and works out at **97.5% availability**. The alert log accounts for less than a fifth of that. This post is partly about the gap between those two numbers.
+The readings underneath tell a larger story. Summed across the month, this supply spent **1,082 minutes without mains**, which is just over **18 hours**:
+
+$$\text{availability} = 1 - \frac{1{,}082\ \text{min}}{30 \times 1{,}440\ \text{min}} = 1 - \frac{1{,}082}{43{,}200} = 97.5\%$$ The alert log accounts for less than a fifth of that. This post is partly about the gap between those two numbers.
 
 :::note[About this device]
 The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/building-power-monitoring) keeps moving.
@@ -60,9 +62,9 @@ Availability expressed as a percentage flatters short frequent failures. Two and
 
 There is a second lesson in the gap between the 204 minutes in the alert log and the 1,082 minutes in the readings. **An alert log is a record of what crossed a rule, not a record of what happened.** Anything that fell below the rule's threshold, or arrived while an alert was already open, is missing from it. If you are judging a supply, judge it on the measurement and use the log to navigate.
 
-Frequency and duration are different quantities and they do different damage. A supply that fails once for three hours is a supply problem. A supply that fails thirty times for six minutes is a **reliability** problem, and the two want opposite responses: the first wants a generator, the second wants ride-through.
+Frequency and duration are different quantities and they do different damage. A supply that fails once for eighteen hours is a supply problem. A supply that fails dozens of times for a few minutes is a **reliability** problem, and the two want opposite responses: the first wants a generator, the second wants ride-through.
 
-This is why the log matters more than the summary. A monthly availability figure would have shown this building as healthy. The list of thirty timestamps shows what is actually happening.
+A monthly availability figure would have shown this building as healthy. Neither the percentage nor the alert log, on its own, shows what is actually happening.
 
 ## The second story in the data
 
@@ -122,8 +124,8 @@ The power quality argument runs elsewhere in the fleet too. A [UPS and power qua
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/building-power-monitoring" variant="primary">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="minimal">Monitor your own equipment</LinkButton>
+<LinkButton href="https://siliconwit.io/d/building-power-monitoring" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
 The device page shows the live readings, the charts above in their interactive form, and the full outage and battery alert history. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 

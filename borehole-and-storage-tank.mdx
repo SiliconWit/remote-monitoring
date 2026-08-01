@@ -56,7 +56,11 @@ Same window, same four cycles, one reading: the current the motor is drawing.
 
 Three of these pulses are the same shape. The pump starts, current goes almost immediately to somewhere around 9.2 to 9.5 A, holds flat while it lifts water, and drops to zero when it stops. Square, boring, correct.
 
-The fourth is not square. Look at Sunday morning. Current comes up to **4.8 A against a rated 8.9 A**, sits low, climbs slowly through the 5s and into the 6s, and only then makes it up to the 9.4 A the other three cycles reached from the start. That shoulder on the leading edge is about forty five minutes long.
+The fourth is not square. Look at Sunday morning. Current comes up to **4.8 A against a rated 8.9 A**, which is
+
+$$\frac{4.8\ \text{A}}{8.9\ \text{A}} = 54\%\ \text{of rated load}$$
+
+It sits low, climbs slowly through the 5s and into the 6s, and only then makes it up to the 9.4 A the other three cycles reached from the start. That shoulder on the leading edge is about forty five minutes long.
 
 The reason low current is the alarming direction takes a moment to sit right, because instinct says a struggling motor should draw more. A centrifugal pump is loaded by the water it moves. Move less water and you load the motor less and it draws less current. So on this kind of pump, **low current does not mean it is taking it easy. It means it is not pumping.** The motor was spinning in a borehole that could not supply it, cooled by whatever water was still passing, for three quarters of an hour.
 
@@ -118,8 +122,8 @@ If it is the pump rather than the water you care about, the same argument from c
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/borehole-and-storage-tank" variant="primary">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="minimal">Monitor your own equipment</LinkButton>
+<LinkButton href="https://siliconwit.io/d/borehole-and-storage-tank" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
 The device page shows the live readings, the charts above in their interactive form, and the alert history including the dry run this post is about. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 

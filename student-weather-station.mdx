@@ -44,7 +44,11 @@ Over this window PM2.5 averaged **24.1 µg/m³** with a peak of 37.0, PM10 avera
 
 The first thing to notice is that PM2.5 is always below PM10, and that this is not a coincidence or a calibration artefact. PM10 is defined as particles up to 10 micrometres, which **includes** everything counted as PM2.5. One is a subset of the other, so PM2.5 exceeding PM10 would be physically impossible and is an immediate sign of a fault. That single check is worth teaching on its own: some errors are detectable from internal consistency, with no reference instrument needed at all.
 
-The second is the ratio. Here PM2.5 sits at roughly 57% of PM10. A high fine fraction points at combustion, which is traffic, generators or burning. A low fine fraction points at coarse material, which is dust, construction or soil. The ratio says something about the **source** that neither number says alone.
+The second is the ratio:
+
+$$\frac{\text{PM}_{2.5}}{\text{PM}_{10}} = \frac{24.1\ \mu\text{g/m}^3}{41.9\ \mu\text{g/m}^3} = 0.57$$
+
+A high fine fraction points at combustion, which is traffic, generators or burning. A low fine fraction points at coarse material, which is dust, construction or soil. The ratio says something about the **source** that neither number says alone.
 
 ## What a single reading cannot tell you
 
@@ -119,8 +123,8 @@ For the comparison this post is about, the two stations to hold this one against
 
 <InArticleAd />
 
-<LinkButton href="https://siliconwit.io/d/student-weather-station" variant="primary">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="minimal">Monitor your own equipment</LinkButton>
+<LinkButton href="https://siliconwit.io/d/student-weather-station" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
 The device page shows the live readings and the charts above in their interactive form. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 

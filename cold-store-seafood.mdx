@@ -31,7 +31,9 @@ A cold store does not fail loudly. It drifts. The compressor works a little hard
 
 This installation watches the main cold store of a seafood processing operation. The product is destined for export, which changes the stakes in two ways. The obvious one is value: a store like this holds stock worth far more than the building it sits in. The less obvious one is that an export buyer can reject a consignment on suspicion alone, and without a temperature record, suspicion is all anyone has.
 
-The store runs at a target of about 2.5 °C. Over the readings behind this post it held a mean of **2.6 °C**, never dropped below **1.2 °C**, and never rose above **4.3 °C**.
+The store runs at a target of about 2.5 °C. Over the readings behind this post it held a mean of **2.57 °C**, never dropped below **1.20 °C**, and its peak never rose above **4.30 °C**. The door was opened 56 times for a total of 74.5 minutes, which averages out at
+
+$$\frac{74.5\ \text{min}}{56\ \text{openings}} = 1.33\ \text{min per opening}$$
 
 :::note[About this device]
 The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/cold-store-seafood) keeps moving.
@@ -59,7 +61,11 @@ The signature you do not want looks different. It is a peak that does not fall b
 
 ![Compressor duty cycle in a seafood cold store over three days](/device-plots/cold-store-seafood-2.png)
 
-Compressor duty is the percentage of time the compressor is actually running. At the moment of capture it sat at **30%**, and that number is the single best early warning a cold store gives you.
+Compressor duty is the percentage of time the compressor is actually running. Over the three days in this chart it ran for 14.6 hours out of 72.2 elapsed:
+
+$$\text{duty} = \frac{14.6\ \text{h running}}{72.2\ \text{h elapsed}} = 20.3\%$$
+
+That number is the single best early warning a cold store gives you, because it has somewhere to go. A store holding temperature at 20% duty has four fifths of its capacity in reserve. The same store holding the same temperature at 60% duty is in trouble and the thermometer will not say so.
 
 A store in good condition holds its temperature with duty to spare. As seals age, as ice builds on the evaporator, as the charge drops, the room still holds temperature but the compressor works longer to do it. **Temperature stays flat while duty climbs.** By the time the temperature itself starts moving, the machine has been shouting for weeks.
 
@@ -72,7 +78,11 @@ That is why duty is worth an alert rule of its own. A rule that fires when duty 
 
 The numbers below are a worked example, not a promise. Put your own figures in.
 
-Take a store holding 12 tonnes of export seafood at a conservative USD 6 per kilogram. That is **USD 72,000** of product sitting in one room. A weekend excursion that a buyer will not accept does not have to spoil the fish to cost you the consignment; it only has to be undocumented.
+Take a store holding 12 tonnes of export seafood at a conservative USD 6 per kilogram:
+
+$$12{,}000\ \text{kg} \times 6\ \text{USD/kg} = \text{USD } 72{,}000$$
+
+That is the value sitting in one room. A weekend excursion that a buyer will not accept does not have to spoil the fish to cost you the consignment; it only has to be undocumented.
 
 Against that:
 
@@ -114,8 +124,8 @@ The same instrument set also shows up well outside the cold chain. A [server roo
 <InArticleAd />
 
 
-<LinkButton href="https://siliconwit.io/d/cold-store-seafood" variant="primary">Open this device</LinkButton>
-<LinkButton href="https://siliconwit.io" variant="minimal">Monitor your own equipment</LinkButton>
+<LinkButton href="https://siliconwit.io/d/cold-store-seafood" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
 
 The device page shows the live readings, the charts above in their interactive form, and the alert history. If that link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
 
