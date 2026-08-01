@@ -5,7 +5,7 @@ contributors: "sam-macharia"
 pubDate: 2026-07-08
 tags: ["manufacturing", "remote-monitoring", "iot", "cnc", "utilisation", "oee", "quoting"]
 excerpt: "Ask a workshop how much of the week the machine runs and you will get a number close to a hundred. Ask the machine and you get something lower, and the gap is not made of downtime anyone remembers. This post reads three days from a monitored CNC, finds where eight and a half hours went, and shows what that does to the price on a quote."
-heroImage: "https://siliconwit.io/og/og-manufacturing.png"
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/cnc-machine-tool.png"
 ---
 
 import TawkWidget from '../../../../components/TawkWidget.astro';
@@ -99,6 +99,12 @@ The honest framing is that this device will probably never prevent a catastrophe
     Not part of the quoting story, but the pair that tells you the spindle is wearing while everything else still looks normal.
   </Card>
 </CardGrid>
+
+## Related installations
+
+Power draw, load, bearing temperature and vibration run across the rest of the plant, and what differs is the reason each machine is watched. A [production line drive motor](https://siliconwit.io/d/production-line-motor) is instrumented for the vibration trend and almost nothing else. A [plant air compressor](https://siliconwit.io/d/plant-air-compressor) is there because compressed air costs more than lighting and heating together, and its owner needed somewhere to prove it. An [injection moulding machine](https://siliconwit.io/d/injection-moulding-machine) counts cycles and short stops for the same quoting reason this machine does, because quoted capacity and actual capacity have never been the same number.
+
+Two more are worth opening for the failures behind them. A [steam boiler feed pump](https://siliconwit.io/d/steam-boiler-feed-pump) threw a bearing and took the boiler with it, and a [materials test rig](https://siliconwit.io/d/materials-test-rig) once stopped on a Friday night and was not found until Monday, which is the same lesson this post makes about short stoppages, scaled up to a whole weekend.
 
 ## See it running
 

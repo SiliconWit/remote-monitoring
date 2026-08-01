@@ -5,7 +5,7 @@ contributors: "sam-macharia"
 pubDate: 2026-06-24
 tags: ["water", "remote-monitoring", "iot", "borehole", "pumps", "predictive-maintenance", "post-mortem"]
 excerpt: "The tank filled. It filled on time, it filled to the usual level, and by lunchtime nothing about the system looked wrong. Underneath that, for about forty five minutes, the pump had been turning without moving much water. This post walks through the readings from a real dry run, shows which chart hid it and which chart caught it, and works out what the difference is worth."
-heroImage: "https://siliconwit.io/og/og-water.png"
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/borehole-and-storage-tank.png"
 ---
 
 import TawkWidget from '../../../../components/TawkWidget.astro';
@@ -107,6 +107,12 @@ The asymmetry is the argument. Watching costs a sensor and a rule. Not watching 
     Confirms the pump is delivering rather than just turning, and separates a pump problem from a pipe problem.
   </Card>
 </CardGrid>
+
+## Related installations
+
+The other water installations put much the same instrument set to different questions. [Building water storage](https://siliconwit.io/d/building-water-storage) watches rooftop tanks for a block, where demand that stops matching occupancy usually means a leak. A [quarry dewatering pump](https://siliconwit.io/d/quarry-dewatering-pump) is watched properly rather than checked on, because when it stops the work stops. [District water metering](https://siliconwit.io/d/district-water-metering) ignores tank level entirely and reads night flow instead, on the principle that whatever is still moving at three in the morning is leaking. [Tenant water monitoring](https://siliconwit.io/d/tenant-water-monitoring) adds the question of who used what, and whether the pump is short cycling again.
+
+If it is the pump rather than the water you care about, the same argument from current and vibration runs on rotating equipment generally. A [steam boiler feed pump](https://siliconwit.io/d/steam-boiler-feed-pump) is on the public fleet for exactly the reason this borehole is: it threw a bearing once and took the boiler down with it.
 
 ## See it running
 
