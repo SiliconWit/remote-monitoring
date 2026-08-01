@@ -1,0 +1,44 @@
+---
+title: Remote Monitoring
+description: What connected equipment actually tells you, one installation at a time. Each post takes a live reference device, reads its data, and works out what catching a fault early is worth.
+heroImage: "https://siliconwit.io/og/og-image.png"
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import Copyright from '../../../../components/Copyright.astro';
+import TawkWidget from '../../../../components/TawkWidget.astro';
+
+A pump stops at 2am. A cold room drifts over a weekend. A generator runs hot for a week. Left alone, each one is a repair bill or a write-off, and the reading that would have warned you was already there.
+
+This series takes one connected installation at a time and reads it properly: what the equipment is for, which measurements matter, what the charts are actually showing, and what it is worth to know a week earlier. Every post links to a device you can open and inspect yourself.
+
+## About the devices in this series
+
+Each post is built on a **SiliconWit reference device**: a continuously running installation, one per industry, kept online so anyone can open a populated dashboard for their own sector before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms, the seasonal drift and the failure behaviour are the ones the equipment would actually produce.
+
+They sit on the [public device gallery](https://siliconwit.io/public-devices) alongside devices that people have chosen to share. Sharing is never automatic. Every device on SiliconWit.io is private by default, and it becomes visible only when its owner decides to publish it and picks which fields to show.
+
+<CardGrid>
+  <Card title="Cold store, seafood processing" icon="approve-check">
+    Holding export product at 2.6 °C, and proving it held.
+
+    [Read the post →](/blog/remote-monitoring/cold-store-seafood/)
+  </Card>
+  <Card title="Borehole and storage tank" icon="approve-check">
+    A pump that ran dry, and the reading that caught it.
+
+    [Read the post →](/blog/remote-monitoring/borehole-and-storage-tank/)
+  </Card>
+  <Card title="CNC machine tool" icon="approve-check">
+    Spindle load, utilisation, and what the quiet hours cost.
+
+    [Read the post →](/blog/remote-monitoring/cnc-machine-tool/)
+  </Card>
+</CardGrid>
+
+## Where to start
+
+If you would rather see live data before reading about it, the [public device gallery](https://siliconwit.io/public-devices) is open with no account, and you can [send your own readings without signing up](https://siliconwit.io/try).
+
+<TawkWidget />
+<Copyright />
