@@ -18,17 +18,19 @@ A post-per-installation series on what connected equipment actually tells you. E
 
 ## Posts
 
-| # | Post | Device | Angle |
-|---|------|--------|-------|
-| 1 | Cold Store Monitoring | `cold-store-seafood` | The compliance record, and duty as the early warning |
-| 2 | The Pump That Ran Dry | `borehole-and-storage-tank` | Incident post-mortem |
-| 3 | Never Off, Still a Shift Short | `cnc-machine-tool` | Utilisation economics and quoting |
-| 4 | The Alarm That Fires Every Night | `greenhouse-cut-flowers` | Threshold placement and alert fatigue |
-| 5 | Forty Litres, Engine Stopped | `off-grid-tower-solar-genset` | Fuel reconciliation |
-| 6 | Fans on a Timer, or on a Reading | `car-park-co-monitoring` | Demand-driven ventilation |
-| 7 | The Excursion Nobody Saw | `laboratory-incubator` | Data integrity |
-| 8 | Thirty Outages Nobody Logged | `building-power-monitoring` | Frequency against duration |
-| 9 | Built by a Class, Left Public | `student-weather-station` | A reading against a measurement |
+| # | Post | Installation | Angle |
+|---|------|--------------|-------|
+| 1 | [Cold Store Monitoring](https://siliconwit.com/blog/remote-monitoring/cold-store-seafood/) | [Cold store, seafood processing](https://siliconwit.io/d/cold-store-seafood) | The compliance record, and duty as the early warning |
+| 2 | [The Pump That Ran Dry](https://siliconwit.com/blog/remote-monitoring/borehole-and-storage-tank/) | [Borehole and storage tank](https://siliconwit.io/d/borehole-and-storage-tank) | Incident post-mortem |
+| 3 | [Never Off, Still a Shift Short](https://siliconwit.com/blog/remote-monitoring/cnc-machine-tool/) | [CNC machine tool](https://siliconwit.io/d/cnc-machine-tool) | Utilisation economics and quoting |
+| 4 | [The Alarm That Fires Every Night](https://siliconwit.com/blog/remote-monitoring/greenhouse-cut-flowers/) | [Greenhouse, cut flowers](https://siliconwit.io/d/greenhouse-cut-flowers) | Threshold placement and alert fatigue |
+| 5 | [Forty Litres, Engine Stopped](https://siliconwit.com/blog/remote-monitoring/off-grid-tower-solar-genset/) | [Off-grid tower site](https://siliconwit.io/d/off-grid-tower-solar-genset) | Fuel reconciliation |
+| 6 | [Fans on a Timer, or on a Reading](https://siliconwit.com/blog/remote-monitoring/car-park-co-monitoring/) | [Car park carbon monoxide](https://siliconwit.io/d/car-park-co-monitoring) | Demand-driven ventilation |
+| 7 | [The Excursion Nobody Saw](https://siliconwit.com/blog/remote-monitoring/laboratory-incubator/) | [Laboratory incubator](https://siliconwit.io/d/laboratory-incubator) | Data integrity |
+| 8 | [Thirty Outages Nobody Logged](https://siliconwit.com/blog/remote-monitoring/building-power-monitoring/) | [Building power monitoring](https://siliconwit.io/d/building-power-monitoring) | Frequency against duration |
+| 9 | [Built by a Class, Left Public](https://siliconwit.com/blog/remote-monitoring/student-weather-station/) | [Student weather station](https://siliconwit.io/d/student-weather-station) | A reading against a measurement |
+
+Every installation above is on the [public device gallery](https://siliconwit.io/public-devices), open with no account.
 
 One post per industry category, each with its own angle. The fleet has only about eight distinct sensor templates behind its devices, so a shared instrument set is normal and the angle is what keeps the series from repeating itself.
 
@@ -64,7 +66,7 @@ Explanatory figures live in `images/` in this repository. Chart images and hero 
 
 ## Where the Numbers Come From
 
-Charts are rendered by `scripts/generate-device-plots.py` in the main site repository, which reads the live fleet API:
+Every figure in a post comes from the readings of the installation it is about. Charts are rendered by `scripts/generate-device-plots.py` in the main site repository:
 
 ```bash
 # default: the trailing three days
@@ -76,14 +78,7 @@ python3 scripts/generate-device-plots.py borehole-and-storage-tank \
     --fields "tank_level_pct,pump_duty_pct|motor_current_a"
 ```
 
-The device endpoints are open and need no key:
-
-```bash
-curl -s https://ai.siliconwit.io/sim/devices              # the whole fleet
-curl -s https://ai.siliconwit.io/sim/devices/<slug>       # 30 days of history plus incidents
-```
-
-The rendered PNGs are committed to the main repository rather than fetched at page render. A device can be retired or made private, and a post from 2026 still has to draw its charts in 2029. The image is the record; the link to the live device is a courtesy on top of it.
+The rendered PNGs are committed to the main repository rather than fetched at page render. An installation can be retired or made private, and a post from 2026 still has to draw its charts in 2029. The image is the record; the link to the live device is a courtesy on top of it.
 
 ## How to Contribute
 
@@ -156,7 +151,7 @@ git push origin main
 - All post files use `.mdx` format
 - Do not use `<BionicText>` in this series
 - No em dashes or en dashes anywhere in the prose
-- **Every number must be re-derivable from the device API.** If a figure cannot be recomputed from the readings, it does not belong in a post
+- **Every number must be re-derivable from the installation's own readings.** If a figure cannot be recomputed from them, it does not belong in a post
 - Calculations are shown as worked LaTeX, not asserted. The site renders MathJax, so use `$$...$$` with `\text{}` for units and `{,}` for thousands separators:
   ````mdx
   $$\text{utilisation} = \frac{63.7\ \text{h}}{72.3\ \text{h}} = 88.1\%$$
