@@ -35,6 +35,7 @@ A post-per-installation series on what connected equipment actually tells you. E
 | 13 | [Your Best Output Day Was Your Worst Performance Day](https://siliconwit.com/blog/remote-monitoring/solar-underperformance-performance-ratio/) | [Commercial rooftop solar](https://siliconwit.io/d/commercial-rooftop-solar) | A ratio, not a threshold |
 | 14 | [A Detector That Reads Zero](https://siliconwit.com/blog/remote-monitoring/gas-detector-reads-zero/) | [Commercial kitchen LPG](https://siliconwit.io/d/commercial-kitchen-lpg) | Silence is ambiguous |
 | 15 | [The Silo Never Got Hot](https://siliconwit.com/blog/remote-monitoring/grain-storage-spoilage-monitoring/) | [Grain storage silo](https://siliconwit.io/d/grain-storage-silo) | The leading indicator beats the obvious one |
+| 16 | [The Bearing Told Us in May](https://siliconwit.com/blog/remote-monitoring/vibration-trend-bearing-wear/) | [Production line drive motor](https://siliconwit.io/d/production-line-motor) | Trend as a forecast, not a threshold |
 
 Every installation above is on the [public device gallery](https://siliconwit.io/public-devices), open with no account.
 
@@ -60,6 +61,7 @@ remote-monitoring/
 ├── solar-underperformance-performance-ratio.mdx
 ├── gas-detector-reads-zero.mdx
 ├── grain-storage-spoilage-monitoring.mdx
+├── vibration-trend-bearing-wear.mdx
 ├── images/
 │   ├── availability-arithmetic.svg
 │   ├── compressor-duty-headroom.svg

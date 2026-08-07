@@ -1,0 +1,162 @@
+---
+title: 'The Bearing Told Us in May: Reading a Vibration Trend'
+description: 'Vibration on a 22 kW drive motor rose 35% in ten weeks while load and bearing temperature stayed flat. It crossed an ISO zone boundary on 16 July, and at the same rate it reaches the next one about a year from now.'
+contributors: "sam-macharia"
+pubDate: 2026-08-08
+tags: ["manufacturing", "remote-monitoring", "iot", "predictive-maintenance", "vibration", "bearings", "condition-monitoring"]
+excerpt: "Most maintenance decisions are made twice: once when something breaks, and once, much earlier, when the evidence was already there and nobody was looking at it in the right form. This motor is the second kind. Its vibration has been climbing steadily for ten weeks while everything else about it stayed the same, and the rate of climb is enough to name the month the repair belongs in."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/production-line-motor.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
+
+<UniversalContentContributors 
+  contributors={frontmatter.contributors}
+/>
+
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+
+A bearing does not fail on the day it fails. It spends months telling anyone who is listening, in a language of small increases that no single reading is large enough to justify acting on. The whole discipline of condition monitoring rests on one idea: the useful number is not what the machine is doing, it is what the machine is doing differently from last month. #Manufacturing #RemoteMonitoring #PredictiveMaintenance
+
+## The installation
+
+A 22 kW drive motor on line two, reading load, motor current, bearing temperature, and broadband vibration velocity with the peak inside each reporting window recorded alongside the average.
+
+The owner is direct about why it is instrumented: the vibration trend is the entire reason it is monitored.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/production-line-motor) keeps moving.
+:::
+
+## Ten weeks of a number going one way
+
+<InArticleAd />
+
+
+![Vibration velocity and its window peak across seventy one days, both climbing steadily from the left of the chart to the right](/device-plots/production-line-motor-wear-1.png)
+
+Two vibration channels over seventy one days. Both climb, and neither of them jumps.
+
+$$\text{average velocity:} \quad 0.93 \rightarrow 1.23\ \text{mm/s} \quad (+32\%)$$
+
+$$\text{window peak:} \quad 2.77 \rightarrow 3.74\ \text{mm/s} \quad (+35\%)$$
+
+Look at any single day and there is nothing to report. The day-to-day change is
+
+$$\frac{1.23 - 0.93\ \text{mm/s}}{72\ \text{days}} = 0.0042\ \text{mm/s per day}$$
+
+which is four thousandths of a millimetre per second, comfortably inside the noise of the reading. Nobody notices that, and no alarm fires on it, because there is nothing to fire on. Aggregate it into weeks and the same number becomes
+
+$$0.0042 \times 7 = 0.029\ \text{mm/s per week}$$
+
+and ten of those weeks are a third of the machine's baseline.
+
+## The two readings that rule out the boring explanations
+
+<InArticleAd />
+
+
+![Load percentage and bearing temperature over the same seventy one days, both essentially flat with no trend](/device-plots/production-line-motor-wear-2.png)
+
+A rising vibration reading has three ordinary explanations before it has an interesting one. The machine is working harder. The machine is running hotter. The sensor has moved. The first two are on this chart, and they are flat.
+
+$$\text{load:} \quad 21.9\% \rightarrow 21.6\% \quad (-1.4\%)$$
+
+$$\text{bearing temperature:} \quad 25.6\ ^\circ\text{C} \rightarrow 25.1\ ^\circ\text{C}$$
+
+The motor is doing the same work it was doing in May, at the same temperature, and shaking a third more while doing it. That is the reasoning that turns a trend into a diagnosis, and it costs nothing beyond channels the installation already reports. Vibration alone says something changed. Vibration against a flat load says what changed is the machine.
+
+Bearing temperature deserves a note of its own, because it is the reading many people install expecting it to be the warning. It is not. Heat arrives late, when the damage is advanced enough to dissipate real energy, and on this machine it has not moved at all while vibration has risen by a third.
+
+## What the number means, and when it becomes a problem
+
+<InArticleAd />
+
+
+![Panel (a): a threshold placed on a reading, where the alarm fires only when the value crosses the line and everything before that is silence. Panel (b): the same readings fitted as a trend, where the slope is known long before the line is reached and the crossing date can be projected from it](./images/threshold-versus-trend.svg)
+
+Broadband velocity has published severity bands. A 22 kW motor falls in **Class II** of ISO 10816-3, machines rated between 15 and 75 kW, and on a rigid foundation the zone boundaries are **1.12, 2.8 and 7.1 mm/s RMS**. The standard was superseded by ISO 20816-3 in 2022, which carries the same limits, so a reading judged against either gives the same verdict.
+
+Against those bands, this motor started the window in **zone A**, which the standard describes as the condition of newly commissioned machinery. Its seven day rolling average reached **1.12 mm/s on 16 July**, which puts it in **zone B**, acceptable for unrestricted long-term operation. It spent 49 of the 72 days in zone A and the remainder in zone B.
+
+Nothing needs doing today. That is the point. The value of knowing is what comes next:
+
+$$\frac{2.8 - 1.23\ \text{mm/s}}{0.029\ \text{mm/s per week}} \approx 54\ \text{weeks}$$
+
+At the rate it has held for ten weeks, this bearing reaches the zone B to C boundary, where the standard says investigate and plan corrective action, in roughly a year. That is not a prediction of failure. It is a date you can put in a plan, revise as more readings arrive, and use to decide whether the bearing gets changed during a scheduled shutdown or during an unscheduled one.
+
+## What this is worth
+
+<InArticleAd />
+
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+The saving in condition monitoring is almost never the price of the part. A bearing for a 22 kW motor is an ordinary purchase. The difference between the two ways of buying it is everything else:
+
+- **Planned:** fitted during a shutdown that was happening anyway, by someone who ordered the part in advance, on a line that was not going to be running.
+- **Unplanned:** fitted at whatever hour it failed, with the line stopped, possibly having taken the shaft or the coupling with it, and quite possibly on the day of the largest order of the quarter.
+
+Lost production is usually the dominant term and it is the one that scales with how badly the timing lands. A trend converts an unplanned event into a planned one, which is the entire economic argument, and it does it with a sensor and the discipline of looking at last month's number.
+
+Two practical warnings. A trend is only comparable against itself if the measurement is repeatable, so the sensor must stay in the same place, in the same orientation, measured over the same frequency band. And a vibration reading that suddenly falls is not good news: it usually means the sensor has come loose, which is [the same trap as a detector that reads zero](/blog/remote-monitoring/gas-detector-reads-zero/).
+
+## What to measure if you run rotating plant
+
+<InArticleAd />
+
+
+<CardGrid>
+  <Card title="Broadband velocity, trended" icon="approve-check">
+    Compare it against its own history week over week. The slope is the product; the instantaneous value is just today's sample.
+  </Card>
+  <Card title="Load alongside it" icon="approve-check">
+    Without it you cannot separate a worsening bearing from a busier line, and that is the first question anybody will ask.
+  </Card>
+  <Card title="Window peak as well as average" icon="approve-check">
+    The peak inside each window catches intermittent contact that an average over ten minutes smooths away entirely.
+  </Card>
+  <Card title="Bearing temperature" icon="approve-check">
+    Worth having, but expect it to confirm rather than to warn. On this machine it has not moved while vibration rose by a third.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+<InArticleAd />
+
+
+The same instrument set runs on the rest of the rotating plant. An [injection moulding machine](https://siliconwit.io/d/injection-moulding-machine) carries the richest wear record in the fleet, a [plant air compressor](https://siliconwit.io/d/plant-air-compressor) is watched for waste rather than wear in [the post on off-shift load](/blog/remote-monitoring/compressed-air-leaks-cost/), and a [steam boiler feed pump](https://siliconwit.io/d/steam-boiler-feed-pump) is monitored because it threw a bearing once and took the boiler down with it. A [CNC machine tool](https://siliconwit.io/d/cnc-machine-tool) turns the same channels to utilisation economics in [never off, still a shift short](/blog/remote-monitoring/cnc-machine-tool/).
+
+For the same slow-ramp problem in a completely different medium, a district water meter added half a litre per minute per day for nine weeks without ever producing an abnormal reading, in [nothing was ever out of range](/blog/remote-monitoring/minimum-night-flow-leak-detection/).
+
+Choosing to act on a trend before anything has crossed a line is a decision made under uncertainty, with a cost for acting too early and a larger one for acting too late. The [making better decisions](/education/critical-thinking-engineers/making-better-decisions/) lesson sets out how to think about that trade rather than defaulting to waiting.
+
+## See it running
+
+<InArticleAd />
+
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own motor on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<LinkButton href="https://siliconwit.io/d/production-line-motor" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
+<RemoteMonitoringComments />
+
+
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) A threshold: silence, then an alarm</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) A trend: a date, months ahead</text>
+<line x1="100" y1="290" x2="430" y2="290" stroke="#000" stroke-width="1.6"/>
+<line x1="100" y1="290" x2="100" y2="70" stroke="#000" stroke-width="1.6"/>
+<text x="76" y="180" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 76 180)">mm/s</text>
+<line x1="100" y1="110" x2="430" y2="110" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6,4"/>
+<text x="437" y="114" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#B45309">limit</text>
+<path d="M100,250 L160,246 L220,240 L280,232 L340,222 L400,210" fill="none" stroke="#0F766E" stroke-width="2.6"/>
+<text x="252" y="330" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">no reading has crossed the line,</text>
+<text x="252" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">so the system reports nothing at all</text>
+<text x="252" y="382" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309" text-anchor="middle" font-weight="bold">you learn on the day it is too late to plan</text>
+<line x1="606" y1="290" x2="936" y2="290" stroke="#000" stroke-width="1.6"/>
+<line x1="606" y1="290" x2="606" y2="70" stroke="#000" stroke-width="1.6"/>
+<text x="582" y="180" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 582 180)">mm/s</text>
+<line x1="606" y1="110" x2="936" y2="110" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6,4"/>
+<text x="943" y="114" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#B45309">2.8</text>
+<line x1="606" y1="200" x2="936" y2="200" stroke="#D1D5DB" stroke-width="1.6" stroke-dasharray="4,4"/>
+<text x="943" y="204" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#6B7280">1.12</text>
+<path d="M606,250 L666,246 L726,240 L786,232 L846,222 L906,210" fill="none" stroke="#0F766E" stroke-width="2.6"/>
+<path d="M906,210 L936,204" fill="none" stroke="#0F766E" stroke-width="2.2" stroke-dasharray="5,4"/>
+<circle cx="789" cy="231" r="4.5" fill="#B45309"/>
+<text x="789" y="222" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#B45309" text-anchor="middle">16 Jul</text>
+<text x="758" y="330" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">the slope is known now: 0.029 mm/s per week</text>
+<text x="758" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">so the crossing can be projected forward</text>
+<text x="758" y="382" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309" text-anchor="middle" font-weight="bold">about 54 weeks, which fits in a maintenance plan</text>
+<line x1="516" y1="60" x2="516" y2="400" stroke="#D1D5DB" stroke-width="1.2"/>
+</svg>
