@@ -28,8 +28,8 @@
 <text x="272" y="130" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#B45309">same rise</text>
 
 <text x="257" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">a hole runs at 03:00 exactly as it runs at noon</text>
-<text x="257" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">night / day ratio holds, or rises slightly</text>
-<text x="257" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">observed: 96.4% then 97.2%</text>
+<text x="257" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">night / day ratio rises</text>
+<text x="257" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">observed: 32.5% then 36.2%</text>
 
 <!-- (b) axes -->
 <line x1="596" y1="300" x2="931" y2="300" stroke="#000" stroke-width="1.6"/>

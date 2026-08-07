@@ -1,10 +1,10 @@
 ---
-title: 'Nothing Was Ever Out of Range: Nine Weeks of a Leak Growing'
-description: 'A district meter added half a litre per minute per day for nine weeks. No reading was ever abnormal, no alarm ever fired, and 1,430 cubic metres went into the ground before anyone looked at the trend.'
+title: 'Nothing Was Ever Out of Range: Ten Weeks of a Leak Growing'
+description: 'A district meter has added half a litre per minute per day for ten weeks. No reading has ever been abnormal, no alarm has fired, and about 1,790 cubic metres have gone into the ground. It is still going.'
 contributors: "sam-macharia"
 pubDate: 2026-08-07
 tags: ["water", "remote-monitoring", "iot", "leak-detection", "night-flow", "district-metering", "non-revenue-water"]
-excerpt: "Every individual reading on this meter was normal. Nothing crossed a threshold, nothing tripped an alarm, and anybody checking the meter on any given morning would have found it healthy. Underneath that, a leak grew by half a litre per minute per day for nine weeks. This post works through what the readings show, how to tell a leak from a busier month using nothing but the meter, and what the nine weeks cost."
+excerpt: "Every individual reading on this meter was normal. Nothing crossed a threshold, nothing tripped an alarm, and anybody checking the meter on any given morning would have found it healthy. Underneath that, a leak has been growing by half a litre per minute per day for ten weeks. This post works through what the readings show, how to tell a leak from a busier month using nothing but the meter, and what the ten weeks have cost."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/district-water-metering.png"
 ---
 
@@ -57,28 +57,28 @@ That is the whole difficulty. You cannot see a trend in a window shorter than th
 
 Same meter, same readings, one number per day instead of every reading: the lowest flow the meter saw overnight.
 
-It climbs. It climbs for sixty three days without a pause, from **166.5 L/min on 28 May to 198.0 L/min on 30 July**, and then on 1 August it falls off a cliff back to **166.4 L/min**, which is where it started. That last part is the repair. Somebody found it and fixed it, and the meter recorded the fix as clearly as it recorded the fault.
+It climbs, for seventy days, without a pause: from **166.4 L/min on 29 May to 202.0 L/min on 7 August**. There is no repair on this chart. The highest reading is the last one, which means whatever is leaking is still leaking as this is written.
 
 The rate works out at
 
-$$\frac{198.0 - 166.5\ \text{L/min}}{63\ \text{days}} = 0.500\ \text{L/min per day}$$
+$$\frac{202.0 - 166.4\ \text{L/min}}{70\ \text{days}} = 0.508\ \text{L/min per day}$$
 
 Half a litre per minute, per day, against a baseline of 166. That is
 
-$$\frac{0.500}{166.5} = 0.30\%\ \text{per day}$$
+$$\frac{0.508}{166.4} = 0.31\%\ \text{per day}$$
 
-Nothing detects three tenths of a percent per day as an event, because it is not an event. Put a threshold anywhere you like on this chart and it fires on the fifty somethingth day, long after the water is gone, and only if somebody happened to set it in the right place beforehand.
+Nothing detects three tenths of a percent per day as an event, because it is not an event. Put a threshold anywhere you like on this chart and it fires deep into the second month, long after the water is gone, and only if somebody happened to set it in the right place beforehand.
 
 ## Is it a leak, or just a busier month?
 
 <InArticleAd />
 
 
-This is the question that decides whether you send anybody out, and the meter can answer it on its own. Total flow rose too, from 172.8 L/min to 203.7 L/min on the peak day, which is
+This is the question that decides whether you send anybody out, and the meter can answer it on its own. Total flow rose too, from 512.4 L/min to 557.5 L/min, which is
 
-$$\frac{203.7 - 172.8}{172.8} = +17.9\%$$
+$$\frac{557.5 - 512.4}{512.4} = +8.8\%$$
 
-A 17.9% rise in consumption is perfectly ordinary. New tenants, a dry spell, a school back in session. If that is all you have, you shrug.
+An 8.8% rise in consumption is perfectly ordinary. New tenants, a dry spell, a school back in session. If that is all you have, you shrug.
 
 The discriminator is *when* the extra water moved.
 
@@ -88,9 +88,13 @@ A hole in a pipe does not keep office hours. It runs at 03:00 exactly as it runs
 
 Those two leave different fingerprints on one ratio. Night flow as a share of day flow went
 
-$$\frac{166.5}{172.8} = 96.4\% \qquad \text{then} \qquad \frac{198.0}{203.7} = 97.2\%$$
+$$\frac{166.4}{512.4} = 32.5\% \qquad \text{then} \qquad \frac{202.0}{557.5} = 36.2\%$$
 
-It held, and edged up. Adding a constant to both halves of a fraction pulls the fraction towards one, which is precisely what a round-the-clock loss does and precisely what daytime demand growth cannot do. The extra water was moving at three in the morning. It was a leak, and the meter said so without anyone leaving the office.
+It rose. Put the two growth rates side by side and the case is plain: daytime total grew 8.8% while the overnight trough grew
+
+$$\frac{202.0 - 166.4}{166.4} = +21.4\%$$
+
+The night is growing two and a half times faster than the day. Adding a constant to every hour lifts a small number proportionally more than a large one, which is precisely what a round-the-clock loss does and precisely what daytime demand growth cannot do. The extra water is moving at three in the morning. It is a leak, and the meter says so without anyone leaving the office.
 
 ## What the nine weeks cost
 
@@ -99,21 +103,21 @@ It held, and edged up. Adding a constant to both halves of a fraction pulls the 
 
 The numbers below are a worked example, not a promise. Put your own tariff in.
 
-At its peak the loss was 31.5 L/min, running continuously:
+Today the loss is 35.6 L/min, running continuously:
 
-$$31.5\ \text{L/min} \times 1440\ \text{min/day} = 45{,}360\ \text{L/day} = 45.4\ \text{m}^3\ \text{per day}$$
+$$35.6\ \text{L/min} \times 1440\ \text{min/day} = 51{,}264\ \text{L/day} = 51.3\ \text{m}^3\ \text{per day}$$
 
-It did not start at 31.5. It ramped roughly linearly, so the average over the sixty three days was about half the peak:
+It did not start at 35.6. It ramped roughly linearly, so the average over the seventy days was about half of today's figure:
 
-$$\frac{31.5}{2} \times 1440 \times 63 = 1{,}428{,}840\ \text{L} \approx 1{,}430\ \text{m}^3$$
+$$\frac{35.6}{2} \times 1440 \times 70 = 1{,}794{,}240\ \text{L} \approx 1{,}790\ \text{m}^3$$
 
-Fourteen hundred cubic metres, lost before anybody noticed, on an installation that was already metered. The meter was there the whole time. Nobody was reading the trend.
+Eighteen hundred cubic metres, lost before anybody noticed, on an installation that was already metered. The meter was there the whole time. Nobody was reading the trend.
 
-Put your own cost per cubic metre against that figure, and then against the alternative. Caught at the end of week two, the leak was running at 7 L/min and had cost
+Put your own cost per cubic metre against that figure, and then against the alternative. Caught at the end of week two, the leak was running at 7.1 L/min and had cost
 
-$$\frac{7.0}{2} \times 1440 \times 14 = 70{,}560\ \text{L} \approx 71\ \text{m}^3$$
+$$\frac{7.1}{2} \times 1440 \times 14 = 71{,}568\ \text{L} \approx 72\ \text{m}^3$$
 
-which is five percent of what it eventually cost. The detection is the same detection. Only the week is different.
+which is four percent of what it has cost so far, and it is still running. The detection is the same detection. Only the week is different.
 
 ## Why this failure shape matters beyond water
 

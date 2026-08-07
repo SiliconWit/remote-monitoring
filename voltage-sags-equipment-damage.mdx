@@ -1,10 +1,10 @@
 ---
-title: 'Counting the Wrong Events: 1,136 Sags and 58 Outages'
-description: 'The outage log on this building says 58 events in ten weeks. The voltage record says 1,136. The difference is the events that never reached zero, which is also where the equipment damage comes from.'
+title: 'Counting the Wrong Events: 1,147 Sags and 63 Outages'
+description: 'The outage log on this building says 63 events in ten weeks. The voltage record says 1,147. The difference is the events that never reached zero, which is also where the equipment damage comes from.'
 contributors: "sam-macharia"
 pubDate: 2026-06-25
 tags: ["energy", "remote-monitoring", "iot", "power-quality", "voltage-sags", "predictive-maintenance", "electrical"]
-excerpt: "Everybody counts outages, because an outage announces itself. The lights go, the generator starts, somebody writes it down. This installation logged 58 of them in ten weeks. Over the same ten weeks it also recorded 1,136 voltage sags, none of which appear in any outage log, and it is the sags that explain why the equipment kept failing."
+excerpt: "Everybody counts outages, because an outage announces itself. The lights go, the generator starts, somebody writes it down. This installation logged 63 of them in ten weeks. Over the same ten weeks it also recorded 1,147 voltage sags, none of which appear in any outage log, and it is the sags that explain why the equipment kept failing."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/ups-power-quality.png"
 ---
 
@@ -46,7 +46,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 This is mains availability, the number that goes in the report. For most of the window it reads 100%, dropping only when the supply genuinely failed. Across the full ten weeks the meter recorded
 
-$$58\ \text{outages}, \qquad 2{,}743\ \text{minutes} = 45.7\ \text{hours without mains}$$
+$$63\ \text{outages}, \qquad 2{,}400\ \text{minutes} = 40.0\ \text{hours without mains}$$
 
 That is a real and irritating number, and it is the number the whole building talks about. It is also the wrong place to look for the cause of equipment failure, because a machine that is switched off by an outage is not being damaged by it. It stops, the generator picks up, it starts again.
 
@@ -57,23 +57,23 @@ That is a real and irritating number, and it is the number the whole building ta
 
 ![Minimum voltage and supply voltage over thirty days. Supply voltage holds near 239 volts with occasional vertical drops to zero at the outages, while minimum voltage dips repeatedly to between 195 and 215 volts without ever reaching zero](/device-plots/ups-power-quality-sags-2.png)
 
-Two channels over the same window. The upper trace is supply voltage, sitting at its nominal **239.0 V** and dropping vertically to zero at each outage. Those drops to zero are the 58 events everybody knows about.
+Two channels over the same window. The upper trace is supply voltage, sitting at its nominal **239.8 V** and dropping vertically to zero at each outage. Those drops to zero are the 63 events everybody knows about.
 
-The lower trace is the minimum voltage seen inside each reporting window, and it is a different picture entirely. It dips constantly. It dips to 210, to 205, to 200, and at its worst to **194.2 V**, and it does this without the supply ever reaching zero. Nothing switched off. Nothing was logged as an outage. Availability still reported 100% for that window.
+The lower trace is the minimum voltage seen inside each reporting window, and it is a different picture entirely. It dips constantly. It dips to 210, to 205, to 200, and at its worst to **192.2 V**, and it does this without the supply ever reaching zero. Nothing switched off. Nothing was logged as an outage. Availability still reported 100% for that window.
 
 Counted properly over the ten weeks:
 
-$$\frac{1{,}136\ \text{sag events}}{58\ \text{outages}} = 19.6\ \text{sags for every outage}$$
+$$\frac{1{,}147\ \text{sag events}}{63\ \text{outages}} = 18.2\ \text{sags for every outage}$$
 
 Using the conventional definition of a sag, a dip below 90% of nominal,
 
-$$0.90 \times 239.0\ \text{V} = 215.1\ \text{V}$$
+$$0.90 \times 239.8\ \text{V} = 215.8\ \text{V}$$
 
-the minimum voltage fell below that line in **1,259 of 6,856 reporting windows**, which is
+the minimum voltage fell below that line in **1,307 of 10,354 reporting windows**, which is
 
-$$\frac{1{,}259}{6{,}856} = 18.4\%\ \text{of the time}$$
+$$\frac{1{,}307}{10{,}354} = 12.6\%\ \text{of the time}$$
 
-Not 18.4% of a bad week. 18.4% of the whole ten weeks.
+Not 12.6% of a bad week. 12.6% of the whole ten weeks.
 
 ## Why a sag hurts more than an outage
 
@@ -84,7 +84,7 @@ Not 18.4% of a bad week. 18.4% of the whole ten weeks.
 
 The deepest sag here reached
 
-$$\frac{194.2\ \text{V}}{239.0\ \text{V}} = 81\%\ \text{of nominal}$$
+$$\frac{192.2\ \text{V}}{239.8\ \text{V}} = 80\%\ \text{of nominal}$$
 
 which sounds survivable and is not. A contactor releases below about 80%. A variable speed drive trips on undervoltage and needs a manual reset. A switched-mode supply rides it out by pulling proportionally more current, which is the part that does the quiet damage: the same power through a lower voltage means more amps, more heating in the windings and the capacitors, every time.
 
@@ -105,7 +105,7 @@ The numbers below are a worked example, not a promise. Put your own figures in.
 The asymmetry is unusually stark here because the measurement is so cheap. One monitoring point at the incoming board covers everything downstream of it. Against that:
 
 - **Attribution.** Knowing that failures cluster with sags stops you replacing the same equipment repeatedly on the theory that it was a bad batch.
-- **Leverage with the supplier.** A count of 1,136 events with timestamps is a conversation. "The power is bad here" is not.
+- **Leverage with the supplier.** A count of 1,147 events with timestamps is a conversation. "The power is bad here" is not.
 - **The right fix, rather than a bigger one.** Sags concentrated on one feeder point at that feeder. Sags at 06:00 every weekday point at something local starting up. Both are cheaper to solve than a whole-building UPS.
 - **Sizing the protection you already own.** The battery reading tells you how long you would actually last, rather than how long the nameplate says.
 
@@ -121,7 +121,7 @@ Watching costs one instrument at one board. Not watching costs a recurring equip
     Not the average. An average over ten minutes erases a 200 millisecond dip completely, which is exactly the event you are hunting.
   </Card>
   <Card title="Sag count against outage count" icon="approve-check">
-    Two separate tallies. The ratio between them is the argument, and on this installation it is nearly twenty to one.
+    Two separate tallies. The ratio between them is the argument, and on this installation it is over eighteen to one.
   </Card>
   <Card title="Harmonic distortion" icon="approve-check">
     Distortion rising with load points at something on your own side of the meter rather than at the utility.
