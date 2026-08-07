@@ -1,0 +1,163 @@
+---
+title: 'Counting the Wrong Events: 1,136 Sags and 58 Outages'
+description: 'The outage log on this building says 58 events in ten weeks. The voltage record says 1,136. The difference is the events that never reached zero, which is also where the equipment damage comes from.'
+contributors: "sam-macharia"
+pubDate: 2026-06-25
+tags: ["energy", "remote-monitoring", "iot", "power-quality", "voltage-sags", "predictive-maintenance", "electrical"]
+excerpt: "Everybody counts outages, because an outage announces itself. The lights go, the generator starts, somebody writes it down. This installation logged 58 of them in ten weeks. Over the same ten weeks it also recorded 1,136 voltage sags, none of which appear in any outage log, and it is the sags that explain why the equipment kept failing."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/ups-power-quality.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
+
+<UniversalContentContributors 
+  contributors={frontmatter.contributors}
+/>
+
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+
+There is a particular kind of argument that happens in buildings where equipment keeps dying. The maintenance side says the supply is bad. The supply side says the outage log shows the supply was fine. Both are reading real records, and both are right, because the record everyone is arguing about does not contain the events doing the damage. #EnergyAndPower #RemoteMonitoring #PowerQuality
+
+## The installation
+
+Monitoring at the incoming board of a building on mains with a UPS behind it, reading supply voltage, the minimum voltage inside each window, frequency, harmonic distortion, and how long the UPS battery would last if the mains went now.
+
+The owner installed it after a run of equipment failures that nobody could explain. Their conclusion, once the data arrived, was that it was sags rather than the equipment. This post is the arithmetic behind that sentence.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/ups-power-quality) keeps moving.
+:::
+
+## The record everybody already has
+
+<InArticleAd />
+
+
+![Mains availability across thirty days, sitting at 100 per cent for most of the window with occasional drops when the supply actually failed](/device-plots/ups-power-quality-sags-1.png)
+
+This is mains availability, the number that goes in the report. For most of the window it reads 100%, dropping only when the supply genuinely failed. Across the full ten weeks the meter recorded
+
+$$58\ \text{outages}, \qquad 2{,}743\ \text{minutes} = 45.7\ \text{hours without mains}$$
+
+That is a real and irritating number, and it is the number the whole building talks about. It is also the wrong place to look for the cause of equipment failure, because a machine that is switched off by an outage is not being damaged by it. It stops, the generator picks up, it starts again.
+
+## The record almost nobody has
+
+<InArticleAd />
+
+
+![Minimum voltage and supply voltage over thirty days. Supply voltage holds near 239 volts with occasional vertical drops to zero at the outages, while minimum voltage dips repeatedly to between 195 and 215 volts without ever reaching zero](/device-plots/ups-power-quality-sags-2.png)
+
+Two channels over the same window. The upper trace is supply voltage, sitting at its nominal **239.0 V** and dropping vertically to zero at each outage. Those drops to zero are the 58 events everybody knows about.
+
+The lower trace is the minimum voltage seen inside each reporting window, and it is a different picture entirely. It dips constantly. It dips to 210, to 205, to 200, and at its worst to **194.2 V**, and it does this without the supply ever reaching zero. Nothing switched off. Nothing was logged as an outage. Availability still reported 100% for that window.
+
+Counted properly over the ten weeks:
+
+$$\frac{1{,}136\ \text{sag events}}{58\ \text{outages}} = 19.6\ \text{sags for every outage}$$
+
+Using the conventional definition of a sag, a dip below 90% of nominal,
+
+$$0.90 \times 239.0\ \text{V} = 215.1\ \text{V}$$
+
+the minimum voltage fell below that line in **1,259 of 6,856 reporting windows**, which is
+
+$$\frac{1{,}259}{6{,}856} = 18.4\%\ \text{of the time}$$
+
+Not 18.4% of a bad week. 18.4% of the whole ten weeks.
+
+## Why a sag hurts more than an outage
+
+<InArticleAd />
+
+
+![Panel (a): an outage, where voltage falls from 239 volts to zero for minutes or hours, the generator starts and somebody records the event. Panel (b): a sag, where voltage falls to 194 volts for a fraction of a second, never reaches zero, is never logged, and the connected drive drops out anyway](./images/sag-versus-outage.svg)
+
+The deepest sag here reached
+
+$$\frac{194.2\ \text{V}}{239.0\ \text{V}} = 81\%\ \text{of nominal}$$
+
+which sounds survivable and is not. A contactor releases below about 80%. A variable speed drive trips on undervoltage and needs a manual reset. A switched-mode supply rides it out by pulling proportionally more current, which is the part that does the quiet damage: the same power through a lower voltage means more amps, more heating in the windings and the capacitors, every time.
+
+That gives the failure the shape monitoring handles best and inspection handles worst:
+
+- It is **invisible without instrumentation**. It is over before a person can look up.
+- It is **cumulative**. No single sag kills anything. A thousand of them age insulation.
+- It is **absent from the record everybody trusts**. Availability of 100% is true and useless.
+- It **misattributes the cost**. The failure lands on the equipment budget, and the equipment was never the problem.
+
+## What this is worth
+
+<InArticleAd />
+
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+The asymmetry is unusually stark here because the measurement is so cheap. One monitoring point at the incoming board covers everything downstream of it. Against that:
+
+- **Attribution.** Knowing that failures cluster with sags stops you replacing the same equipment repeatedly on the theory that it was a bad batch.
+- **Leverage with the supplier.** A count of 1,136 events with timestamps is a conversation. "The power is bad here" is not.
+- **The right fix, rather than a bigger one.** Sags concentrated on one feeder point at that feeder. Sags at 06:00 every weekday point at something local starting up. Both are cheaper to solve than a whole-building UPS.
+- **Sizing the protection you already own.** The battery reading tells you how long you would actually last, rather than how long the nameplate says.
+
+Watching costs one instrument at one board. Not watching costs a recurring equipment bill that is filed under the wrong heading, which is the version of a cost that never gets challenged because nobody has connected it to anything.
+
+## What to measure if you run a board
+
+<InArticleAd />
+
+
+<CardGrid>
+  <Card title="Minimum voltage per window" icon="approve-check">
+    Not the average. An average over ten minutes erases a 200 millisecond dip completely, which is exactly the event you are hunting.
+  </Card>
+  <Card title="Sag count against outage count" icon="approve-check">
+    Two separate tallies. The ratio between them is the argument, and on this installation it is nearly twenty to one.
+  </Card>
+  <Card title="Harmonic distortion" icon="approve-check">
+    Distortion rising with load points at something on your own side of the meter rather than at the utility.
+  </Card>
+  <Card title="UPS battery state" icon="approve-check">
+    How long the protection would actually hold, measured rather than assumed from the rating.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+<InArticleAd />
+
+
+[Building power monitoring](https://siliconwit.io/d/building-power-monitoring) watches the same class of supply for a multi-tenant block, and [its own post](/blog/remote-monitoring/building-power-monitoring/) takes the other half of this argument: how thirty logged outages can add up to a number that reads like healthy availability. Where there is no usable grid at all, an [off-grid tower site](https://siliconwit.io/d/off-grid-tower-solar-genset) runs on solar, battery and a generator, and the [fuel reconciliation post](/blog/remote-monitoring/off-grid-tower-solar-genset/) covers what goes wrong there instead.
+
+For the equipment on the receiving end of all this, a [production line drive motor](https://siliconwit.io/d/production-line-motor) and an [injection moulding machine](https://siliconwit.io/d/injection-moulding-machine) are both on the public fleet with bearing temperature and vibration, which is where repeated undervoltage eventually shows up as wear.
+
+That everybody counts outages and nobody counts sags is availability bias with a switchboard attached: the events that announce themselves are the events that get recorded. The [cognitive biases in engineering](/education/critical-thinking-engineers/cognitive-biases-engineering/) lesson works through why the vivid event crowds out the frequent one.
+
+## See it running
+
+<InArticleAd />
+
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history including the outages this post counts. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own board on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<LinkButton href="https://siliconwit.io/d/ups-power-quality" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
+<RemoteMonitoringComments />
+
+
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

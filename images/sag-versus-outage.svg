@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) An outage: counted by everyone</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) A sag: counted by almost nobody</text>
+
+<!-- (a) axes -->
+<line x1="100" y1="290" x2="425" y2="290" stroke="#000" stroke-width="1.6"/>
+<line x1="100" y1="290" x2="100" y2="70" stroke="#000" stroke-width="1.6"/>
+<text x="78" y="180" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 78 180)">volts</text>
+
+<!-- (a) nominal and 90% rules -->
+<line x1="100" y1="100" x2="425" y2="100" stroke="#D1D5DB" stroke-width="1.4" stroke-dasharray="4,4"/>
+<text x="432" y="104" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#6B7280">239 V nominal</text>
+<line x1="100" y1="140" x2="425" y2="140" stroke="#D1D5DB" stroke-width="1.4" stroke-dasharray="4,4"/>
+<text x="432" y="144" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#6B7280">215 V, 90%</text>
+
+<!-- (a) trace: flat, then to zero, then back -->
+<path d="M100,100 L200,100 L200,290 L268,290 L268,100 L425,100"
+      fill="none" stroke="#0F766E" stroke-width="2.8"/>
+<text x="234" y="312" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">minutes to hours</text>
+
+<text x="262" y="200" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309">the lights go out</text>
+<text x="262" y="222" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309">the genset starts</text>
+<text x="262" y="244" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309">somebody logs it</text>
+
+<text x="262" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">58 of these in 72 days</text>
+<text x="262" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">every one of them is in the outage log</text>
+
+<!-- (b) axes -->
+<line x1="606" y1="290" x2="931" y2="290" stroke="#000" stroke-width="1.6"/>
+<line x1="606" y1="290" x2="606" y2="70" stroke="#000" stroke-width="1.6"/>
+<text x="584" y="180" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 584 180)">volts</text>
+
+<line x1="606" y1="100" x2="931" y2="100" stroke="#D1D5DB" stroke-width="1.4" stroke-dasharray="4,4"/>
+<text x="938" y="104" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#6B7280">239 V nominal</text>
+<line x1="606" y1="140" x2="931" y2="140" stroke="#D1D5DB" stroke-width="1.4" stroke-dasharray="4,4"/>
+<text x="938" y="144" font-family="Arial, Helvetica, sans-serif" font-size="11.5" fill="#6B7280">215 V, 90%</text>
+
+<!-- (b) trace: flat, brief dip to 81%, back -->
+<path d="M606,100 L742,100 L748,175 L762,175 L768,100 L931,100"
+      fill="none" stroke="#0F766E" stroke-width="2.8"/>
+<line x1="742" y1="308" x2="768" y2="308" stroke="#000" stroke-width="1.4"/>
+<line x1="742" y1="304" x2="742" y2="312" stroke="#000" stroke-width="1.4"/>
+<line x1="768" y1="304" x2="768" y2="312" stroke="#000" stroke-width="1.4"/>
+<text x="755" y="328" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">a fraction of a second</text>
+
+<text x="790" y="178" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309">194 V, 81% of nominal</text>
+<text x="790" y="200" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309">supply never reached zero</text>
+<text x="790" y="222" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309">nothing is logged</text>
+<text x="790" y="244" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309">the drive still drops out</text>
+
+<text x="768" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">1,136 of these over the same 72 days</text>
+<text x="768" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">none of them is in the outage log</text>
+
+<line x1="515" y1="60" x2="515" y2="400" stroke="#D1D5DB" stroke-width="1.2"/>
+</svg>

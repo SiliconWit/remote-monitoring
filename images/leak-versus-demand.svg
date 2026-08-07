@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) A leak: added to every hour alike</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) More demand: added to the day only</text>
+
+<!-- (a) axes -->
+<line x1="90" y1="300" x2="425" y2="300" stroke="#000" stroke-width="1.6"/>
+<line x1="90" y1="300" x2="90" y2="75" stroke="#000" stroke-width="1.6"/>
+<text x="70" y="190" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 70 190)">flow</text>
+<text x="257" y="322" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">00:00                12:00                24:00</text>
+
+<!-- (a) original demand curve -->
+<path d="M90,250 L131,252 L173,248 L215,180 L257,150 L299,168 L341,175 L383,235 L425,250"
+      fill="none" stroke="#6B7280" stroke-width="2" stroke-dasharray="5,4"/>
+<!-- (a) demand plus a constant leak -->
+<path d="M90,205 L131,207 L173,203 L215,135 L257,105 L299,123 L341,130 L383,190 L425,205"
+      fill="none" stroke="#0F766E" stroke-width="2.6"/>
+
+<!-- (a) the constant gap, marked at night and at noon -->
+<line x1="110" y1="250" x2="110" y2="205" stroke="#B45309" stroke-width="2.4"/>
+<line x1="104" y1="250" x2="116" y2="250" stroke="#B45309" stroke-width="2.4"/>
+<line x1="104" y1="205" x2="116" y2="205" stroke="#B45309" stroke-width="2.4"/>
+<line x1="257" y1="150" x2="257" y2="105" stroke="#B45309" stroke-width="2.4"/>
+<line x1="251" y1="150" x2="263" y2="150" stroke="#B45309" stroke-width="2.4"/>
+<line x1="251" y1="105" x2="263" y2="105" stroke="#B45309" stroke-width="2.4"/>
+<text x="152" y="232" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#B45309">same rise</text>
+<text x="272" y="130" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#B45309">same rise</text>
+
+<text x="257" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">a hole runs at 03:00 exactly as it runs at noon</text>
+<text x="257" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">night / day ratio holds, or rises slightly</text>
+<text x="257" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">observed: 96.4% then 97.2%</text>
+
+<!-- (b) axes -->
+<line x1="596" y1="300" x2="931" y2="300" stroke="#000" stroke-width="1.6"/>
+<line x1="596" y1="300" x2="596" y2="75" stroke="#000" stroke-width="1.6"/>
+<text x="576" y="190" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 576 190)">flow</text>
+<text x="763" y="322" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">00:00                12:00                24:00</text>
+
+<!-- (b) original demand curve -->
+<path d="M596,250 L637,252 L679,248 L721,180 L763,150 L805,168 L847,175 L889,235 L931,250"
+      fill="none" stroke="#6B7280" stroke-width="2" stroke-dasharray="5,4"/>
+<!-- (b) demand grown in the day, unchanged at night -->
+<path d="M596,248 L637,250 L679,240 L721,140 L763,100 L805,122 L847,136 L889,222 L931,248"
+      fill="none" stroke="#0F766E" stroke-width="2.6"/>
+
+<line x1="616" y1="251" x2="616" y2="249" stroke="#B45309" stroke-width="2.4"/>
+<line x1="610" y1="251" x2="622" y2="251" stroke="#B45309" stroke-width="2.4"/>
+<line x1="610" y1="249" x2="622" y2="249" stroke="#B45309" stroke-width="2.4"/>
+<line x1="763" y1="150" x2="763" y2="100" stroke="#B45309" stroke-width="2.4"/>
+<line x1="757" y1="150" x2="769" y2="150" stroke="#B45309" stroke-width="2.4"/>
+<line x1="757" y1="100" x2="769" y2="100" stroke="#B45309" stroke-width="2.4"/>
+<text x="632" y="272" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#B45309">little or none</text>
+<text x="778" y="126" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#B45309">most of the rise</text>
+
+<text x="763" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">people use water when they are awake</text>
+<text x="763" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">night / day ratio falls</text>
+<text x="763" y="400" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">not what this meter recorded</text>
+
+<line x1="505" y1="60" x2="505" y2="415" stroke="#D1D5DB" stroke-width="1.2"/>
+</svg>

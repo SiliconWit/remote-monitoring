@@ -1,0 +1,156 @@
+---
+title: 'Your Best Output Day Was Your Worst Performance Day'
+description: 'A 96 kWp rooftop array produced 41.2 kW on its worst day and 29.6 kW on its best. Output ranks days by weather. Only output divided by the sunlight that actually arrived ranks them by health.'
+contributors: "sam-macharia"
+pubDate: 2026-06-13
+tags: ["energy", "remote-monitoring", "iot", "solar", "performance-ratio", "soiling", "predictive-maintenance"]
+excerpt: "Every solar owner watches output, because output is what the inverter shows and what the bill responds to. Output cannot tell you whether the array is healthy, because it is dominated by something you do not control. On this installation the single highest output day of the season was also the least efficient day of the season, and one derived number shows it immediately."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/commercial-rooftop-solar.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
+
+<UniversalContentContributors 
+  contributors={frontmatter.contributors}
+/>
+
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+
+An array that is 16% dirty on a bright day still out-produces a clean array on a dull one. That single sentence is why solar underperformance goes unnoticed for years: the fault is smaller than the weather, and output puts them both on the same axis with no way to separate them. #EnergyAndPower #RemoteMonitoring #Solar
+
+## The installation
+
+96 kWp across a light-industrial warehouse roof, reading generation, site load, what goes to and from the grid, panel temperature, and the irradiance actually falling on the array.
+
+That last channel is the one that matters and the one most installations skip. The owner checks yield against irradiance most mornings, and when it drifts below where it should be, the panels want washing.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and seasonal drift are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/commercial-rooftop-solar) keeps moving.
+:::
+
+## Output over a season, which tells you about the sky
+
+<InArticleAd />
+
+
+![Generation in kilowatts across seventy one days, a dense band of daily peaks varying with the weather and no obvious trend](/device-plots/commercial-rooftop-solar-soiling-1.png)
+
+Seventy one days of generation. Good days and bad days, a band that moves around with cloud, and nothing that looks like a fault.
+
+Now the two days worth naming. On **8 June** the array averaged **29.6 kW** through the usable part of the day. On **29 July** it averaged **41.2 kW**, thirty nine percent more.
+
+By output, 29 July is comfortably the better day. Hold that.
+
+## The same season, divided by the sunlight that arrived
+
+<InArticleAd />
+
+
+![Generation divided by irradiance across the same seventy one days, a band that starts near 0.078 and drifts down to about 0.066 kilowatts per watt per square metre](/device-plots/commercial-rooftop-solar-soiling-2.png)
+
+This is generation divided by the irradiance measured at the array, in kilowatts per watt per square metre. It is the same data. It is not the same picture.
+
+The band drifts downward across the season, and the two days above swap places completely:
+
+$$\text{8 June:} \quad \frac{29.6\ \text{kW}}{386\ \text{W/m}^2} = 0.07668$$
+
+$$\text{29 July:} \quad \frac{41.2\ \text{kW}}{646\ \text{W/m}^2} = 0.06378$$
+
+$$\text{loss} = 1 - \frac{0.06378}{0.07668} = 16.8\%$$
+
+The highest output day of the season was the least efficient day of the season, by a wide margin. Output was high because 646 W/m² arrived instead of 386. The array converted a smaller fraction of it than on any other day recorded.
+
+Across the whole window, comparing the first week with the last:
+
+$$\text{ratio: } 0.07402 \rightarrow 0.06641 = -10.3\%$$
+
+That is the array losing about a tenth of its conversion in ten weeks, on a roof, at a rate that never once produced a bad-looking day.
+
+## Why output cannot do this job
+
+<InArticleAd />
+
+
+![Panel (a): generation plotted alone, where a dull clean day and a bright dirty day produce similar output and cannot be told apart. Panel (b): generation divided by measured irradiance, where the weather divides out and the two days separate cleanly, with the dirty day well below the clean one](./images/output-versus-ratio.svg)
+
+Generation is the product of two things, only one of which says anything about the array. Writing irradiance as G, efficiency as eta and array area as A:
+
+$$P = \eta \times G \times A$$
+
+Irradiance varies by a factor of several between a dull morning and a clear noon. Efficiency changes by a few percent over months. Plot the product and the large fast term buries the small slow one, permanently.
+
+Divide by irradiance and the weather cancels. What is left moves only when the array changes, which is exactly the question an owner is asking and never quite gets an answer to.
+
+Two honest caveats. Panel temperature costs output too, roughly half a percent per degree above 25 °C, and this array reached 59.6 °C, so part of any single hot day's dip is thermal rather than dirt. And if your irradiance sensor is itself dirty, it under-reads, the ratio flatters the array, and a healthy looking number can hide real degradation. Clean the reference cell when you clean the panels.
+
+## What this is worth
+
+<InArticleAd />
+
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+A 10.3% conversion loss on a 96 kWp array is not a subtle number. Against a nominal annual yield, losing a tenth of it is the difference between the payback period in the proposal and the one you actually get, and nothing on the inverter display will ever mention it.
+
+- The **detection** is one irradiance sensor and a division. Most inverters already log generation; the missing half is usually the reference cell.
+- The **fix** is frequently washing, which is a scheduled cost you can now justify with a number instead of a hunch.
+- The **decision** it enables is when to wash. Washing on a calendar is either too often, which wastes money, or too rarely, which wastes yield. Washing when the ratio drops through a line is neither.
+- The **warranty conversation** changes too. Degradation beyond the guaranteed curve is a claim, and a claim needs the ratio, not the output.
+
+## What to measure if you run an array
+
+<InArticleAd />
+
+
+<CardGrid>
+  <Card title="Irradiance at the array" icon="approve-check">
+    The channel that makes every other number interpretable. Without it, generation is uninterpretable rather than merely noisy.
+  </Card>
+  <Card title="Generation per unit irradiance" icon="approve-check">
+    The health number. Track it against itself over weeks, not against a target.
+  </Card>
+  <Card title="Panel temperature" icon="approve-check">
+    Separates a hot day from a dirty array, which otherwise look similar in the ratio.
+  </Card>
+  <Card title="Export against site load" icon="approve-check">
+    A different question entirely: not whether the array is well, but whether you are using what it makes.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+<InArticleAd />
+
+
+A [campus solar demonstrator](https://siliconwit.io/d/campus-solar-demonstrator) runs the same instrument set at teaching scale, where the point is that students can see where the losses go. An [off-grid tower site](https://siliconwit.io/d/off-grid-tower-solar-genset) puts solar, a battery bank and a generator on one site, where the question becomes fuel rather than yield, covered in [its own post](/blog/remote-monitoring/off-grid-tower-solar-genset/).
+
+This post is an instance of a general habit: when a measurement is dominated by something you do not control, divide it out and look at what remains. The [correlation, causation and evidence](/education/critical-thinking-engineers/correlation-causation-evidence/) lesson calls the uncontrolled term a confounder, and normalising against it is the cheapest control available when you cannot run an experiment.
+
+## See it running
+
+<InArticleAd />
+
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own array on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<LinkButton href="https://siliconwit.io/d/commercial-rooftop-solar" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
+<RemoteMonitoringComments />
+
+
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

@@ -1,0 +1,151 @@
+---
+title: 'A Detector That Reads Zero: Working, or Finished?'
+description: 'This LPG detector reported exactly zero in 99.3% of its readings over ten weeks. That is either a safe kitchen or a dead sensor, and the gas channel alone cannot tell you which.'
+contributors: "sam-macharia"
+pubDate: 2026-06-11
+tags: ["safety", "remote-monitoring", "iot", "gas-detection", "sensor-health", "lpg", "maintenance"]
+excerpt: "The reading you most want from a gas detector is zero, which creates the strangest problem in monitoring: the output you are hoping for is indistinguishable from total failure. Over ten weeks this detector reported zero in 2,270 of 2,286 windows. This post is about the second channel that tells you those zeros mean something."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/commercial-kitchen-lpg.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
+
+<UniversalContentContributors 
+  contributors={frontmatter.contributors}
+/>
+
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+
+Almost every fault in monitoring announces itself by producing an unusual reading. This one produces the most usual reading there is. A gas detector whose sensing element has reached the end of its life outputs zero, calmly and consistently, in exactly the same way as a detector watching clean air in a well-run kitchen. Nothing alarms. Nothing looks wrong. The dashboard is green, and it will stay green through the one event it was bought for. #EnvironmentAndSafety #RemoteMonitoring #GasDetection
+
+## The installation
+
+An LPG detector in a hotel kitchen, with the extraction status alongside it so the two can be read together, and a separate channel reporting the detector's own condition.
+
+The owner's description of it is the whole problem in one line: it reads zero nearly always, and that suits them fine.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/commercial-kitchen-lpg) keeps moving.
+:::
+
+## Ten weeks of good news
+
+<InArticleAd />
+
+
+![LPG concentration and its window peak across seventy one days, flat on zero for almost the entire period with a small number of brief excursions](/device-plots/commercial-kitchen-lpg-health-1.png)
+
+This is the gas channel. It is flat on zero.
+
+$$\frac{2{,}270\ \text{windows reading exactly } 0}{2{,}286\ \text{windows}} = 99.3\%$$
+
+Fifteen readings in ten weeks were non-zero, the largest of them 61.5 ppm, which is a burner lit badly or a cylinder changed with the door shut. Everything else is zero.
+
+Read that chart honestly and ask what you have learned. You have learned that the number coming out of this device is zero. You have not learned that there is no gas in the kitchen, because those are different claims, and the gas channel cannot distinguish them. A detector with a disconnected sensing element, a poisoned catalytic bead, or an electrochemical cell past its service life produces this chart exactly.
+
+## The channel that makes the zeros mean something
+
+<InArticleAd />
+
+
+![Detector health across the same seventy one days, declining steadily from 100 per cent, stepping back up to 100 at a recalibration in early July, then resuming its decline to 97 per cent](/device-plots/commercial-kitchen-lpg-health-2.png)
+
+Same device, same ten weeks, different question. This is the detector reporting on itself.
+
+It declines. It starts at **100.0%**, falls steadily, steps back to 100.0% at a recalibration on **3 July**, and resumes falling to **97.0%** by the end of the window. That sawtooth is the shape of a healthy maintenance regime: a consumable degrading, being serviced, and degrading again.
+
+Those two charts together say something neither says alone. The gas chart says nothing was detected. The health chart says the thing that detected nothing was capable of detecting something. Only the pair is evidence.
+
+## Silence is ambiguous everywhere
+
+<InArticleAd />
+
+
+![Panel (a): a healthy detector in clean air, where the sensing element responds normally and the output is zero because there is nothing to report. Panel (b): a detector whose element has failed, where the output is also zero because nothing can be reported at all. The two outputs are identical and only a self-reported health channel separates them](./images/healthy-zero-versus-dead-zero.svg)
+
+This generalises well beyond gas, and it is worth stating in its general form: **an absence of alarms is not evidence of absence of a problem unless you have independent evidence that the alarm could have fired.**
+
+The same trap sits in every quiet monitoring channel:
+
+- A temperature probe that has come out of its socket reads room temperature, which is a plausible number
+- A vibration sensor that has lost its mount reads low, which looks like a healthy machine
+- A device that stopped transmitting three weeks ago has a last known reading that was perfectly normal
+- A threshold set so wide that nothing can cross it produces a permanently clean record
+
+In every case the reassuring output and the failure produce the same picture. The instrument reporting on its own condition is the only thing that separates them, which is why a health channel and a heartbeat are worth as much as the measurement.
+
+## What this is worth
+
+<InArticleAd />
+
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+The asymmetry here is unlike the others in this series, because the loss is not a repair bill. A gas detector exists for an event whose cost is measured in a kitchen fire, an insurance position, and people. The value of the health channel is not that it saves money on any ordinary day. It is that it converts a device you are hoping works into a device you know works, on the day when the difference is the only thing that matters.
+
+The practical version, which costs almost nothing:
+
+- Alert on **health falling below a floor**, not only on gas rising above one
+- Alert on **silence itself**: a device that has not reported inside its expected interval is a fault, and it is the fault most likely to be missed
+- Record **when the last recalibration happened**, because a certificate in a drawer is not a reading
+- Check that a **test event produces a response** at whatever interval your regime requires
+
+## What to measure if you run detection
+
+<InArticleAd />
+
+
+<CardGrid>
+  <Card title="Detector health or sensitivity" icon="approve-check">
+    The channel that makes a zero meaningful. Alert on it falling, and treat the alert as seriously as a gas alert.
+  </Card>
+  <Card title="Reporting heartbeat" icon="approve-check">
+    A device that has gone quiet looks identical to a device with nothing to say. Alert on the silence.
+  </Card>
+  <Card title="Window peak, not just the average" icon="approve-check">
+    A short excursion averages away to almost nothing. The peak inside each window is what survives.
+  </Card>
+  <Card title="Extraction state alongside the gas" icon="approve-check">
+    Gas rising while extraction is running is a much worse signal than gas rising while it is off, and the pair tells you which.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+<InArticleAd />
+
+
+The other detectors run the same argument in different rooms. [Fuel depot vapour monitoring](https://siliconwit.io/d/fuel-depot-vapour) sits vapour and extraction status side by side so it is clear which one is the problem. [Car park carbon monoxide](https://siliconwit.io/d/car-park-co-monitoring) uses the readings to drive the fans instead of a timer, which is [its own post](/blog/remote-monitoring/car-park-co-monitoring/).
+
+For the same trap in a very different form, [a laboratory incubator](https://siliconwit.io/d/laboratory-incubator) holds a tight setpoint where a short overnight excursion invalidates a week of work and leaves no trace, covered in [the post on data integrity](/blog/remote-monitoring/laboratory-incubator/).
+
+The reasoning error this post is about has a name. Treating "no alarm" as "no hazard" is the same move as treating an absence of evidence as evidence of absence, and the [logical fallacies in engineering arguments](/education/critical-thinking-engineers/logical-fallacies-arguments/) lesson works through why it is so persuasive and so wrong.
+
+## See it running
+
+<InArticleAd />
+
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history including the excursions this post counts. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own detector on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<LinkButton href="https://siliconwit.io/d/commercial-kitchen-lpg" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
+<RemoteMonitoringComments />
+
+
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

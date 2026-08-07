@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) In shift: air does work</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) Shut: air escapes</text>
+<rect x="120" y="80" width="270" height="150" fill="#eef2f7" stroke="#000" stroke-width="1.6"/>
+<text x="255" y="105" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">compressor 16.51 kW</text>
+<line x1="150" y1="150" x2="360" y2="150" stroke="#1a4fd6" stroke-width="3"/>
+<polygon points="370,150 360,154.5 360,145.5" fill="#1a4fd6"/>
+<text x="255" y="140" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1a4fd6" text-anchor="middle">air to tools</text>
+<rect x="150" y="175" width="60" height="40" fill="#cbd5e1" stroke="#000" stroke-width="1.4"/>
+<rect x="235" y="175" width="60" height="40" fill="#cbd5e1" stroke="#000" stroke-width="1.4"/>
+<rect x="320" y="175" width="40" height="40" fill="#cbd5e1" stroke="#000" stroke-width="1.4"/>
+<text x="255" y="248" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">tools running, cylinders actuating</text>
+<text x="252" y="300" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#000" text-anchor="middle">44.6% of rated</text>
+<text x="252" y="330" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">consumption tracks production,</text>
+<text x="252" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">so the two cannot be separated</text>
+<rect x="596" y="80" width="270" height="150" fill="#eef2f7" stroke="#000" stroke-width="1.6"/>
+<text x="731" y="105" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">compressor 5.85 kW</text>
+<line x1="626" y1="150" x2="836" y2="150" stroke="#1a4fd6" stroke-width="3"/>
+<polygon points="846,150 836,154.5 836,145.5" fill="#1a4fd6"/>
+<text x="731" y="140" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#1a4fd6" text-anchor="middle">air to nothing</text>
+<path d="M660,175 l8,-14 M668,175 l8,-14 M676,175 l8,-14" stroke="#B45309" stroke-width="2.4"/>
+<path d="M745,175 l8,-14 M753,175 l8,-14" stroke="#B45309" stroke-width="2.4"/>
+<path d="M820,175 l8,-14 M828,175 l8,-14 M836,175 l8,-14" stroke="#B45309" stroke-width="2.4"/>
+<text x="731" y="205" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#B45309" text-anchor="middle">fittings, couplings, hose tails</text>
+<text x="731" y="248" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">every tool switched off</text>
+<text x="758" y="300" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#000" text-anchor="middle" font-weight="bold">15.8% of rated</text>
+<text x="758" y="330" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">everything produced is escaping,</text>
+<text x="758" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">so the leak measures itself</text>
+<line x1="505" y1="60" x2="505" y2="380" stroke="#D1D5DB" stroke-width="1.2"/>
+</svg>

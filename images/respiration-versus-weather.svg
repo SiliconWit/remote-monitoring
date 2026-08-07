@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) Dry grain: slow respiration</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) Wet pocket: mould active</text>
+<rect x="140" y="80" width="220" height="150" fill="#e8dcc0" stroke="#000" stroke-width="1.6"/>
+<text x="250" y="160" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">stored maize, dry</text>
+<circle cx="180" cy="105" r="4" fill="#6B7280"/><circle cx="230" cy="100" r="4" fill="#6B7280"/>
+<text x="250" y="252" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">CO2 near outdoor air</text>
+<text x="252" y="296" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#000" text-anchor="middle" font-weight="bold">410 ppm</text>
+<text x="252" y="336" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">heat released: negligible</text>
+<text x="252" y="360" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">temperature follows the weather</text>
+<rect x="646" y="80" width="220" height="150" fill="#e8dcc0" stroke="#000" stroke-width="1.6"/>
+<ellipse cx="756" cy="155" rx="55" ry="38" fill="#9ca88a" stroke="#000" stroke-width="1.4"/>
+<text x="756" y="160" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">wet pocket</text>
+<circle cx="700" cy="102" r="5" fill="#B45309"/><circle cx="740" cy="96" r="5" fill="#B45309"/>
+<circle cx="785" cy="100" r="5" fill="#B45309"/><circle cx="820" cy="95" r="5" fill="#B45309"/>
+<text x="756" y="252" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">respiration floods the gaps</text>
+<text x="758" y="296" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#B45309" text-anchor="middle" font-weight="bold">2,350 ppm</text>
+<text x="758" y="336" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">5.7x baseline, one source only</text>
+<text x="758" y="360" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">temperature still inside its range</text>
+<line x1="505" y1="60" x2="505" y2="380" stroke="#D1D5DB" stroke-width="1.2"/>
+</svg>

@@ -1,0 +1,169 @@
+---
+title: 'The Load That Runs When Nobody Is There'
+description: 'A 37 kW plant compressor draws 15.8% of its rated load through the night with the factory closed and nothing connected drawing air. That is the leak bill, and it is 15.4% of everything the compressor costs.'
+contributors: "sam-macharia"
+pubDate: 2026-06-20
+tags: ["manufacturing", "remote-monitoring", "iot", "energy-efficiency", "compressed-air", "leak-detection", "base-load"]
+excerpt: "The cheapest energy saving in most factories is not a new machine. It is the work the old ones do when nobody has asked them to. This compressor is instrumented, and the readings say it spends every night holding pressure in a system with nothing drawing from it. This post works out what that costs using nothing but the compressor's own load and energy channels."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/plant-air-compressor.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
+
+<UniversalContentContributors 
+  contributors={frontmatter.contributors}
+/>
+
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+
+Compressed air feels free at the point of use. You open a valve and air comes out. Nothing meters it, nobody is billed for it, and a hiss in a fitting is the most ignorable fault in any factory, because it costs nothing to leave and nothing visibly happens when you do. The bill arrives somewhere else entirely, on a line called electricity, attached to a machine in a different room. #Manufacturing #RemoteMonitoring #EnergyEfficiency
+
+## The installation
+
+A 37 kW plant air compressor, working a shift that starts around half past six and ends around eight in the evening. Load, duty, discharge temperature, run time and a cumulative energy counter.
+
+The owner's reason for instrumenting it is blunt: compressed air costs them more than lighting and heating together, and this is where they prove it to people.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/plant-air-compressor) keeps moving.
+:::
+
+## The shift is obvious. Look underneath it.
+
+<InArticleAd />
+
+
+![Compressor load in kilowatts across three days, rising to a working band through each shift and falling to a lower but clearly non-zero band overnight](/device-plots/plant-air-compressor-shift-1.png)
+
+Three days of load. The shape is exactly what you would expect: the compressor works through the day, and drops back at night.
+
+It does not drop to zero.
+
+Averaged across the reporting windows between 22:00 and 06:00, when the plant is shut:
+
+$$\bar{P}_{\text{night}} = 5.85\ \text{kW} \qquad \text{against a rated} \qquad 37\ \text{kW}$$
+
+$$\frac{5.85}{37} = 15.8\%\ \text{of rated load, with nobody in the building}$$
+
+For comparison, the same compressor between 09:00 and 18:00, with the plant running and drawing air:
+
+$$\bar{P}_{\text{day}} = 16.51\ \text{kW} = 44.6\%\ \text{of rated}$$
+
+Nothing is switched on at night. No tool is running, no cylinder is actuating, no line is being blown down. The compressor is holding pressure in a sealed system, and a sealed system that needs 5.85 kW to stay sealed is not sealed.
+
+## The counter that makes it a number
+
+<InArticleAd />
+
+
+![Cumulative energy in kilowatt hours across the same three days, climbing steeply through each shift and continuing to climb, more slowly but without pausing, through every night](/device-plots/plant-air-compressor-shift-2.png)
+
+This is the energy counter over the same window. It climbs steeply during the shift, as it should. The part worth looking at is what it does between the shifts: it keeps climbing. It never goes flat.
+
+Over the thirty days of readings the counter moved
+
+$$45{,}165 - 36{,}023 = 9{,}142\ \text{kWh}$$
+
+and the overnight portion of that, at eight closed hours a day, is
+
+$$5.85\ \text{kW} \times 8\ \text{h} = 46.8\ \text{kWh per night}$$
+
+$$46.8 \times 30 = 1{,}404\ \text{kWh in the month}$$
+
+which as a share of everything the compressor consumed is
+
+$$\frac{1{,}404}{9{,}142} = 15.4\%$$
+
+Roughly one kilowatt hour in every six and a half went into a factory that was closed. That figure excludes weekends and any part of the working day when the plant is idle but the compressor is not, so it is the conservative version.
+
+## Why leaks are the fault worth hunting
+
+<InArticleAd />
+
+
+![Panel (a): during the shift the compressor loads and unloads in response to tools drawing air, so consumption tracks production. Panel (b): overnight with every tool switched off, the compressor still cycles to replace air escaping through fittings, so consumption continues with no production at all](./images/shift-versus-leak-load.svg)
+
+A leak has an unusual property among faults: it is perfectly steady. It does not wait for a hot week or a heavy order. It runs at the same rate on the night of a public holiday as it does at the peak of a shift, which is what makes the closed hours such a clean measurement. During production you cannot separate air that did work from air that escaped. At three in the morning, everything the compressor produces is escaping.
+
+That is the whole method, and it costs nothing to run:
+
+- Take the mean load over the hours when the plant is definitely shut
+- Multiply by the closed hours and your tariff
+- The answer is a repair budget with a payback measured in weeks
+
+The fix is also unusually cheap. Leaks concentrate in couplings, quick-release fittings, filter and regulator bowls and hose tails. A leak survey with an ultrasonic detector, or simply an hour of walking the lines while the plant is quiet enough to hear them, finds most of them.
+
+## What this is worth
+
+<InArticleAd />
+
+
+The numbers below are a worked example, not a promise. Put your own tariff in.
+
+At 1,404 kWh a month the annual figure is
+
+$$1{,}404 \times 12 = 16{,}848\ \text{kWh per year}$$
+
+Apply your own cost per kilowatt hour. Whatever that number is, it recurs every year until somebody fixes the fittings, and it has been recurring for as long as the compressor has been installed.
+
+The asymmetry is the argument again. The measurement is one clamp meter or one already-installed compressor controller reporting load. The saving is a fraction of a bill you are already paying and have never itemised, and the repair is consumables.
+
+## What to measure if you run one of these
+
+<InArticleAd />
+
+
+<CardGrid>
+  <Card title="Load during closed hours" icon="approve-check">
+    The single most valuable number on the machine. Everything it produces while the plant is shut is escaping.
+  </Card>
+  <Card title="Cumulative energy" icon="approve-check">
+    Turns a load reading into a bill. Watch whether the counter ever goes flat, and when.
+  </Card>
+  <Card title="Duty cycle and starts" icon="approve-check">
+    A compressor cycling frequently at low demand is either oversized or feeding leaks, and the two need different answers.
+  </Card>
+  <Card title="Discharge temperature and vibration" icon="approve-check">
+    The mechanical health of the machine itself, which is a separate question from what it is being asked to do.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+<InArticleAd />
+
+
+The same instrument set on other rotating plant asks different questions. A [production line drive motor](https://siliconwit.io/d/production-line-motor) is watched for bearing wear rather than for waste. An [injection moulding machine](https://siliconwit.io/d/injection-moulding-machine) is watched for the short stoppages nobody logs, and a [CNC machine tool](https://siliconwit.io/d/cnc-machine-tool) for utilisation against what was quoted, which is [its own post](/blog/remote-monitoring/cnc-machine-tool/).
+
+If it is the supply rather than the machine you suspect, [UPS and power quality](https://siliconwit.io/d/ups-power-quality) covers what an incoming board records that an outage log does not, in [the post on voltage sags](/blog/remote-monitoring/voltage-sags-equipment-damage/).
+
+The reasoning here is a standard estimation move: bound a quantity you cannot measure directly by measuring it under conditions where every other contribution is zero. The [estimation and uncertainty](/education/critical-thinking-engineers/estimation-and-uncertainty/) lesson works through the general form of it.
+
+## See it running
+
+<InArticleAd />
+
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own compressor on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<LinkButton href="https://siliconwit.io/d/plant-air-compressor" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
+<RemoteMonitoringComments />
+
+
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

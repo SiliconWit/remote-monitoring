@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 430" width="1010" height="430">
+<rect width="1010" height="430" fill="white"/>
+<text x="252" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) Output alone: the weather wins</text>
+<text x="758" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) Output per unit sunlight</text>
+<line x1="100" y1="290" x2="420" y2="290" stroke="#000" stroke-width="1.6"/>
+<line x1="100" y1="290" x2="100" y2="70" stroke="#000" stroke-width="1.6"/>
+<text x="78" y="180" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 78 180)">kW</text>
+<rect x="150" y="180" width="70" height="110" fill="#9aa4ad" stroke="#000" stroke-width="1.4"/>
+<text x="185" y="172" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">29.6</text>
+<text x="185" y="310" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">8 Jun, clean</text>
+<rect x="300" y="140" width="70" height="150" fill="#B45309" stroke="#000" stroke-width="1.4"/>
+<text x="335" y="132" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">41.2</text>
+<text x="335" y="310" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">29 Jul, dirty</text>
+<text x="252" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">the dirty array looks better</text>
+<text x="252" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">646 W/m2 arrived instead of 386</text>
+<line x1="606" y1="290" x2="926" y2="290" stroke="#000" stroke-width="1.6"/>
+<line x1="606" y1="290" x2="606" y2="70" stroke="#000" stroke-width="1.6"/>
+<text x="584" y="180" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 584 180)">kW per W/m2</text>
+<rect x="656" y="110" width="70" height="180" fill="#9aa4ad" stroke="#000" stroke-width="1.4"/>
+<text x="691" y="102" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">0.0767</text>
+<text x="691" y="310" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">8 Jun, clean</text>
+<rect x="806" y="140" width="70" height="150" fill="#B45309" stroke="#000" stroke-width="1.4"/>
+<text x="841" y="132" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">0.0638</text>
+<text x="841" y="310" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">29 Jul, dirty</text>
+<text x="758" y="352" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">the order reverses: 16.8% apart</text>
+<text x="758" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">the sunlight has divided out</text>
+<line x1="505" y1="60" x2="505" y2="400" stroke="#D1D5DB" stroke-width="1.2"/>
+</svg>

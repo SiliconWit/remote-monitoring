@@ -1,0 +1,157 @@
+---
+title: 'The Silo Never Got Hot: Reading Spoilage in the Air Instead'
+description: 'Temperature inside this grain silo stayed inside its ordinary range all season. Carbon dioxide went to 5.7 times its baseline. Only one of those two readings is about the grain.'
+contributors: "sam-macharia"
+pubDate: 2026-06-18
+tags: ["agriculture", "remote-monitoring", "iot", "grain-storage", "post-harvest", "food-safety", "aflatoxin"]
+excerpt: "Stored maize does not announce that it is going off. By the time a warm damp pocket is visible, smellable or measurable on a probe pushed into the heap, the mould has been working for weeks. This post reads a season of silo data and shows which of the three obvious channels actually carries the warning, and why the one everybody installs first is the wrong one."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/grain-storage-silo.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
+
+<UniversalContentContributors 
+  contributors={frontmatter.contributors}
+/>
+
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+
+Grain in a silo is alive. It respires slowly, and so does anything growing in it, and respiration has a signature: it consumes oxygen, releases carbon dioxide, and gives off a little heat. Storage practice has traditionally hunted the heat, because a thermometer on a cable is cheap and obvious. The heat is the weakest of the three signals and the last to arrive. #Agriculture #RemoteMonitoring #PostHarvest
+
+## The installation
+
+A silo holding stored maize, reading temperature and humidity inside the heap, vent position, the carbon dioxide concentration in the space between the grains, and the weather outside.
+
+The owner's concern is specific and correct: warm damp pockets are where spoilage starts, and you cannot see them from outside the silo.
+
+:::note[About this device]
+The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms, seasonal drift and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/grain-storage-silo) keeps moving.
+:::
+
+## The temperature chart, which is about the weather
+
+<InArticleAd />
+
+
+![Inside temperature and humidity across seventy one days, both moving continuously with the seasons and the daily cycle, temperature ranging between about seventeen and twenty eight degrees](/device-plots/grain-storage-silo-co2-1.png)
+
+Inside temperature and humidity, across the season. Both move constantly. Temperature ranged from **16.8 °C to 27.9 °C** across the whole window, and it visits most of that range in any warm week.
+
+That movement is the problem, not the signal. A silo is a large insulated mass sitting in the weather, so its temperature is dominated by what the weather is doing. To read spoilage from this chart you would have to notice a fraction of a degree of biological heat inside a swing of eleven degrees driven by the sun. Nobody can, and no threshold can either: set one low enough to catch respiration and it fires on every warm afternoon.
+
+Humidity is more informative, because moisture is what starts the process. It is still an input rather than an outcome. It tells you that conditions are permissive. It does not tell you whether anything has actually begun.
+
+## The carbon dioxide chart, which is about the grain
+
+<InArticleAd />
+
+
+![Carbon dioxide across the same seventy one days, sitting near four hundred parts per million for extended periods and rising into distinct episodes that reach well over two thousand](/device-plots/grain-storage-silo-co2-2.png)
+
+Same silo, same season, the air between the grains.
+
+Baseline sits at about **410 ppm**, which is roughly outdoor air, and that is exactly what quiet grain should read. Then there are episodes. The largest reached **2,350 ppm**:
+
+$$\frac{2{,}350}{410} = 5.7\times \text{ the baseline}$$
+
+and across the window the reading spent
+
+$$46\%\ \text{of all windows above } 1{,}000\ \text{ppm}$$
+
+Take the five days around that peak and put the three channels side by side:
+
+$$\text{CO}_2: 380 \rightarrow 2{,}350\ \text{ppm} \quad (6.2\times)$$
+
+$$\text{temperature}: 17.0 \rightarrow 26.7\ ^\circ\text{C} \quad \text{(inside its ordinary range)}$$
+
+$$\text{humidity}: 40.5 \rightarrow 74.5\%$$
+
+The temperature excursion looks dramatic until you notice that 26.7 °C is below the 27.9 °C this silo reached anyway during ordinary warm weather. Nothing about the temperature reading is out of character. The CO2 reading is six times its own baseline, and there is no weather that does that to a carbon dioxide concentration.
+
+## Why CO2 is the leading indicator
+
+<InArticleAd />
+
+
+![Panel (a): dry grain respiring slowly, where carbon dioxide production is low and the concentration between grains sits near outdoor air. Panel (b): a wet pocket where mould is active, where respiration produces carbon dioxide many times faster while the heat released is small compared with the daily swing driven by the weather outside](./images/respiration-versus-weather.svg)
+
+Respiration produces CO2 and heat together, but the two signals face very different competition:
+
+- The CO2 in a silo has **essentially one source**, which is respiration. Background is outdoor air at around 400 ppm and nothing else moves it. A rise is biological by elimination.
+- The heat from respiration has to be **detected inside a much larger thermal signal** driven by the sun and the season, and it is small.
+
+So the same event produces a CO2 change of several hundred percent and a temperature change of a fraction of a degree buried in eleven degrees of weather. This is why published work on stored grain finds CO2 gives a faster and more sensitive indication of spoilage and mycotoxin risk than temperature and relative humidity, and why a wet pocket introduced deliberately raises CO2 sharply while temperature stays comparatively stable.
+
+The consequence is not only spoiled grain. The moulds that thrive in damp maize include the ones that produce aflatoxin, which is a food safety and human health problem rather than a yield problem, and which travels with the crop into whatever it becomes.
+
+## What this is worth
+
+<InArticleAd />
+
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+The economics of stored grain are unusual because the loss is not gradual. A consignment is sound, or it is rejected. The value at risk is the whole heap, not a percentage of it, and the intervention when you catch it early is ordinary: run the aeration fans, turn the grain, move the affected section.
+
+- **Detection** is one CO2 sensor in the headspace or the aeration duct, alongside the temperature cable you already have.
+- **The response is cheap and immediate**, which is what makes early detection worth anything at all. Aeration on a rising CO2 reading is a fan running for a few hours.
+- **The record matters commercially.** A buyer's rejection is much harder to argue with when you have no storage history, and much easier when you can show the conditions the crop was held in.
+- **Humidity tells you to expect trouble; CO2 tells you it has started.** They are worth having together, and the pair is what turns a guess into a decision.
+
+## What to measure if you store grain
+
+<InArticleAd />
+
+
+<CardGrid>
+  <Card title="Carbon dioxide between the grains" icon="approve-check">
+    The outcome measurement. Compare it against its own quiet baseline, not against a fixed limit.
+  </Card>
+  <Card title="Humidity in the heap" icon="approve-check">
+    The input. It tells you conditions have become permissive, which is your warning to watch the CO2 closely.
+  </Card>
+  <Card title="Temperature at several depths" icon="approve-check">
+    Still worth having, but read the differences between probes rather than the absolute value, since the absolute value is mostly weather.
+  </Card>
+  <Card title="Aeration fan state" icon="approve-check">
+    Without it you cannot tell a reading that fell because the problem resolved from one that fell because a fan was running.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+<InArticleAd />
+
+
+The other growing installations share this instrument set and ask different questions of it. A [greenhouse of cut flowers](https://siliconwit.io/d/greenhouse-cut-flowers) uses the same channels to hold a climate rather than to detect decay, and its post covers [why an alarm that fires every night has stopped being an alarm](/blog/remote-monitoring/greenhouse-cut-flowers/). A [broiler house](https://siliconwit.io/d/broiler-house-climate) watches the same air for a reason that is measured in hours, because a ventilation failure costs the flock. A [drip irrigation block](https://siliconwit.io/d/drip-irrigation-block) moves the question underground to soil moisture.
+
+The habit this post is really about is choosing the channel with the best signal-to-noise ratio rather than the most obvious one. That is a measurement design decision, and the [statistics done wrong](/education/critical-thinking-engineers/statistics-done-wrong/) lesson covers why a small effect inside a large source of variation is so hard to detect, however carefully you watch it.
+
+## See it running
+
+<InArticleAd />
+
+
+The device page shows the live readings, the charts above in their interactive form, and the alert history. If the device link below ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own silo on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<LinkButton href="https://siliconwit.io/d/grain-storage-silo" variant="minimal">Open this device</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own equipment</LinkButton>
+
+<RemoteMonitoringComments />
+
+
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

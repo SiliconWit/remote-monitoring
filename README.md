@@ -29,6 +29,12 @@ A post-per-installation series on what connected equipment actually tells you. E
 | 7 | [The Excursion Nobody Saw](https://siliconwit.com/blog/remote-monitoring/laboratory-incubator/) | [Laboratory incubator](https://siliconwit.io/d/laboratory-incubator) | Data integrity |
 | 8 | [Thirty Outages Nobody Logged](https://siliconwit.com/blog/remote-monitoring/building-power-monitoring/) | [Building power monitoring](https://siliconwit.io/d/building-power-monitoring) | Frequency against duration |
 | 9 | [Built by a Class, Left Public](https://siliconwit.com/blog/remote-monitoring/student-weather-station/) | [Student weather station](https://siliconwit.io/d/student-weather-station) | A reading against a measurement |
+| 10 | [Counting the Wrong Events](https://siliconwit.com/blog/remote-monitoring/voltage-sags-equipment-damage/) | [UPS and power quality](https://siliconwit.io/d/ups-power-quality) | The event that is not an outage |
+| 11 | [Nothing Was Ever Out of Range](https://siliconwit.com/blog/remote-monitoring/minimum-night-flow-leak-detection/) | [District water metering](https://siliconwit.io/d/district-water-metering) | The fault no threshold catches |
+| 12 | [The Load That Runs When Nobody Is There](https://siliconwit.com/blog/remote-monitoring/compressed-air-leaks-cost/) | [Plant air compressor](https://siliconwit.io/d/plant-air-compressor) | Measuring where every other contribution is zero |
+| 13 | [Your Best Output Day Was Your Worst Performance Day](https://siliconwit.com/blog/remote-monitoring/solar-underperformance-performance-ratio/) | [Commercial rooftop solar](https://siliconwit.io/d/commercial-rooftop-solar) | A ratio, not a threshold |
+| 14 | [A Detector That Reads Zero](https://siliconwit.com/blog/remote-monitoring/gas-detector-reads-zero/) | [Commercial kitchen LPG](https://siliconwit.io/d/commercial-kitchen-lpg) | Silence is ambiguous |
+| 15 | [The Silo Never Got Hot](https://siliconwit.com/blog/remote-monitoring/grain-storage-spoilage-monitoring/) | [Grain storage silo](https://siliconwit.io/d/grain-storage-silo) | The leading indicator beats the obvious one |
 
 Every installation above is on the [public device gallery](https://siliconwit.io/public-devices), open with no account.
 
@@ -48,6 +54,12 @@ remote-monitoring/
 ├── laboratory-incubator.mdx
 ├── building-power-monitoring.mdx
 ├── student-weather-station.mdx
+├── voltage-sags-equipment-damage.mdx
+├── minimum-night-flow-leak-detection.mdx
+├── compressed-air-leaks-cost.mdx
+├── solar-underperformance-performance-ratio.mdx
+├── gas-detector-reads-zero.mdx
+├── grain-storage-spoilage-monitoring.mdx
 ├── images/
 │   ├── availability-arithmetic.svg
 │   ├── compressor-duty-headroom.svg
