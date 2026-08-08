@@ -1,6 +1,6 @@
 ---
 title: 'The Bearing Told Us in May: Reading a Vibration Trend'
-description: 'Vibration on a 22 kW drive motor rose 35% in ten weeks while load and bearing temperature stayed flat. It crossed an ISO zone boundary on 16 July, and at the same rate it reaches the next one about a year from now.'
+description: 'Vibration on a 22 kW drive motor rose 32% in nine weeks while load and bearing temperature stayed flat. It crossed an ISO zone boundary on 16 July, the bearing was changed on 8 August, and the reading fell by two thirds.'
 contributors: "sam-macharia"
 pubDate: 2026-08-08
 tags: ["manufacturing", "remote-monitoring", "iot", "predictive-maintenance", "vibration", "bearings", "condition-monitoring"]
@@ -46,19 +46,21 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 Two vibration channels over seventy one days. Both climb, and neither of them jumps.
 
-$$\text{average velocity:} \quad 0.93 \rightarrow 1.23\ \text{mm/s} \quad (+32\%)$$
+Comparing the week beginning **28 May** with the week beginning **30 July**, sixty three days apart:
 
-$$\text{window peak:} \quad 2.77 \rightarrow 3.74\ \text{mm/s} \quad (+35\%)$$
+$$\text{average velocity:} \quad 0.93 \rightarrow 1.19\ \text{mm/s} \quad (+28\%)$$
 
-Look at any single day and there is nothing to report. The day-to-day change is
+$$\text{window peak:} \quad 2.77 \rightarrow 3.67\ \text{mm/s} \quad (+32\%)$$
 
-$$\frac{1.23 - 0.93\ \text{mm/s}}{72\ \text{days}} = 0.0042\ \text{mm/s per day}$$
+Those are named weeks rather than a rolling window, so they stay checkable against the chart above however the machine behaves afterwards. Look at any single day and there is nothing to report. The day-to-day change is
+
+$$\frac{1.19 - 0.93\ \text{mm/s}}{63\ \text{days}} = 0.0041\ \text{mm/s per day}$$
 
 which is four thousandths of a millimetre per second, comfortably inside the noise of the reading. Nobody notices that, and no alarm fires on it, because there is nothing to fire on. Aggregate it into weeks and the same number becomes
 
-$$0.0042 \times 7 = 0.029\ \text{mm/s per week}$$
+$$0.0041 \times 7 = 0.029\ \text{mm/s per week}$$
 
-and ten of those weeks are a third of the machine's baseline.
+and nine of those weeks are close to a third of the machine's baseline.
 
 ## The two readings that rule out the boring explanations
 
@@ -69,11 +71,11 @@ and ten of those weeks are a third of the machine's baseline.
 
 A rising vibration reading has three ordinary explanations before it has an interesting one. The machine is working harder. The machine is running hotter. The sensor has moved. The first two are on this chart, and they are flat.
 
-$$\text{load:} \quad 21.9\% \rightarrow 21.5\% \quad (-1.9\%)$$
+$$\text{load:} \quad 21.9\% \rightarrow 21.0\% \quad (-4.1\%)$$
 
-$$\text{bearing temperature:} \quad 25.6\ ^\circ\text{C} \rightarrow 25.1\ ^\circ\text{C}$$
+$$\text{bearing temperature:} \quad 25.6\ ^\circ\text{C} \rightarrow 24.9\ ^\circ\text{C}$$
 
-The motor is doing the same work it was doing in May, at the same temperature, and shaking a third more while doing it. That is the reasoning that turns a trend into a diagnosis, and it costs nothing beyond channels the installation already reports. Vibration alone says something changed. Vibration against a flat load says what changed is the machine.
+The motor is doing slightly less work than it was doing in May, at the same temperature, and shaking a third more while doing it. Load moving the wrong way only strengthens the case. That is the reasoning that turns a trend into a diagnosis, and it costs nothing beyond channels the installation already reports. Vibration alone says something changed. Vibration against a flat load says what changed is the machine.
 
 Bearing temperature deserves a note of its own, because it is the reading many people install expecting it to be the warning. It is not. Heat arrives late, when the damage is advanced enough to dissipate real energy, and on this machine it has not moved at all while vibration has risen by a third.
 
@@ -90,9 +92,19 @@ Against those bands, this motor started the window in **zone A**, which the stan
 
 Nothing needs doing today. That is the point. The value of knowing is what comes next:
 
-$$\frac{2.8 - 1.23\ \text{mm/s}}{0.029\ \text{mm/s per week}} \approx 54\ \text{weeks}$$
+$$\frac{2.8 - 1.19\ \text{mm/s}}{0.029\ \text{mm/s per week}} \approx 56\ \text{weeks}$$
 
-At the rate it has held for ten weeks, this bearing reaches the zone B to C boundary, where the standard says investigate and plan corrective action, in roughly a year. That is not a prediction of failure. It is a date you can put in a plan, revise as more readings arrive, and use to decide whether the bearing gets changed during a scheduled shutdown or during an unscheduled one.
+At the rate it held for nine weeks, this bearing reaches the zone B to C boundary, where the standard says investigate and plan corrective action, in roughly a year. That is not a prediction of failure. It is a date you can put in a plan, revise as more readings arrive, and use to decide whether the bearing gets changed during a scheduled shutdown or during an unscheduled one.
+
+## What happened next
+
+That is where this post stood when it was written. On **8 August** the bearing was changed, and the reading recorded the repair as clearly as it recorded the fault:
+
+$$1.25 \rightarrow 0.42\ \text{mm/s} \quad (\text{a } 66\%\ \text{drop, in one day})$$
+
+The machine came back **below** the 0.93 mm/s it was running at in May, which is what a new bearing in a sound housing should read. Nothing else changed: the same load, the same shift, the same sensor in the same place.
+
+That last chart is worth more than the trend that preceded it. A rising line is a hypothesis, and plenty of things make a reading drift. A line that falls by two thirds the day a specific part is replaced is the hypothesis being confirmed, and it is the difference between a monitoring system somebody believes and one they quietly stop reading.
 
 ## What this is worth
 
@@ -137,7 +149,7 @@ Two practical warnings. A trend is only comparable against itself if the measure
 
 The same instrument set runs on the rest of the rotating plant. An [injection moulding machine](https://siliconwit.io/d/injection-moulding-machine) carries the richest wear record in the fleet, a [plant air compressor](https://siliconwit.io/d/plant-air-compressor) is watched for waste rather than wear in [the post on off-shift load](/blog/remote-monitoring/compressed-air-leaks-cost/), and a [steam boiler feed pump](https://siliconwit.io/d/steam-boiler-feed-pump) is monitored because it threw a bearing once and took the boiler down with it. A [CNC machine tool](https://siliconwit.io/d/cnc-machine-tool) turns the same channels to utilisation economics in [never off, still a shift short](/blog/remote-monitoring/cnc-machine-tool/).
 
-For the same slow-ramp problem in a completely different medium, a district water meter added half a litre per minute per day for nine weeks without ever producing an abnormal reading, in [nothing was ever out of range](/blog/remote-monitoring/minimum-night-flow-leak-detection/).
+For the same slow-ramp problem in a completely different medium, a district water meter has added half a litre per minute per day for ten weeks without ever producing an abnormal reading, in [nothing was ever out of range](/blog/remote-monitoring/minimum-night-flow-leak-detection/). Where a reading needs a second zone before it means anything at all, [two zones, same loss, opposite cause](/blog/remote-monitoring/non-revenue-water-district-metering/) makes the comparison explicit.
 
 Choosing to act on a trend before anything has crossed a line is a decision made under uncertainty, with a cost for acting too early and a larger one for acting too late. The [making better decisions](/education/critical-thinking-engineers/making-better-decisions/) lesson sets out how to think about that trade rather than defaulting to waiting.
 
