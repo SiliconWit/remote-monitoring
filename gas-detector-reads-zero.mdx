@@ -4,7 +4,7 @@ description: 'This LPG detector reported exactly zero in 99.3% of its readings o
 contributors: "sam-macharia"
 pubDate: 2026-06-11
 tags: ["safety", "remote-monitoring", "iot", "gas-detection", "sensor-health", "lpg", "maintenance"]
-excerpt: "The reading you most want from a gas detector is zero, which creates the strangest problem in monitoring: the output you are hoping for is indistinguishable from total failure. Over ten weeks this detector reported zero in 2,270 of 2,286 windows. This post is about the second channel that tells you those zeros mean something."
+excerpt: "The reading you most want from a gas detector is zero, which creates the strangest problem in monitoring: the output you are hoping for is indistinguishable from total failure. Over ten weeks this detector reported zero in 2,288 of 2,303 windows. This post is about the second channel that tells you those zeros mean something."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/commercial-kitchen-lpg.png"
 ---
 
@@ -37,6 +37,8 @@ The owner's description of it is the whole problem in one line: it reads zero ne
 The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/commercial-kitchen-lpg) keeps moving.
 :::
 
+Every figure in this post is measured over one fixed window, **28 May to 7 August 2026**, which is the window the charts show. Naming it matters: these devices keep running, so a claim about "the last ten weeks" stops being true the week after it is written, while a claim about a named window stays checkable against the chart above it forever.
+
 ## Ten weeks of good news
 
 <InArticleAd />
@@ -46,7 +48,7 @@ The charts below come from a SiliconWit reference device: a continuously running
 
 This is the gas channel. It is flat on zero.
 
-$$\frac{2{,}270\ \text{windows reading exactly } 0}{2{,}286\ \text{windows}} = 99.3\%$$
+$$\frac{2{,}288\ \text{windows reading exactly } 0}{2{,}303\ \text{windows}} = 99.3\%$$
 
 Fifteen readings in ten weeks were non-zero, the largest of them 61.5 ppm, which is a burner lit badly or a cylinder changed with the door shut. Everything else is zero.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Counting the Wrong Events: 1,147 Sags and 63 Outages'
-description: 'The outage log on this building says 63 events in ten weeks. The voltage record says 1,147. The difference is the events that never reached zero, which is also where the equipment damage comes from.'
+title: 'Counting the Wrong Events: 1,148 Sags and 63 Outages'
+description: 'The outage log on this building says 63 events in ten weeks. The voltage record says 1,148. The difference is the events that never reached zero, which is also where the equipment damage comes from.'
 contributors: "sam-macharia"
 pubDate: 2026-06-25
 tags: ["energy", "remote-monitoring", "iot", "power-quality", "voltage-sags", "predictive-maintenance", "electrical"]
-excerpt: "Everybody counts outages, because an outage announces itself. The lights go, the generator starts, somebody writes it down. This installation logged 63 of them in ten weeks. Over the same ten weeks it also recorded 1,147 voltage sags, none of which appear in any outage log, and it is the sags that explain why the equipment kept failing."
+excerpt: "Everybody counts outages, because an outage announces itself. The lights go, the generator starts, somebody writes it down. This installation logged 63 of them in ten weeks. Over the same ten weeks it also recorded 1,148 voltage sags, none of which appear in any outage log, and it is the sags that explain why the equipment kept failing."
 heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/ups-power-quality.png"
 ---
 
@@ -37,6 +37,8 @@ The owner installed it after a run of equipment failures that nobody could expla
 The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/ups-power-quality) keeps moving.
 :::
 
+Every figure in this post is measured over one fixed window, **28 May to 7 August 2026**, which is the window the charts show. Naming it matters: these devices keep running, so a claim about "the last ten weeks" stops being true the week after it is written, while a claim about a named window stays checkable against the chart above it forever.
+
 ## The record everybody already has
 
 <InArticleAd />
@@ -63,15 +65,15 @@ The lower trace is the minimum voltage seen inside each reporting window, and it
 
 Counted properly over the ten weeks:
 
-$$\frac{1{,}147\ \text{sag events}}{63\ \text{outages}} = 18.2\ \text{sags for every outage}$$
+$$\frac{1{,}148\ \text{sag events}}{63\ \text{outages}} = 18.2\ \text{sags for every outage}$$
 
 Using the conventional definition of a sag, a dip below 90% of nominal,
 
 $$0.90 \times 239.8\ \text{V} = 215.8\ \text{V}$$
 
-the minimum voltage fell below that line in **1,307 of 10,354 reporting windows**, which is
+the minimum voltage fell below that line in **1,308 of 10,366 reporting windows**, which is
 
-$$\frac{1{,}307}{10{,}354} = 12.6\%\ \text{of the time}$$
+$$\frac{1{,}308}{10{,}354} = 12.6\%\ \text{of the time}$$
 
 Not 12.6% of a bad week. 12.6% of the whole ten weeks.
 
@@ -105,7 +107,7 @@ The numbers below are a worked example, not a promise. Put your own figures in.
 The asymmetry is unusually stark here because the measurement is so cheap. One monitoring point at the incoming board covers everything downstream of it. Against that:
 
 - **Attribution.** Knowing that failures cluster with sags stops you replacing the same equipment repeatedly on the theory that it was a bad batch.
-- **Leverage with the supplier.** A count of 1,147 events with timestamps is a conversation. "The power is bad here" is not.
+- **Leverage with the supplier.** A count of 1,148 events with timestamps is a conversation. "The power is bad here" is not.
 - **The right fix, rather than a bigger one.** Sags concentrated on one feeder point at that feeder. Sags at 06:00 every weekday point at something local starting up. Both are cheaper to solve than a whole-building UPS.
 - **Sizing the protection you already own.** The battery reading tells you how long you would actually last, rather than how long the nameplate says.
 

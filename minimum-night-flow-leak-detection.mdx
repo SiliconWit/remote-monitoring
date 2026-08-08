@@ -37,6 +37,8 @@ That is the discipline this post is about. Not the alarm, the baseline.
 The charts below come from a SiliconWit reference device: a continuously running installation kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Its readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the [live device](https://siliconwit.io/d/district-water-metering) keeps moving.
 :::
 
+Every figure in this post is measured over one fixed window, **28 May to 7 August 2026**, which is the window the charts show. Naming it matters: these devices keep running, so a claim about "the last ten weeks" stops being true the week after it is written, while a claim about a named window stays checkable against the chart above it forever.
+
 ## A day, on its own, tells you nothing
 
 <InArticleAd />
@@ -74,11 +76,11 @@ Nothing detects three tenths of a percent per day as an event, because it is not
 <InArticleAd />
 
 
-This is the question that decides whether you send anybody out, and the meter can answer it on its own. Total flow rose too, from 512.4 L/min to 557.5 L/min, which is
+This is the question that decides whether you send anybody out, and the meter can answer it on its own. Total flow rose too, from 512.4 L/min to 547.1 L/min, which is
 
-$$\frac{557.5 - 512.4}{512.4} = +8.8\%$$
+$$\frac{547.1 - 512.4}{512.4} = +6.8\%$$
 
-An 8.8% rise in consumption is perfectly ordinary. New tenants, a dry spell, a school back in session. If that is all you have, you shrug.
+A 6.8% rise in consumption is perfectly ordinary. New tenants, a dry spell, a school back in session. If that is all you have, you shrug.
 
 The discriminator is *when* the extra water moved.
 
@@ -88,13 +90,13 @@ A hole in a pipe does not keep office hours. It runs at 03:00 exactly as it runs
 
 Those two leave different fingerprints on one ratio. Night flow as a share of day flow went
 
-$$\frac{166.4}{512.4} = 32.5\% \qquad \text{then} \qquad \frac{202.0}{557.5} = 36.2\%$$
+$$\frac{166.4}{512.4} = 32.5\% \qquad \text{then} \qquad \frac{202.0}{547.1} = 36.9\%$$
 
-It rose. Put the two growth rates side by side and the case is plain: daytime total grew 8.8% while the overnight trough grew
+It rose. Put the two growth rates side by side and the case is plain: daytime total grew 6.8% while the overnight trough grew
 
 $$\frac{202.0 - 166.4}{166.4} = +21.4\%$$
 
-The night is growing two and a half times faster than the day. Adding a constant to every hour lifts a small number proportionally more than a large one, which is precisely what a round-the-clock loss does and precisely what daytime demand growth cannot do. The extra water is moving at three in the morning. It is a leak, and the meter says so without anyone leaving the office.
+The night is growing more than three times faster than the day. Adding a constant to every hour lifts a small number proportionally more than a large one, which is precisely what a round-the-clock loss does and precisely what daytime demand growth cannot do. The extra water is moving at three in the morning. It is a leak, and the meter says so without anyone leaving the office.
 
 ## What the nine weeks cost
 
