@@ -1,0 +1,171 @@
+---
+title: 'Two Zones, Same Loss, Opposite Cause'
+description: 'One zone of a water network loses 58.7% of what enters it and another loses 42.3%. Their minimum night flow is nothing alike, and that difference decides which crew you send.'
+contributors: "sam-macharia, maxmillian-mwenda, joseph-muguro"
+pubDate: 2026-06-06
+tags: ["water", "remote-monitoring", "iot", "non-revenue-water", "district-metering", "leak-detection", "utilities"]
+excerpt: "A utility knows how much water it treated and how much it billed, and across Kenya the gap between those two numbers is now about 48%. Knowing the gap changes nothing, because the pipes are buried and one number for a whole town does not say where to dig. This post takes three metered zones of one network and shows how the same subtraction, done per zone, becomes a work order, and how one further reading separates a leak from a theft."
+heroImage: "https://cdn.siliconwit.com/blog/remote-monitoring/dma-zones.png"
+---
+
+import TawkWidget from '../../../../components/TawkWidget.astro';
+import UniversalContentContributors from '../../../../components/UniversalContentContributors.astro';
+import InArticleAd from '../../../../components/InArticleAd.astro';
+import Copyright from '../../../../components/Copyright.astro';
+import BionicText from '../../../../components/BionicText.astro';
+import TailwindWrapper from '../../../../components/TailwindWrapper.jsx';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Card, CardGrid, Badge, Steps, LinkButton, FileTree } from '@astrojs/starlight/components';
+
+<UniversalContentContributors 
+  contributors={frontmatter.contributors}
+/>
+
+
+
+import RemoteMonitoringComments from '../../../../components/remote-monitoring/RemoteMonitoringComments.astro';
+
+A treatment plant knows exactly how much water it sent out. The billing system knows exactly how much was paid for. Subtract one from the other and you have the most useless important number in the industry: a single figure, for a whole town, describing water that went somewhere. It is a real loss and you cannot act on it, because it does not say where, and you cannot dig up a town to find out. #Water #RemoteMonitoring #NonRevenueWater
+
+## The problem the number describes
+
+Water lost between treatment and billing is called non-revenue water. In Kenya it **rose from 44% to 48% during 2024/25**, according to the regulator's most recent performance report. Roughly half of all treated water earns nothing.
+
+It leaves through three doors. It leaks from buried pipe, which is a physical loss. It reaches a customer and is never billed, through an under-registering meter or an illegal connection, which is an apparent or commercial loss. And a portion is used legitimately but not charged for.
+
+Those need completely different responses. A leak needs excavation. An unbilled connection needs an auditor and a new meter. Sending the wrong crew is expensive, and the town-wide figure cannot tell you which is which.
+
+## Splitting the network into zones
+
+The method is old and the instrumentation is what changed. You divide the network into district metering areas, each fed by a single inlet pipe, and you meter that one pipe. Not the houses. The inlet.
+
+Now the same subtraction runs per zone. Here are three zones of one network over ten weeks, each metered on its inlet, with the volume billed inside the zone alongside it:
+
+| Zone | Inflow | Billed | Loss | Share lost |
+| --- | --- | --- | --- | --- |
+| Residential | 359.8 L/min | 311.8 L/min | 48.0 L/min | **13.3%** |
+| Older mains | 592.7 L/min | 245.1 L/min | 347.7 L/min | **58.7%** |
+| Commercial | 495.2 L/min | 285.9 L/min | 209.3 L/min | **42.3%** |
+
+Together they behave exactly like the town-wide figure everyone already has:
+
+$$1 - \frac{842.7\ \text{L/min billed}}{1{,}447.8\ \text{L/min in}} = 41.8\%$$
+
+which is a number you can do nothing with. Split three ways, it is a work order. One zone is healthy at 13.3% and needs nothing. Two are losing heavily and need attention now. That is the entire argument for zoning, and it needs one meter per zone rather than one per customer.
+
+:::note[About these devices]
+The charts below come from SiliconWit reference devices: continuously running installations kept online so anyone can open a populated dashboard for their own industry before connecting equipment of their own. Their readings come from a physics model driven by real weather data, so the daily rhythms and failure behaviour are the ones this equipment would actually produce. The images are captured snapshots; the live devices keep moving.
+:::
+
+## The reading that decides which crew
+
+<InArticleAd />
+
+
+Knowing that two zones are bleeding does not tell you what to send. That takes one more reading, and it is free once the meter is in.
+
+![Minimum night flow across seventy days for three zones of one network, with the older mains zone flat near 382 litres per minute and the commercial and residential zones together near the bottom at about 135 and 89](/device-plots/dma-night-flow-1.png)
+
+This is minimum night flow, the lowest flow each zone sees between two and four in the morning, when legitimate demand is close to zero. Whatever is still moving then is not going into anyone's cup.
+
+Against each zone's own inflow:
+
+$$\text{older mains:} \quad \frac{382.3}{592.7} = 64.5\%\ \text{still flowing at 3am}$$
+
+$$\text{commercial:} \quad \frac{134.7}{495.2} = 27.2\%$$
+
+$$\text{residential (healthy):} \quad \frac{89.2}{359.8} = 24.8\%$$
+
+Read those three lines carefully, because they are the point of the post. The older mains zone is running at nearly two thirds of its daytime inflow in the middle of the night. That is water in the ground.
+
+The commercial zone, which loses **42.3%** of everything entering it, sits at 27.2%, which is indistinguishable from the healthy zone's 24.8%. **Night flow clears it.** If minimum night flow were the only reading you had, you would strike it off the list and send your crew somewhere else.
+
+## Why the two losses leave different signatures
+
+<InArticleAd />
+
+
+![Panel (a): physical loss, where a leak adds a constant flow to every hour so the overnight trough never comes down and night flow reaches 64.5 per cent of inflow. Panel (b): apparent loss, where water is delivered normally and simply not billed, so the gap between delivered and billed follows the daily demand curve and the overnight trough stays low at 27.2 per cent](./images/physical-versus-apparent-loss.svg)
+
+A hole in a pipe does not keep office hours. It discharges at the same rate at three in the morning as at noon, so it adds a **constant** to every hour and lifts the overnight trough, which is exactly where there is nothing else to hide it.
+
+Water that is delivered and never billed behaves in the opposite way. It goes through somebody's tap, so it follows the demand curve. At three in the morning that customer is asleep and the zone looks healthy, because in the physical sense it is: the pipes are sound. The loss is in the ledger, not the ground.
+
+So the two readings answer two different questions, and you need both:
+
+- **Inflow minus billed** tells you *how much* a zone is losing.
+- **Minimum night flow** tells you *which kind* of loss it is, and therefore who to send.
+
+A zone that is high on both is leaking. A zone that is high on the first and normal on the second is being under-billed, under-metered, or tapped.
+
+## What this is worth
+
+<InArticleAd />
+
+
+The numbers below are a worked example, not a promise. Put your own figures in.
+
+Across the three zones the loss runs at 605.0 L/min continuously:
+
+$$605.0\ \text{L/min} \times 1440\ \text{min/day} = 871{,}200\ \text{L/day} \approx 871\ \text{m}^3\ \text{per day}$$
+
+Apply your own cost per cubic metre, and remember it is production cost rather than tariff, since the water was abstracted, treated and pumped before it was lost.
+
+What monitoring changes is not the size of that number but whether it has an address:
+
+- **Before zoning** it is one figure for the whole network, reported monthly, with no location.
+- **After zoning** it is three figures, updated continuously, and two of them name a zone.
+- **With night flow on top** the two failing zones are separated into a digging job and a metering job.
+
+The instrumentation is modest, which is the other half of the argument. A town needs a meter on each zone inlet, not on every customer. Those inlets sit at reservoirs and pump stations that generally already have power and a locked compound, which removes most of the hard problems in field deployment.
+
+## What to measure if you run a network
+
+<InArticleAd />
+
+
+<CardGrid>
+  <Card title="Inflow at each zone inlet" icon="approve-check">
+    One meter per zone. This is the number that turns a town-wide loss into a location.
+  </Card>
+  <Card title="Billed volume for the same zone" icon="approve-check">
+    Without it the inflow is just consumption. The subtraction is what makes it a loss figure.
+  </Card>
+  <Card title="Minimum night flow" icon="approve-check">
+    Between about 02:00 and 04:00, one value per day, compared against the zone's own inflow rather than against a fixed limit.
+  </Card>
+  <Card title="Zone inlet pressure" icon="approve-check">
+    Leakage rises with pressure, so pressure management is often the cheapest first intervention on a leaking zone.
+  </Card>
+</CardGrid>
+
+## Related installations
+
+<InArticleAd />
+
+
+The three zones here are [residential](https://siliconwit.io/d/dma-residential-zone), [older mains](https://siliconwit.io/d/dma-old-mains-zone) and [commercial](https://siliconwit.io/d/dma-commercial-zone), all on the public gallery. A fourth meter, [district water metering](https://siliconwit.io/d/district-water-metering), is watched for a different question entirely: not where the loss is, but whether it is growing, which is [its own post](/blog/remote-monitoring/minimum-night-flow-leak-detection/).
+
+At the other end of the same system, a [borehole and storage tank](https://siliconwit.io/d/borehole-and-storage-tank) is about the pump rather than the network, covered in [the pump that ran dry](/blog/remote-monitoring/borehole-and-storage-tank/), while [building water storage](https://siliconwit.io/d/building-water-storage) and [tenant water monitoring](https://siliconwit.io/d/tenant-water-monitoring) run the same argument at the scale of a single block.
+
+Separating two causes that produce the same headline number is a mechanism question rather than a statistical one, which is the distinction the [correlation, causation and evidence](/education/critical-thinking-engineers/correlation-causation-evidence/) lesson is built around.
+
+## See it running
+
+<InArticleAd />
+
+
+Each zone has its own device page with live readings, the charts above in their interactive form, and the alert history. If a device link ever stops resolving, the [public device gallery](https://siliconwit.io/public-devices) lists everything currently shared, and devices come and go from it as owners decide.
+
+To put your own zone meter on a chart, you can [send readings without creating an account](https://siliconwit.io/try) and see them arrive on a live chart in a couple of minutes, or read [how to connect a first device](/product-development/siliconwit-io/getting-started-with-siliconwit-io/).
+
+<LinkButton href="https://siliconwit.io/d/dma-old-mains-zone" variant="minimal">Open the leaking zone</LinkButton>
+<LinkButton href="https://siliconwit.io" variant="primary">Monitor your own network</LinkButton>
+
+<RemoteMonitoringComments />
+
+
+
+<InArticleAd />
+<TawkWidget />
+<Copyright />

@@ -36,6 +36,7 @@ A post-per-installation series on what connected equipment actually tells you. E
 | 14 | [A Detector That Reads Zero](https://siliconwit.com/blog/remote-monitoring/gas-detector-reads-zero/) | [Commercial kitchen LPG](https://siliconwit.io/d/commercial-kitchen-lpg) | Silence is ambiguous |
 | 15 | [The Silo Never Got Hot](https://siliconwit.com/blog/remote-monitoring/grain-storage-spoilage-monitoring/) | [Grain storage silo](https://siliconwit.io/d/grain-storage-silo) | The leading indicator beats the obvious one |
 | 16 | [The Bearing Told Us in May](https://siliconwit.com/blog/remote-monitoring/vibration-trend-bearing-wear/) | [Production line drive motor](https://siliconwit.io/d/production-line-motor) | Trend as a forecast, not a threshold |
+| 17 | [Two Zones, Same Loss, Opposite Cause](https://siliconwit.com/blog/remote-monitoring/non-revenue-water-district-metering/) | [DMA residential, older mains, commercial](https://siliconwit.io/d/dma-old-mains-zone) | Physical loss against apparent loss |
 
 Every installation above is on the [public device gallery](https://siliconwit.io/public-devices), open with no account.
 
@@ -62,6 +63,7 @@ remote-monitoring/
 ├── gas-detector-reads-zero.mdx
 ├── grain-storage-spoilage-monitoring.mdx
 ├── vibration-trend-bearing-wear.mdx
+├── non-revenue-water-district-metering.mdx
 ├── images/
 │   ├── availability-arithmetic.svg
 │   ├── compressor-duty-headroom.svg

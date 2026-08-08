@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 460" width="1010" height="460">
+<rect width="1010" height="460" fill="white"/>
+<text x="252" y="30" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(a) Physical loss: water never reaches a customer</text>
+<text x="758" y="30" font-family="Arial, Helvetica, sans-serif" font-size="14.5" fill="#000" text-anchor="middle" font-weight="bold">(b) Apparent loss: water arrives, the bill does not</text>
+<line x1="95" y1="250" x2="430" y2="250" stroke="#000" stroke-width="1.6"/>
+<line x1="95" y1="250" x2="95" y2="60" stroke="#000" stroke-width="1.6"/>
+<text x="73" y="155" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 73 155)">flow</text>
+<text x="262" y="272" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">00:00            12:00            24:00</text>
+<path d="M95,150 L137,152 L179,148 L221,95 L262,72 L304,86 L346,92 L388,140 L430,150" fill="none" stroke="#6B7280" stroke-width="2" stroke-dasharray="5,4"/>
+<path d="M95,150 L430,150" fill="none" stroke="#B45309" stroke-width="2.6"/>
+<rect x="95" y="150" width="335" height="100" fill="#B45309" opacity="0.13"/>
+<text x="262" y="205" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309" text-anchor="middle" font-weight="bold">the leak, running all night</text>
+<text x="262" y="128" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">legitimate demand</text>
+<text x="252" y="308" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">the trough never comes down</text>
+<text x="252" y="332" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">night flow 64.5% of inflow</text>
+<text x="252" y="360" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">loss 58.7%, and the meter says where</text>
+<text x="252" y="392" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#0F766E" text-anchor="middle" font-weight="bold">send a leak detection crew</text>
+<line x1="606" y1="250" x2="941" y2="250" stroke="#000" stroke-width="1.6"/>
+<line x1="606" y1="250" x2="606" y2="60" stroke="#000" stroke-width="1.6"/>
+<text x="584" y="155" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle" transform="rotate(-90 584 155)">flow</text>
+<text x="773" y="272" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#000" text-anchor="middle">00:00            12:00            24:00</text>
+<path d="M606,230 L648,232 L690,226 L732,140 L773,105 L815,126 L857,136 L899,215 L941,230" fill="none" stroke="#6B7280" stroke-width="2" stroke-dasharray="5,4"/>
+<path d="M606,238 L648,240 L690,236 L732,190 L773,170 L815,183 L857,190 L899,229 L941,238" fill="none" stroke="#0F766E" stroke-width="2.6"/>
+<text x="800" y="160" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#6B7280">delivered</text>
+<text x="800" y="205" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#0F766E">billed</text>
+<text x="758" y="308" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">the gap follows the demand curve</text>
+<text x="758" y="332" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle" font-weight="bold">night flow 27.2% of inflow</text>
+<text x="758" y="360" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">loss 42.3%, and night flow calls it healthy</text>
+<text x="758" y="392" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#B45309" text-anchor="middle" font-weight="bold">send a meter auditor, not a digger</text>
+<text x="505" y="432" font-family="Arial, Helvetica, sans-serif" font-size="12.5" fill="#000" text-anchor="middle">Two zones, comparable losses, opposite signatures. Only the pair of readings tells them apart.</text>
+<line x1="515" y1="50" x2="515" y2="405" stroke="#D1D5DB" stroke-width="1.2"/>
+</svg>
